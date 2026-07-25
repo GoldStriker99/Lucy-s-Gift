@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<rect width="800" height="600" fill="#F7F0E1"/>
+<rect x="24" y="24" width="752" height="552" rx="24" fill="#B2CBBF" opacity="0.35"/>
+<circle cx="640" cy="140" r="56" fill="#E8C67E" opacity="0.8"/>
+<path d="M -20 470 Q 200 380 420 460 T 830 440 L 830 620 L -20 620 Z" fill="#B2CBBF" opacity="0.55"/>
+<path d="M 330 300 C 306 264 306 232 330 216 C 348 204 372 210 400 240 C 428 210 452 204 470 216 C 494 232 494 264 470 300 C 450 330 420 356 400 372 C 380 356 350 330 330 300 Z" fill="#C98A8A" opacity="0.9"/>
+<text x="400" y="440" text-anchor="middle" font-family="Bradley Hand, Chalkboard SE, cursive" font-size="34" fill="#5D4F41">landing day</text>
+<text x="400" y="486" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#8C7B67">your photo goes here — swap the path in js/chapters.js</text>
+</svg>

@@ -1,0 +1,245 @@
+/* ═══════════════════════════════════════════════════════════════
+   map.css — the map, pins, route, ambient life.
+   ═══════════════════════════════════════════════════════════════ */
+
+#map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* the camera: js/map.js animates this transform */
+#world {
+  transform-box: view-box;
+  transform-origin: 0 0;
+}
+
+/* ── landmasses ── */
+.land { fill: var(--land); stroke: var(--ink); }
+.land-wide { stroke-width: 3; }
+.land-warm { fill: var(--land-warm); }
+.land-fill { fill: var(--land); stroke: none; }
+.coastline { fill: none; stroke: var(--ink); stroke-linecap: round; }
+.coast-mid  { stroke-width: 1.5; }
+.coast-fine { stroke-width: 0.8; }
+
+.bay-water { fill: var(--ocean); stroke: var(--ink); stroke-width: 0.7; }
+.coronado  { fill: var(--land); stroke: var(--ink); stroke-width: 0.7; }
+.bridge    { stroke: var(--rose-deep); stroke-width: 1; stroke-linecap: round; }
+
+/* ── act detail layers (crossfade as the camera reframes) ── */
+.act-detail {
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-glide);
+  pointer-events: none;
+}
+#map[data-act="1"] #act1-detail { opacity: 1; }
+#map[data-act="2"] #act2-detail,
+#map[data-act="2"] #act4-detail { opacity: 1; }
+#map[data-act="3"] #act3-detail { opacity: 1; }
+#map[data-act="4"] #act2-detail,
+#map[data-act="4"] #act4-detail { opacity: 1; }
+
+/* clouds fade a little at close zoom so they don't swallow San Diego */
+#clouds { opacity: 0.9; transition: opacity 0.9s var(--ease-glide); }
+#map[data-act="1"] #clouds { opacity: 0.55; }
+
+/* ── decorative bits ── */
+.hills path { fill: none; stroke: var(--ink-soft); stroke-width: 1.1; stroke-linecap: round; }
+.city rect { fill: var(--ink-soft); }
+.city-fine rect { fill: var(--ink-soft); }
+.coaster .track { fill: none; stroke: var(--rose-deep); stroke-width: 1.2; stroke-linecap: round; }
+.coaster line { stroke: var(--ink-soft); stroke-width: 0.8; stroke-linecap: round; }
+.coaster .cart { fill: var(--ochre); }
+.trunk { stroke: var(--ink-soft); stroke-width: 0.9; stroke-linecap: round; }
+.leaves { fill: var(--sage); }
+.lawn { fill: var(--sage); opacity: 0.55; }
+.dome rect, .dome path { fill: var(--rose); }
+.ucsd line { stroke: var(--ink); stroke-width: 0.7; stroke-linecap: round; }
+.ucsd path { fill: var(--paper-deep); stroke: var(--ink); stroke-width: 0.7; }
+.seal { fill: var(--ink-soft); }
+.airport rect { fill: var(--paper-deep); stroke: var(--ink); stroke-width: 0.6; }
+.airport line { stroke: var(--ink-soft); stroke-width: 0.6; stroke-dasharray: 1.4 1.2; }
+.redwoods path { fill: var(--sage-deep); }
+.gate line { stroke: var(--rose-deep); stroke-width: 1.2; stroke-linecap: round; }
+.gate path { stroke: var(--rose-deep); stroke-width: 0.8; fill: none; }
+.orange { fill: var(--ochre); }
+.mast { stroke: var(--ink); stroke-width: 0.8; }
+.sail { fill: var(--cloud); stroke: var(--ink); stroke-width: 0.6; }
+.hull { fill: var(--rose-deep); stroke: var(--ink); stroke-width: 0.6; }
+
+.waves path { fill: none; stroke: var(--ocean-deep); stroke-linecap: round; }
+.waves-wide path { stroke-width: 2.4; }
+.waves-mid  path { stroke-width: 1.2; }
+.waves-fine path { stroke-width: 0.7; }
+
+.maplabel {
+  font-family: var(--font-hand);
+  fill: var(--ink-soft);
+  text-anchor: middle;
+}
+.label-wide { font-size: 22px; }
+.label-mid  { font-size: 7px; }
+.label-fine { font-size: 3.4px; }
+
+/* ── ambient life (transform-only keyframes, long + low amplitude) ── */
+.cloud path { fill: var(--cloud); opacity: 0.85; }
+.cloud > path { transform-box: fill-box; transform-origin: center; }
+.cloud-a > path { animation: drift-a 26s ease-in-out infinite alternate; }
+.cloud-b > path { animation: drift-b 21s ease-in-out infinite alternate; }
+.cloud-c > path { animation: drift-a 31s ease-in-out infinite alternate-reverse; }
+@keyframes drift-a { from { transform: translateX(-14px); } to { transform: translateX(14px); } }
+@keyframes drift-b { from { transform: translateX(10px);  } to { transform: translateX(-10px); } }
+
+.sun-rays {
+  transform-box: fill-box; transform-origin: center;
+  animation: sun-turn 60s linear infinite;
+}
+@keyframes sun-turn { to { transform: rotate(360deg); } }
+
+.boat-bob {
+  transform-box: fill-box; transform-origin: center;
+  animation: bob 6s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(1.6px) rotate(2.5deg); }
+}
+
+.citrus .crown {
+  transform-box: fill-box; transform-origin: 50% 100%;
+  animation: sway 7s ease-in-out infinite alternate;
+}
+.citrus:nth-of-type(2) .crown { animation-delay: -2.4s; }
+@keyframes sway { from { transform: rotate(-2.4deg); } to { transform: rotate(2.4deg); } }
+
+/* Sicily lights up when the plane lands */
+#sicily-warm { opacity: 0; transition: opacity 1.4s var(--ease-glide); }
+#map.sicily-lit #sicily-warm { opacity: 1; }
+#map.sicily-lit #sicily { fill: var(--land-warm); }
+
+/* ── route ── */
+.route-seg {
+  fill: none;
+  stroke: var(--rose-deep);
+  stroke-width: 3.5px;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+}
+.route-seg.revealed { opacity: 0.9; }
+.route-seg.dashed {
+  stroke: var(--ochre);
+  stroke-width: 3px;
+  stroke-dasharray: 8 12;   /* screen px — non-scaling-stroke dashes in screen space */
+  transition: opacity 0.9s var(--ease-glide);
+}
+#route-glow {
+  fill: var(--ochre-soft);
+  opacity: 0;
+  pointer-events: none;
+}
+.contrail-dot {
+  fill: var(--cloud);
+  opacity: 0;
+  pointer-events: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: contrail 1.6s ease-out forwards;
+}
+@keyframes contrail {
+  0%   { opacity: 0.9; transform: scale(0.6); }
+  100% { opacity: 0;   transform: scale(1.5); }
+}
+
+/* ── the plane ── */
+#plane { opacity: 1; transition: opacity 0.5s ease-out; }
+#plane.plane-hidden { opacity: 0; }
+.plane-body { fill: var(--cloud); stroke: var(--ink); stroke-width: 1.4; stroke-linejoin: round; }
+.plane-fold { fill: var(--paper-deep); stroke: var(--ink); stroke-width: 1; stroke-linejoin: round; }
+
+/* ── pins ──
+   Outer <g class="pin"> gets translate+counter-scale from JS.
+   Inner units are screen-normalized (art is ~30 units ≈ 38 px). */
+.pin { cursor: pointer; }
+.pin.locked { pointer-events: none; }
+
+.pin .seed {
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1.6;
+  stroke-dasharray: 2.5 3;
+  opacity: 0.65;
+  transition: opacity 0.6s ease-out;
+}
+.pin.dropped .seed { opacity: 0; }
+
+.pin .marker { opacity: 0; }
+.pin.dropped .marker { opacity: 1; }
+.pin.dropped.just-dropped .marker {
+  animation: pin-drop 0.55s var(--ease-spring) both;
+}
+@keyframes pin-drop {
+  0%   { opacity: 0; transform: translateY(-34px) scale(0.5); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: none; }
+}
+.pin .marker { transform-box: fill-box; transform-origin: 50% 100%; }
+
+.pin .body { fill: var(--rose-deep); stroke: var(--paper); stroke-width: 1.6; }
+.pin .dot  { fill: var(--paper); }
+.pin .halo {
+  fill: var(--rose-deep);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.pin.dropped .halo { animation: halo-pulse 3.2s ease-in-out infinite; }
+.pin.current .halo { animation: halo-pulse 1.8s ease-in-out infinite; }
+@keyframes halo-pulse {
+  0%, 100% { opacity: 0;    transform: scale(0.7); }
+  45%      { opacity: 0.28; transform: scale(1.25); }
+}
+
+/* soft idle breathing on every placed pin */
+.pin.dropped .pulse {
+  transform-box: fill-box; transform-origin: 50% 100%;
+  animation: pin-breathe 4.5s ease-in-out infinite;
+}
+.pin.current .pulse { animation: pin-breathe 2.2s ease-in-out infinite; }
+@keyframes pin-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+
+/* "you are here" — Palermo */
+.pin-present .body { fill: var(--ochre); }
+.pin-present .halo { fill: var(--ochre); }
+.pin-present .rays line {
+  stroke: var(--ochre);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.pin-present.dropped .rays {
+  transform-box: fill-box; transform-origin: center;
+  animation: sun-turn 40s linear infinite;
+}
+
+/* the future: hollow ochre pins */
+.pin-future .body { fill: var(--paper); stroke: var(--ochre); stroke-width: 2; }
+.pin-future .dot  { fill: var(--ochre); }
+.pin-future .halo { fill: var(--ochre); }
+
+/* the Bay Area — the last pin carries the most weight */
+.pin-finale .body { fill: var(--paper); stroke: var(--rose-deep); stroke-width: 2; }
+.pin-finale .heart { fill: var(--rose-deep); }
+
+.pin .hit { fill: transparent; stroke: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud > path, .sun-rays, .boat-bob, .citrus .crown,
+  .pin .halo, .pin .pulse, .pin-present .rays { animation: none !important; }
+  .pin .halo { opacity: 0; }
+}
