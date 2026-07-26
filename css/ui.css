@@ -74,58 +74,67 @@ body.phase-title #compass, body.phase-closing #compass { opacity: 0; pointer-eve
   100% { opacity: 0; transform: translateY(-110px) scale(1.2) rotate(12deg); }
 }
 
-/* ── memory card sheet ── */
+/* ── the memory card ──
+   Rises from the bottom on arrival and fills the screen: photo up top,
+   the words below. Drops back down out of view before the map travels
+   on to the next place. */
 #card {
   position: absolute;
-  left: 0; right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 5;
-  max-height: min(52dvh, 460px);
   display: flex;
   flex-direction: column;
-  background: var(--card-bg);
-  border-radius: 26px 26px 0 0;
+  background: var(--paper);
   box-shadow: var(--shadow-soft);
   padding-bottom: calc(84px + var(--safe-bottom)); /* room for controls */
   transform: translateY(0);
-  transition: transform 0.65s var(--ease-glide);
+  opacity: 1;
+  transition: transform 0.75s var(--ease-glide), opacity 0.45s ease-out;
   will-change: transform;
 }
-#card.card-hidden { transform: translateY(110%); transition-duration: 0.4s; }
+#card.card-hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.6s var(--ease-glide), opacity 0.45s ease-in;
+  pointer-events: none;
+}
 #card.dragging { transition: none; }
 #card.peek { transition: transform 0.45s var(--ease-spring); }
 
+/* the handle floats over the photo — drag it down to peek at the map */
 .grip {
-  flex: none;
-  padding: 10px 0 6px;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 2;
+  padding: calc(var(--safe-top) + 46px) 0 14px;
   display: flex;
   justify-content: center;
   touch-action: none;
   cursor: grab;
 }
 .grip span {
-  width: 44px; height: 5px;
+  width: 46px; height: 5px;
   border-radius: 3px;
-  background: var(--ink-faint);
-  opacity: 0.7;
+  background: var(--cloud);
+  opacity: 0.75;
+  box-shadow: 0 1px 4px rgba(63, 52, 41, 0.35);
 }
 
 .card-scroll {
+  flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
   overscroll-behavior: contain;
-  padding: 0 22px 10px;
 }
 
+/* full-bleed photo across the top of the screen */
 .card-photo {
   position: relative;
-  border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 8 / 5;
-  max-height: 30dvh;          /* on short screens the photo yields to the words */
+  aspect-ratio: 1 / 1;
+  max-height: 54dvh;
   background: var(--paper-deep);
-  box-shadow: inset 0 0 0 1px rgba(93, 79, 65, 0.12);
 }
 .card-photo img {
   width: 100%; height: 100%;
@@ -138,24 +147,36 @@ body.phase-title #compass, body.phase-closing #compass { opacity: 0; pointer-eve
 .card-photo figcaption {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  padding: 26px 14px 9px;
+  padding: 40px 24px 16px;
   font-family: var(--font-hand);
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--cloud);
-  background: linear-gradient(transparent, rgba(63, 52, 41, 0.65));
+  background: linear-gradient(transparent, rgba(63, 52, 41, 0.7));
 }
 .card-photo figcaption:empty { display: none; }
 
 .card-meta {
-  margin-top: 14px;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  margin-top: 22px;
+  padding: 0 26px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
 .meta-dot { margin: 0 0.5em; color: var(--ink-faint); }
-#card-title { margin-top: 4px; font-size: 1.45rem; line-height: 1.2; }
-#card-body { margin-top: 8px; font-size: 1rem; line-height: 1.55; color: var(--ink); }
+#card-title {
+  margin-top: 6px;
+  padding: 0 26px;
+  font-size: 1.85rem;
+  line-height: 1.15;
+}
+#card-body {
+  margin-top: 12px;
+  padding: 0 26px 24px;
+  font-size: 1.05rem;
+  line-height: 1.62;
+  color: var(--ink);
+}
 
 /* ── controls ── */
 #controls {
@@ -204,82 +225,6 @@ body.phase-closing #controls { opacity: 0; pointer-events: none; transform: tran
 #btn-next:active { transform: scale(0.97); }
 #btn-next .chev { font-size: 1.25em; line-height: 0; transform: translateY(-1px); }
 body.busy #btn-next, body.busy #btn-back { opacity: 0.45; pointer-events: none; }
-
-/* ── the in-between ──
-   A full-bleed photo of the place she is about to arrive at, held over
-   the screen while the map repositions underneath. Opacity and
-   transform only, so it stays cheap on a phone. */
-#interstitial {
-  position: absolute;
-  inset: 0;
-  z-index: 8;
-  overflow: hidden;
-  background: var(--ink);
-  opacity: 0;
-  transition: opacity 0.6s var(--ease-glide);
-  pointer-events: none;
-}
-#interstitial.showing { opacity: 1; pointer-events: auto; }
-
-#inter-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.06);
-  transition: transform 2.6s var(--ease-glide);
-}
-#interstitial.showing #inter-img { transform: scale(1); }
-
-.inter-scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(63, 52, 41, 0.30) 0%,
-    rgba(63, 52, 41, 0.05) 32%,
-    rgba(63, 52, 41, 0.62) 78%,
-    rgba(63, 52, 41, 0.86) 100%);
-}
-
-.inter-text {
-  position: absolute;
-  left: 0; right: 0;
-  bottom: calc(11dvh + var(--safe-bottom));
-  padding: 0 30px;
-  text-align: center;
-  color: var(--cloud);
-}
-.inter-text > * {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.7s var(--ease-glide), transform 0.7s var(--ease-glide);
-}
-#interstitial.showing .inter-text > * { opacity: 1; transform: none; }
-#interstitial.showing .inter-text > *:nth-child(1) { transition-delay: 0.22s; }
-#interstitial.showing .inter-text > *:nth-child(2) { transition-delay: 0.30s; }
-#interstitial.showing .inter-text > *:nth-child(3) { transition-delay: 0.38s; }
-
-.inter-place {
-  font-size: 0.74rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-#inter-title {
-  margin-top: 8px;
-  font-size: 2rem;
-  line-height: 1.15;
-  font-style: italic;
-}
-#inter-caption {
-  margin-top: 12px;
-  font-family: var(--font-hand);
-  font-size: 1.05rem;
-  line-height: 1.5;
-  opacity: 0.92;
-}
 
 /* ── passport stamp ── */
 #stamp {

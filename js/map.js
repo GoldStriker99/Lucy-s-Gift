@@ -254,9 +254,8 @@ function flyTo(target, { dur, onWidest } = {}) {
 export const cameraSpan = () => cam.span;
 
 /* Frame a chapter: pin sits above centre so the card never covers it.
-   `instant` cuts straight there with no animation — used when the
-   in-between photo is covering the screen, which is both invisible and
-   by far the cheapest thing a phone can be asked to do. */
+   `instant` cuts straight there with no animation — used on a cold
+   resume, where there is no previous place to travel from. */
 export function setChapterCamera(i, { dur, onWidest, instant = false } = {}) {
   const { x, y } = worldXY(CHAPTERS[i]);
   const span = SPAN[i];

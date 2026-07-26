@@ -104,60 +104,16 @@ export function showCard(i, { label = 'Next', showChev = true } = {}) {
   els.scroll.scrollTop = 0;
   els.card.classList.remove('card-hidden', 'peek');
   els.card.style.transform = '';
+  document.body.classList.add('reading');   // map is covered — let it rest
 }
 function reveal(img) {
   setTimeout(() => img.classList.add('loaded'), 60);
 }
 export function hideCard() {
+  document.body.classList.remove('reading');
   els.card.classList.add('card-hidden');
   els.card.classList.remove('peek');
   els.card.style.transform = '';
-}
-
-/* ── the in-between ──
-   Fades a full-screen photo of the next chapter over everything, holds
-   while the map is repositioned behind it, then clears. Tapping during
-   the hold cuts it short. */
-export function showInterstitial(i) {
-  const ch = CHAPTERS[i];
-  const el = $('interstitial');
-  const img = $('inter-img');
-  img.src = ch.photo;
-  img.alt = ch.title;
-  $('inter-place').textContent = ch.place;
-  $('inter-date').textContent = ch.date;
-  $('inter-title').textContent = ch.title;
-  $('inter-caption').textContent = ch.caption || '';
-
-  el.classList.remove('hidden');
-  el.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('in-between');
-  void el.offsetWidth;                  // flush, so the fade actually runs
-  el.classList.add('showing');
-
-  if (REDUCED) return Promise.resolve();
-  return new Promise((resolve) => {
-    let done = false;
-    const finish = () => {
-      if (done) return;
-      done = true;
-      clearTimeout(timer);
-      el.removeEventListener('pointerdown', finish);
-      resolve();
-    };
-    const timer = setTimeout(finish, 1500);   // fade-in + a beat to look
-    el.addEventListener('pointerdown', finish);
-  });
-}
-
-export function hideInterstitial() {
-  const el = $('interstitial');
-  el.classList.remove('showing');
-  el.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('in-between');
-  setTimeout(() => {
-    if (!el.classList.contains('showing')) el.classList.add('hidden');
-  }, 700);
 }
 
 /* prefetch the next chapter's photo so its card never appears empty */

@@ -88,15 +88,15 @@ body.camera-moving .citrus .crown,
 body.camera-moving .pin .halo,
 body.camera-moving .pin .pulse,
 body.camera-moving .pin-present .rays,
-/* …and while the in-between photo covers the map, none of this is
+/* …and while the full-screen card covers the map, none of this is
    even visible, so it should not be costing anything either. */
-body.in-between .cloud > path,
-body.in-between .sun-rays,
-body.in-between .boat-bob,
-body.in-between .citrus .crown,
-body.in-between .pin .halo,
-body.in-between .pin .pulse,
-body.in-between .pin-present .rays {
+body.reading .cloud > path,
+body.reading .sun-rays,
+body.reading .boat-bob,
+body.reading .citrus .crown,
+body.reading .pin .halo,
+body.reading .pin .pulse,
+body.reading .pin-present .rays {
   animation-play-state: paused;
 }
 
