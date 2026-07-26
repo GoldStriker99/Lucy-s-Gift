@@ -12,7 +12,7 @@ import * as ui from './ui.js';
 import { flyToPalermo } from './flight.js';
 
 const KEY = 'a-map-of-us-progress-v1';
-const FLIGHT_AT = 6;           // index of the airport chapter
+const FLIGHT_AT = 9;           // index of the last stop before she flies (Irvine)
 const LAST = CHAPTERS.length - 1;
 const CLOSING = CHAPTERS.length; // saved index meaning "reached the end"
 

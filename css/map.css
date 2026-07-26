@@ -16,18 +16,21 @@
   transform-origin: 0 0;
 }
 
-/* ── landmasses ── */
-.land { fill: var(--land); stroke: var(--ink); }
-.land-wide { stroke-width: 3; }
+/* ── landmasses ──
+   The map spans city blocks AND an ocean, so every stroke here is
+   non-scaling: widths are screen pixels and hold at any zoom. */
+.land, .coastline, .land-fill {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.land      { fill: var(--land); stroke: var(--ink); }
+.land-wide { stroke-width: 2.2px; }
 .land-warm { fill: var(--land-warm); }
 .land-fill { fill: var(--land); stroke: none; }
-.coastline { fill: none; stroke: var(--ink); stroke-linecap: round; }
-.coast-mid  { stroke-width: 1.5; }
-.coast-fine { stroke-width: 0.8; }
-
-.bay-water { fill: var(--ocean); stroke: var(--ink); stroke-width: 0.7; }
-.coronado  { fill: var(--land); stroke: var(--ink); stroke-width: 0.7; }
-.bridge    { stroke: var(--rose-deep); stroke-width: 1; stroke-linecap: round; }
+.coastline  { fill: none; stroke: var(--ink); }
+.coast-mid  { stroke-width: 2px; }
+.coast-fine { stroke-width: 2px; }
 
 /* ── act detail layers (crossfade as the camera reframes) ── */
 .act-detail {
@@ -36,9 +39,10 @@
   pointer-events: none;
 }
 #map[data-act="1"] #act1-detail { opacity: 1; }
-#map[data-act="2"] #act2-detail,
-#map[data-act="2"] #act4-detail { opacity: 1; }
+#map[data-act="2"] #geo-cal,
+#map[data-act="2"] #act2-detail { opacity: 1; }
 #map[data-act="3"] #act3-detail { opacity: 1; }
+#map[data-act="4"] #geo-cal,
 #map[data-act="4"] #act2-detail,
 #map[data-act="4"] #act4-detail { opacity: 1; }
 
@@ -46,43 +50,72 @@
 #clouds { opacity: 0.9; transition: opacity 0.9s var(--ease-glide); }
 #map[data-act="1"] #clouds { opacity: 0.55; }
 
-/* ── decorative bits ── */
-.hills path { fill: none; stroke: var(--ink-soft); stroke-width: 1.1; stroke-linecap: round; }
-.city rect { fill: var(--ink-soft); }
-.city-fine rect { fill: var(--ink-soft); }
-.coaster .track { fill: none; stroke: var(--rose-deep); stroke-width: 1.2; stroke-linecap: round; }
-.coaster line { stroke: var(--ink-soft); stroke-width: 0.8; stroke-linecap: round; }
-.coaster .cart { fill: var(--ochre); }
-.trunk { stroke: var(--ink-soft); stroke-width: 0.9; stroke-linecap: round; }
-.leaves { fill: var(--sage); }
-.lawn { fill: var(--sage); opacity: 0.55; }
-.dome rect, .dome path { fill: var(--rose); }
-.ucsd line { stroke: var(--ink); stroke-width: 0.7; stroke-linecap: round; }
-.ucsd path { fill: var(--paper-deep); stroke: var(--ink); stroke-width: 0.7; }
-.seal { fill: var(--ink-soft); }
-.airport rect { fill: var(--paper-deep); stroke: var(--ink); stroke-width: 0.6; }
-.airport line { stroke: var(--ink-soft); stroke-width: 0.6; stroke-dasharray: 1.4 1.2; }
-.redwoods path { fill: var(--sage-deep); }
-.gate line { stroke: var(--rose-deep); stroke-width: 1.2; stroke-linecap: round; }
-.gate path { stroke: var(--rose-deep); stroke-width: 0.8; fill: none; }
-.orange { fill: var(--ochre); }
-.mast { stroke: var(--ink); stroke-width: 0.8; }
-.sail { fill: var(--cloud); stroke: var(--ink); stroke-width: 0.6; }
-.hull { fill: var(--rose-deep); stroke: var(--ink); stroke-width: 0.6; }
+/* ── landmarks ──
+   Every landmark is drawn in its own ~20-unit box and scaled into
+   place, so strokes are declared once here with non-scaling-stroke
+   and stay the same weight at every zoom. */
+.stateline {
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1.1px;
+  stroke-dasharray: 5 5;
+  opacity: 0.65;
+  vector-effect: non-scaling-stroke;
+}
 
-.waves path { fill: none; stroke: var(--ocean-deep); stroke-linecap: round; }
-.waves-wide path { stroke-width: 2.4; }
-.waves-mid  path { stroke-width: 1.2; }
-.waves-fine path { stroke-width: 0.7; }
+#act1-detail g[class],
+#act2-detail g[class],
+#act4-detail g[class],
+#sicily-warm g[class] { vector-effect: non-scaling-stroke; }
+
+.ln, .track, .gate-ln, .gate-c, .mast, .frond, .dash {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.ln    { stroke: var(--ink); stroke-width: 1.4px; }
+.dash  { stroke: var(--ink-soft); stroke-width: 1.1px; stroke-dasharray: 3 3; }
+.track { stroke: var(--rose-deep); stroke-width: 1.7px; }
+.frond { stroke: var(--sage-deep); stroke-width: 1.3px; }
+
+.bld, .twr, .wheelrim, .pine, .leaves, .lawn, .sail, .hull, .cart,
+.ln-f, .orange, .seal, .heart {
+  vector-effect: non-scaling-stroke;
+}
+.bld      { fill: var(--paper-deep); stroke: var(--ink); stroke-width: 1.3px; }
+.twr      { fill: var(--ink-soft); }
+.cart     { fill: var(--ochre); }
+.ln-f     { fill: var(--cloud); stroke: var(--ink); stroke-width: 1px; }
+.wheelrim { fill: none; stroke: var(--rose-deep); stroke-width: 1.6px; }
+.pine     { fill: var(--sage-deep); }
+.leaves   { fill: var(--sage); }
+.lawn     { fill: var(--sage); opacity: 0.55; }
+.orange   { fill: var(--ochre); }
+.seal     { fill: var(--ink-soft); }
+.gate-ln  { stroke: var(--rose-deep); stroke-width: 1.6px; }
+.gate-c   { stroke: var(--rose-deep); stroke-width: 1.2px; }
+.mast     { stroke: var(--ink); stroke-width: 1.2px; }
+.sail     { fill: var(--cloud); stroke: var(--ink); stroke-width: 1.1px; }
+.hull     { fill: var(--rose-deep); stroke: var(--ink); stroke-width: 1.1px; }
+
+.waves path {
+  fill: none;
+  stroke: var(--ocean-deep);
+  stroke-linecap: round;
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
 
 .maplabel {
   font-family: var(--font-hand);
   fill: var(--ink-soft);
   text-anchor: middle;
 }
-.label-wide { font-size: 22px; }
-.label-mid  { font-size: 7px; }
-.label-fine { font-size: 3.4px; }
+.label-wide   { font-size: 460px; }
+.label-mid    { font-size: 13px; }
+.label-fine   { font-size: 0.85px; }
+.label-sicily { font-size: 26px; fill: var(--rose-deep); }
 
 /* ── ambient life (transform-only keyframes, long + low amplitude) ── */
 .cloud path { fill: var(--cloud); opacity: 0.85; }

@@ -386,6 +386,15 @@ body.busy #btn-next, body.busy #btn-back { opacity: 0.45; pointer-events: none; 
 #btn-reply { margin-top: 24px; width: 100%; }
 #btn-again { margin-top: 8px; }
 
+/* map-data credit — required by OpenStreetMap's licence, kept quiet */
+.attribution {
+  margin-top: 10px;
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  opacity: 0.75;
+}
+
 /* desktop shouldn't look broken */
 @media (min-width: 700px) {
   #card, #controls { left: 50%; right: auto; width: 430px; transform-origin: bottom center; }

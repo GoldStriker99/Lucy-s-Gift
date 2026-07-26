@@ -1,153 +1,190 @@
 /* ═══════════════════════════════════════════════════════════════
-   chapters.js — THE STORY. All ten chapters, in the order she
+   chapters.js — THE STORY. Thirteen chapters, in the order she
    walks them. Edit this file and js/config.js only.
 
    Each chapter:
-     id       unique string, used for pins & saving progress —
-              don't reuse one, otherwise anything goes
+     id       unique string — don't reuse one; anything else goes
      title    heading on the memory card
-     date     shown exactly as written ("October 2024" is fine)
+     date     shown exactly as written ("summer 2025" is fine)
      place    small label above the title
      act      which map framing this chapter uses:
-                1 = San Diego up close
-                2 = Southern California
-                3 = the world / Sicily
-                4 = the return, up the coast
+                1 = San Diego, up close
+                2 = Southern California + Nevada
+                3 = the world (Sicily)
+                4 = California, coast to coast
      status   "past" | "present" | "future"
               (present = her Palermo pin, future = dashed route)
-     x, y     WHERE THE PIN SITS, as percentages of the map
-              (x: 0 = far left, 100 = far right; y: 0 = top).
-              Nudge by ±0.5 to fine-tune a pin's spot.
-     photo    RELATIVE path to the image. Drop your real photos in
-              ./images/ as .webp (~1600px long edge) and change the
-              path here — nothing else needs to change.
-     caption  small handwritten line on the photo (can be "")
-     body     the memory itself, a few sentences
+     lat/lon  REAL COORDINATES. The map is real geography, so a pin
+              lands exactly here. To move one: open Google Maps,
+              right-click the exact spot, and the lat/lon appears at
+              the top of the menu — paste those two numbers in.
+     photo    RELATIVE path. Drop real photos in ./images/ as .webp
+              (~1600px long edge) and change the path — nothing else.
+     caption  small handwritten line on the photo (may be "")
+     body     the memory itself
 
-   Chapter 7 (the airport) is special: its button says "Board the
-   plane" and tapping it plays the flight. That's wired to its
-   position (7th entry) — keep the airport 7th and Palermo 8th.
+   THE FLIGHT is wired to position, not to id: chapter 10 (Irvine)
+   is the last stop before she leaves, so its button says "Board the
+   plane", and chapter 11 (Palermo) is where it lands. If you
+   reorder these two, update FLIGHT_AT in js/navigation.js and
+   FLIGHT_SEG in js/route.js to match.
    ═══════════════════════════════════════════════════════════════ */
 
 export const CHAPTERS = [
 
   { // ── 1 ────────────────────────────────────────────────
-    id: "ucsd",
+    id: "price-center",
     title: "Where it started",
-    date: "October 12, 2024",
-    place: "UC San Diego",
+    date: "the night of the show",
+    place: "Price Center Theater, UCSD",
     act: 1, status: "past",
-    x: 14.0, y: 73.6,
+    lat: 32.880320, lon: -117.235720,
     photo: "./images/ch01.svg",
-    caption: "the eighth floor of Geisel",
-    body: "You were arguing with your laptop in the library and I pretended I needed the outlet next to you. I did not need the outlet. I have never once needed an outlet that badly. Best fake charging emergency of my life.",
+    caption: "a live dating show, of all things",
+    body: "Of all the ways two people can meet, we picked the one with an audience. I still think about how calm you looked up there and how completely not-calm I was. Whatever the show was actually for, this is the part I kept.",
   },
 
   { // ── 2 ────────────────────────────────────────────────
-    id: "sunset-cliffs",
-    title: "The first real date",
-    date: "November 3, 2024",
-    place: "Sunset Cliffs",
+    id: "dorm-steak",
+    title: "The steak",
+    date: "a few days later",
+    place: "Justice Lane, Earl Warren",
     act: 1, status: "past",
-    x: 12.8, y: 82.3,
+    lat: 32.882280, lon: -117.232240,
     photo: "./images/ch02.svg",
-    caption: "you said the ocean was showing off",
-    body: "We sat on the edge until the sun went down and then kept sitting there in the dark because neither of us wanted to say the night was over. You stole my jacket. It's still yours.",
+    caption: "cooked in a dorm, somehow",
+    body: "First time seeing you off-camera, and I decided the move was to cook. In a dorm. With one pan. It worked — and you looked genuinely surprised, which I'm choosing to remember as being impressed.",
   },
 
   { // ── 3 ────────────────────────────────────────────────
-    id: "balboa-park",
-    title: "Valentine's at the park",
-    date: "February 14, 2025",
-    place: "Balboa Park",
+    id: "catania",
+    title: "Our first date",
+    date: "the first real one",
+    place: "Catania, La Jolla",
     act: 1, status: "past",
-    x: 16.8, y: 78.9,
+    lat: 32.846520, lon: -117.274200,
     photo: "./images/ch03.svg",
-    caption: "churros count as lunch",
-    body: "The botanical building, the koi pond, the guy with the parrot who would not leave us alone. You made me take a photo with the parrot. I framed the photo of you laughing at me instead.",
+    caption: "Girard Ave, above the water",
+    body: "An Italian place on Girard, which is funny to think about now that you're actually in Sicily eating the real thing. Everything after this was easier. We ran out of restaurant before we ran out of things to say.",
   },
 
   { // ── 4 ────────────────────────────────────────────────
-    id: "coronado",
-    title: "The beach day",
-    date: "May 24, 2025",
-    place: "Coronado",
-    act: 1, status: "past",
-    x: 14.9, y: 84.3,
+    id: "vegas",
+    title: "Vegas formal",
+    date: "our first trip",
+    place: "Las Vegas",
+    act: 2, status: "past",
+    lat: 36.082060, lon: -115.172770,
     photo: "./images/ch04.svg",
-    caption: "gold sand, red roofs",
-    body: "You buried my phone in the sand \"so I'd be present.\" I was present. I was extremely present for the forty-five minutes it took to find my phone.",
+    caption: "the sign, obviously",
+    body: "First trip together, which is a real test, and we passed. Four hours of desert each way and you were still talking to me at the end of it. That's when I stopped thinking of this as a new thing.",
   },
 
   { // ── 5 ────────────────────────────────────────────────
-    id: "six-flags",
-    title: "The rollercoaster negotiation",
-    date: "July 19, 2025",
-    place: "Six Flags Magic Mountain",
-    act: 2, status: "past",
-    x: 10.3, y: 57.4,
+    id: "sixth-college",
+    title: "End of the year",
+    date: "end of the school year",
+    place: "Sixth College, UCSD",
+    act: 1, status: "past",
+    lat: 32.880350, lon: -117.242170,
     photo: "./images/ch05.svg",
-    caption: "you screamed first. it's on record.",
-    body: "Two hours north, one hour in line, ninety seconds of you gripping my arm hard enough to leave a mark. You said \"again\" before we'd even stopped moving. We rode it four times.",
+    caption: "the year, finished",
+    body: "Everyone spilling out of the res halls, the year finally over, that specific summer-is-starting feeling. Mostly I remember looking around a crowded room and being glad about exactly one person in it.",
   },
 
   { // ── 6 ────────────────────────────────────────────────
-    id: "irvine",
-    title: "The accidental day trip",
-    date: "March 8, 2026",
-    place: "Irvine",
-    act: 2, status: "past",
-    x: 13.5, y: 68.9,
-    photo: "./images/ch06.svg",
-    caption: "boba pilgrimage",
-    body: "We drove up \"for one specific bakery\" and came home six hours later with three kinds of boba, a plant, and a plan to move somewhere with more trees. The plant's name is Gerald. Gerald is thriving.",
-  },
-
-  { // ── 7 ── THE FLIGHT TRIGGER ──────────────────────────
-    id: "airport",
-    title: "The hardest goodbye",
-    date: "July 17, 2026",
-    place: "San Diego International",
+    id: "thrifting",
+    title: "Thrifting before the drive",
+    date: "before the Bay Area trip",
+    place: "La Mesa Boulevard",
     act: 1, status: "past",
-    x: 14.7, y: 80.6,
-    photo: "./images/ch07.svg",
-    caption: "gate 47, too early in the morning",
-    body: "I watched you walk through security backwards so you could keep waving. You almost took out a stanchion. Then you were gone, and the whole airport felt like a room with the lights off. Okay. Deep breath. Go have your adventure —",
+    lat: 32.764870, lon: -117.019930,
+    photo: "./images/ch06.svg",
+    caption: "one more rack, I promise",
+    body: "Killing time in a thrift store before the long drive north, trying on things neither of us was going to buy. It shouldn't be a memory worth pinning. It is anyway — that's sort of the point of this map.",
   },
 
-  { // ── 8 ── WHERE SHE IS NOW ────────────────────────────
+  { // ── 7 ────────────────────────────────────────────────
+    id: "six-flags",
+    title: "Magic Mountain",
+    date: "the rollercoaster day",
+    place: "Six Flags, Valencia",
+    act: 2, status: "past",
+    lat: 34.424940, lon: -118.595740,
+    photo: "./images/ch07.svg",
+    caption: "you screamed first. it's on record.",
+    body: "Two hours north, an hour in line, ninety seconds of you gripping my arm hard enough to leave a mark. You said \"again\" before the ride had fully stopped moving.",
+  },
+
+  { // ── 8 ────────────────────────────────────────────────
+    id: "del-mar",
+    title: "The fair",
+    date: "fair season",
+    place: "Del Mar Fairgrounds",
+    act: 1, status: "past",
+    lat: 32.972070, lon: -117.259790,
+    photo: "./images/ch08.svg",
+    caption: "fried everything, ferris wheel, salt air",
+    body: "The fair by the racetrack, that stretch where the lagoon meets the ocean. Too much fried food and a ferris wheel at exactly the right time of evening. You won something small and carried it around all night like a trophy.",
+  },
+
+  { // ── 9 ────────────────────────────────────────────────
+    id: "love-letter",
+    title: "The letter",
+    date: "the one I wrote down",
+    place: "Fortune Lane, La Mesa",
+    act: 1, status: "past",
+    lat: 32.766970, lon: -116.995150,
+    photo: "./images/ch09.svg",
+    caption: "handed over in person",
+    body: "Some things you can't say out loud without ruining them, so I wrote it down instead and handed it to you here. I meant all of it. I still do — that's the short version, and you already have the long one.",
+  },
+
+  { // ── 10 ── THE FLIGHT DEPARTS FROM HERE ───────────────
+    id: "irvine-odyssey",
+    title: "The Odyssey, in 70mm",
+    date: "right before you left",
+    place: "Regal Irvine Spectrum",
+    act: 2, status: "past",
+    lat: 33.650100, lon: -117.743040,
+    photo: "./images/ch10.svg",
+    caption: "70mm IMAX, worth the drive",
+    body: "We drove to Orange County to watch a three-hour film about a man trying to get home across the sea, and then, almost immediately, you got on a plane and crossed one. I didn't plan that. I'm taking credit for it anyway.",
+  },
+
+  { // ── 11 ── WHERE SHE IS NOW ───────────────────────────
     id: "palermo",
     title: "You are here",
     date: "right now",
     place: "Palermo, Sicily",
     act: 3, status: "present",
-    x: 88.0, y: 62.0,
-    photo: "./images/ch08.svg",
+    lat: 38.111230, lon: 13.352440,
+    photo: "./images/ch11.svg",
     caption: "somewhere near the good arancine",
-    body: "Six thousand miles away, eating better than I ever will, sending me photos of doors. Beautiful doors, to be fair. I hope Palermo is being as good to you as you are to everyone. The boat offshore is me, metaphorically. Waiting. Bobbing.",
+    body: "Six thousand miles away, eating better than I ever will, sending me photos of doors. Beautiful doors, to be fair. The little boat off the coast is me, metaphorically. Waiting. Bobbing.",
   },
 
-  { // ── 9 ────────────────────────────────────────────────
+  { // ── 12 ────────────────────────────────────────────────
     id: "landing",
     title: "When you land",
-    date: "August 12, 2026",
+    date: "the day you're back",
     place: "San Diego, again",
     act: 4, status: "future",
-    x: 15.4, y: 81.4,
-    photo: "./images/ch09.svg",
-    caption: "I'll be the one with the sign",
-    body: "The route home is dashed because it hasn't been drawn yet — but I already know how it goes. I'm at arrivals, embarrassingly early, holding a sign with an inside joke on it. You know the one.",
+    lat: 32.733360, lon: -117.192250,
+    photo: "./images/ch12.svg",
+    caption: "I'll be the one at arrivals",
+    body: "The route home is dashed because it hasn't happened yet — but I already know how it goes. I'm at arrivals embarrassingly early, and the drive back is the shortest twenty minutes of the whole year.",
   },
 
-  { // ── 10 ── THE FINAL BEAT ─────────────────────────────
+  { // ── 13 ── THE FINAL BEAT ─────────────────────────────
     id: "bay-area",
     title: "The drive north",
-    date: "late August, 2026",
+    date: "after you're home",
     place: "The Bay Area",
     act: 4, status: "future",
-    x: 8.8, y: 36.0,
-    photo: "./images/ch10.svg",
+    lat: 37.258150, lon: -121.943040,
+    photo: "./images/ch13.svg",
     caption: "everyone's going to love you",
-    body: "One week after you're back: the coast road, a playlist we'll fight over, and at the end of it — my family, who already ask about you by name. This is the pin I've been waiting to place the longest. Come home and let's go draw it in.",
+    body: "Then the coast road, a playlist we'll argue about, and at the end of it my family — who already ask about you by name. This is the pin I've been waiting to place the longest. Come home and let's go draw it in.",
   },
 ];

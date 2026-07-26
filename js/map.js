@@ -1,34 +1,75 @@
 /* ═══════════════════════════════════════════════════════════════
-   map.js — SVG map rendering, act framing, camera transitions,
-   pin generation. The camera is a CSS transform on #world; pins
-   counter-scale so they stay a constant size on screen.
+   map.js — projection, camera, pins.
+
+   The map is real geography drawn in Web Mercator. Chapters carry
+   lat/lon and are projected here, so a pin always lands where the
+   place actually is. These three constants MUST match the ones the
+   artwork was generated with (see README → "Rebuilding the map").
    ═══════════════════════════════════════════════════════════════ */
 
 import { CHAPTERS } from './chapters.js';
 
 const NS = 'http://www.w3.org/2000/svg';
-const VB_W = 1000, VB_H = 700;
-const PIN_ART_UNITS = 30;   // design height of the pin artwork
-const PIN_PX = 38;          // desired on-screen pin height
+
+/* ── projection ── */
+const K = 100;          // world units per degree of longitude
+const LON0 = -170;      // longitude at x = 0
+const LAT_TOP = 72;     // latitude at y = 0
+
+const mercY = (lat) => {
+  const l = Math.max(-85, Math.min(85, lat));
+  return (180 / Math.PI) * Math.log(Math.tan(Math.PI / 4 + (l * Math.PI) / 360));
+};
+const MERCY0 = mercY(LAT_TOP);
+
+export const project = (lon, lat) => ({
+  x: (lon - LON0) * K,
+  y: (MERCY0 - mercY(lat)) * K,
+});
+
+export const worldXY = (ch) => project(ch.lon, ch.lat);
+
+/* How wide a view each chapter gets, in world units.
+   1 unit ≈ 0.9 km near San Diego, so 20 ≈ an 18 km city view.
+   Consecutive chapters are deliberately different so the camera
+   visibly moves even between neighbours. */
+const SPAN = [
+  11,    //  1 Price Center — UCSD
+  6.5,   //  2 the dorm, steak night (right next door, so go closer)
+  15,    //  3 Catania, La Jolla
+  620,   //  4 Vegas
+  9,     //  5 Sixth College
+  22,    //  6 thrifting in La Mesa
+  330,   //  7 Six Flags
+  16,    //  8 Del Mar fair
+  11,    //  9 the love letter
+  240,   // 10 Irvine — the Odyssey  [flight departs]
+  760,   // 11 Palermo
+  900,   // 12 landing back in California
+  300,   // 13 the Bay Area
+];
+
+const PIN_ART = 30;      // design height of the pin artwork
+const PIN_PX = 38;       // desired on-screen pin height
+const PIN_MAX_FRAC = 0.055;  // …but never taller than this much of the view
 
 export const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Per-chapter zoom. Consecutive chapters always differ so every
-   advance visibly moves the camera, even within one act. */
-const ZOOM = [4.6, 5.1, 4.4, 4.9, 2.35, 2.9, 5.3, 1.55, 3.2, 2.25];
-
 let svg, world, pinsG;
-const view = { w: 0, h: 0, s: 1, w0: VB_W, h0: VB_H };
-const cam = { cx: 500, cy: 400, z: 0.9 };
+const vb = { x: 0, y: 0, w: 1000, h: 700 };
+const view = { w: 0, h: 0, s: 1, w0: 1000, h0: 700 };
+const cam = { cx: 0, cy: 0, z: 1 };
 const pinEls = [];
-let worldIdleTimer = 0;
-
-export const worldXY = (ch) => ({ x: ch.x * 10, y: ch.y * 7 });
+let idleTimer = 0;
 
 export function initMap(onPinTap) {
   svg = document.getElementById('map');
   world = document.getElementById('world');
   pinsG = document.getElementById('pins');
+
+  const [vx, vy, vw, vh] = svg.getAttribute('viewBox').trim().split(/\s+/).map(Number);
+  vb.x = vx; vb.y = vy; vb.w = vw; vb.h = vh;
+
   measure();
   addEventListener('resize', () => { measure(); applyCamera(false); });
   buildPins(onPinTap);
@@ -39,38 +80,39 @@ function measure() {
   const r = svg.getBoundingClientRect();
   view.w = r.width || 390;
   view.h = r.height || 844;
-  view.s = Math.max(view.w / VB_W, view.h / VB_H);
-  view.w0 = view.w / view.s;   // world units visible at zoom 1
+  // preserveAspectRatio="slice" → the viewBox is covered, so scale is the max
+  view.s = Math.max(view.w / vb.w, view.h / vb.h);
+  view.w0 = view.w / view.s;   // world units across at zoom 1
   view.h0 = view.h / view.s;
 }
 
-/* current zoom*screen-scale — route.js needs it for px-true dashes */
 export const viewScale = () => ({ z: cam.z, s: view.s });
 
 function setTransition(el, animate, dur) {
-  if (animate && !REDUCED) {
-    el.style.transition = `transform ${dur}ms var(--ease-glide)`;
-  } else {
-    el.style.transition = 'none';
-  }
+  el.style.transition = (animate && !REDUCED)
+    ? `transform ${dur}ms var(--ease-glide)` : 'none';
 }
 
 function applyCamera(animate, dur = 1200) {
   setTransition(world, animate, dur);
   world.style.willChange = animate ? 'transform' : '';
+  const ox = vb.x + vb.w / 2, oy = vb.y + vb.h / 2;
   world.style.transform =
-    `translate(${VB_W / 2}px, ${VB_H / 2}px) scale(${cam.z}) translate(${-cam.cx}px, ${-cam.cy}px)`;
+    `translate(${ox}px, ${oy}px) scale(${cam.z}) translate(${-cam.cx}px, ${-cam.cy}px)`;
 
-  /* constant on-screen size, but capped so far zooms shrink pins
-     like a real map instead of piling giant markers on a tiny coast */
-  const k = Math.min(PIN_PX / (PIN_ART_UNITS * cam.z * view.s), 0.62);
+  /* Pins hold a constant pixel size, but are capped as a fraction of
+     the visible span so a far zoom-out doesn't drop a marker the size
+     of Sicily onto Sicily. */
+  const spanNow = view.w0 / cam.z;
+  const k = Math.min(PIN_PX / (PIN_ART * cam.z * view.s),
+                     (PIN_MAX_FRAC * spanNow) / PIN_ART);
   for (const el of pinEls) {
     setTransition(el, animate, dur);
     el.style.transform =
       `translate(${el._wx}px, ${el._wy}px) scale(${k * el._weight})`;
   }
-  clearTimeout(worldIdleTimer);
-  worldIdleTimer = setTimeout(() => { world.style.willChange = ''; }, dur + 100);
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => { world.style.willChange = ''; }, dur + 100);
 }
 
 function moveTo(cx, cy, z, animate = true, dur = 1200) {
@@ -79,32 +121,34 @@ function moveTo(cx, cy, z, animate = true, dur = 1200) {
   return wait(animate && !REDUCED ? dur : 0);
 }
 
-/* Frame a chapter: pin sits ~1/3 from the top so the card below
-   never covers it. Alternating sideways nudge adds variety. */
+/* Frame a chapter: pin sits above centre so the card never covers it. */
 export function setChapterCamera(i, { animate = true, dur = 1200 } = {}) {
   const { x, y } = worldXY(CHAPTERS[i]);
-  const z = ZOOM[i];
-  const cx = x + (i % 2 ? -1 : 1) * 0.04 * (view.w0 / z);
+  const z = view.w0 / SPAN[i];
+  const cx = x + (i % 2 ? -1 : 1) * 0.05 * SPAN[i];
   const cy = y + 0.17 * (view.h0 / z);
   return moveTo(cx, cy, z, animate, dur);
 }
 
 export function fitBounds(b, { pad = 0.18, animate = true, dur = 1400, yBias = 0 } = {}) {
-  const bw = b.maxX - b.minX, bh = b.maxY - b.minY;
+  const bw = Math.max(1e-6, b.maxX - b.minX);
+  const bh = Math.max(1e-6, b.maxY - b.minY);
   const z = Math.min(view.w0 / (bw * (1 + pad * 2)), view.h0 / (bh * (1 + pad * 2)));
   const cx = (b.minX + b.maxX) / 2;
   const cy = (b.minY + b.maxY) / 2 + yBias * (view.h0 / z);
-  return moveTo(cx, cy, Math.max(0.2, Math.min(z, 6)), animate, dur);
+  return moveTo(cx, cy, z, animate, dur);
 }
 
 export function allPinsBounds() {
-  const xs = CHAPTERS.map(c => c.x * 10), ys = CHAPTERS.map(c => c.y * 7);
-  return { minX: Math.min(...xs), maxX: Math.max(...xs), minY: Math.min(...ys), maxY: Math.max(...ys) };
+  const pts = CHAPTERS.map(worldXY);
+  return {
+    minX: Math.min(...pts.map(p => p.x)), maxX: Math.max(...pts.map(p => p.x)),
+    minY: Math.min(...pts.map(p => p.y)), maxY: Math.max(...pts.map(p => p.y)),
+  };
 }
 
 export function setAct(n) { svg.dataset.act = n; }
 export function lightSicily(on = true) { svg.classList.toggle('sicily-lit', on); }
-export const isSicilyLit = () => svg.classList.contains('sicily-lit');
 
 /* ── pins ── */
 
@@ -147,7 +191,6 @@ function buildPins(onTap) {
   });
 }
 
-/* Drop a pin in (with bounce, unless instant/reduced-motion). */
 export function dropPin(i, { instant = false } = {}) {
   const el = pinEls[i];
   el.classList.remove('locked');
@@ -163,7 +206,6 @@ export function undropPin(i) {
   pinEls[i].classList.add('locked');
 }
 
-/* visited pins are lit + tappable, future pins dimmed + inert */
 export function setPinStates(current, maxReached) {
   pinEls.forEach((el, i) => {
     el.classList.toggle('current', i === current);
