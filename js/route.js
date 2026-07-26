@@ -10,7 +10,7 @@ import { worldXY, viewScale, REDUCED } from './map.js';
 const NS = 'http://www.w3.org/2000/svg';
 const DRAW_MS = 700;
 
-export const FLIGHT_SEG = 6;   // segment airport → Palermo
+export const FLIGHT_SEG = 9;   // segment Irvine → Palermo
 
 let routesG, fxG, glowEl;
 const segs = [];               // { el, len, dashed, flight, drawn }
@@ -28,11 +28,16 @@ function curveD(a, b, bow) {
 }
 
 /* The flight arc: bows north like a great-circle route.
+   Offsets are a fraction of the crossing so the bow keeps its shape
+   whatever the real distance between the two chapters turns out to be.
    Also used as the plane's motion path. */
 export const FLIGHT_D = (() => {
   const a = worldXY(CHAPTERS[FLIGHT_SEG]);
   const b = worldXY(CHAPTERS[FLIGHT_SEG + 1]);
-  return `M ${a.x} ${a.y} C ${a.x + 190} ${a.y - 360}, ${b.x - 230} ${b.y - 310}, ${b.x} ${b.y}`;
+  const dx = b.x - a.x;
+  const bow = Math.abs(dx) * 0.23;          // how far north it swings
+  return `M ${a.x} ${a.y} C ${a.x + dx * 0.28} ${a.y - bow}, ` +
+         `${b.x - dx * 0.30} ${b.y - bow * 0.92}, ${b.x} ${b.y}`;
 })();
 
 export function initRoute() {

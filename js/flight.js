@@ -11,7 +11,16 @@ import * as route from './route.js';
 
 const FLIGHT_MS = 4200;
 const ZOOM_MS = 1500;
-const FLIGHT_BOUNDS = { minX: 110, minY: 140, maxX: 950, maxY: 660 };
+
+/* Frame the crossing from the arc itself, so this keeps working if the
+   departure or arrival chapter ever moves. */
+function flightBounds(pathEl) {
+  const b = pathEl.getBBox();
+  const padX = b.width * 0.04;
+  const padY = b.height * 0.10;
+  return { minX: b.x - padX, maxX: b.x + b.width + padX,
+           minY: b.y - padY, maxY: b.y + b.height + padY };
+}
 
 const easeInOutSine = (t) => -(Math.cos(Math.PI * t) - 1) / 2;
 
@@ -53,7 +62,7 @@ export function flyToPalermo({ showStamp }) {
       plane.style.offsetDistance = '';
       plane.style.transform = '';
       map.lightSicily(true);
-      map.dropPin(7, { instant: skipped });
+      map.dropPin(route.FLIGHT_SEG + 1, { instant: skipped });   // the arrival chapter
       for (const d of fxG.querySelectorAll('.contrail-dot')) d.remove();
       showStamp();
       later(() => {
@@ -76,8 +85,12 @@ export function flyToPalermo({ showStamp }) {
     document.body.classList.add('phase-flight');
     stage.addEventListener('pointerdown', onSkip, true);
     document.addEventListener('visibilitychange', onHide);
+
+    // Already backgrounded when she tapped? Don't start a sequence that
+    // can't animate — go straight to the end state.
+    if (document.hidden) { finalize(true); return; }
     map.setAct(3);
-    map.fitBounds(FLIGHT_BOUNDS, { pad: 0.06, dur: ZOOM_MS });
+    map.fitBounds(flightBounds(pathEl), { pad: 0.05, dur: ZOOM_MS });
 
     later(() => {
       if (finished) return;

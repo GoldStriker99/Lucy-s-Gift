@@ -9,7 +9,7 @@ export const CONFIG = {
   herName: "Lucy",
 
   /* One short line from you, under her name on the title screen. */
-  openingLine: "Ten places. One map. Walk it with me?",
+  openingLine: "Thirteen places. One map. Walk it with me?",
 
   /* The date the passport stamp shows when the plane lands in Palermo.
      Shown exactly as written. */
