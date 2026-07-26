@@ -190,11 +190,13 @@ function finishTween() {
   const done = tween;
   tween = null;
   jumpTo(done.target);
-  world.style.willChange = '';
+  document.body.classList.remove('camera-moving');
   clearTimeout(done.guard);
   if (!done.widestFired) done.onWidest?.();
   done.resolve();
 }
+
+export const isCameraMoving = () => tween !== null;
 
 /* Drives the current tween. Called from main.js's single rAF loop. */
 export function tickCamera(now) {
@@ -232,10 +234,12 @@ function flyTo(target, { dur, onWidest } = {}) {
   const plan = planFly(from, target);
 
   // Duration follows how much ground is covered in zoom-space, so a
-  // hop across campus stays snappy and an ocean crossing gets room.
-  const ms = dur ?? Math.max(750, Math.min(2400, 620 * plan.S));
+  // hop across campus is unhurried and an ocean crossing gets room to
+  // breathe. Slower also means fewer pixels of change per frame, which
+  // is easier on the phone as well as calmer to watch.
+  const ms = dur ?? Math.max(1300, Math.min(4200, 1150 * plan.S));
 
-  world.style.willChange = 'transform';
+  document.body.classList.add('camera-moving');
   world.style.transition = 'none';
   for (const el of pinEls) el.style.transition = 'none';
 

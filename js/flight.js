@@ -9,8 +9,8 @@
 import * as map from './map.js';
 import * as route from './route.js';
 
-const FLIGHT_MS = 4200;
-const ZOOM_MS = 1500;
+const FLIGHT_MS = 5200;
+const ZOOM_MS = 2100;
 
 /* Frame the crossing from the arc itself, so this keeps working if the
    departure or arrival chapter ever moves. */

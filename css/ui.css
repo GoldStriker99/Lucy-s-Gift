@@ -14,9 +14,10 @@
   z-index: 6;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(247, 240, 225, 0.55);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  /* A backdrop-filter here forced iOS to re-blur the whole moving map
+     behind these dots on every single frame. A flat translucent pill
+     looks near-identical and costs nothing. */
+  background: rgba(247, 240, 225, 0.82);
   transition: opacity 0.5s ease-out;
 }
 #progress .dot {

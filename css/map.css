@@ -73,10 +73,23 @@
   vector-effect: non-scaling-stroke;
 }
 
-#act1-detail g[class],
-#act2-detail g[class],
-#act4-detail g[class],
-#sicily-warm g[class] { vector-effect: non-scaling-stroke; }
+/* ── while the camera is moving ──
+   The map is already re-rasterising every frame; anything else that
+   repaints at the same time is competing for the same budget on a
+   phone. So the ambient life holds still for the ~2s of a move, and
+   the renderer is told it may trade edge quality for speed. Both
+   revert the moment the camera lands.  */
+body.camera-moving #map { shape-rendering: optimizeSpeed; }
+
+body.camera-moving .cloud > path,
+body.camera-moving .sun-rays,
+body.camera-moving .boat-bob,
+body.camera-moving .citrus .crown,
+body.camera-moving .pin .halo,
+body.camera-moving .pin .pulse,
+body.camera-moving .pin-present .rays {
+  animation-play-state: paused;
+}
 
 .ln, .track, .gate-ln, .gate-c, .mast, .frond, .dash {
   vector-effect: non-scaling-stroke;

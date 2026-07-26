@@ -76,7 +76,7 @@ async function advance(i) {
   });
 
   if (!droppedSet.has(i)) { droppedSet.add(i); map.dropPin(i); }
-  await wait(map.REDUCED ? 0 : 250);
+  await wait(map.REDUCED ? 0 : 380);
   presentChapter(i);
   setBusy(false);
 }
@@ -136,7 +136,7 @@ async function finish() {
   setPhase('closing');
   save();
   map.setAct(3);
-  await map.fitBounds(map.allPinsBounds(), { pad: 0.16, dur: 1900, yBias: -0.06 });
+  await map.fitBounds(map.allPinsBounds(), { pad: 0.16, dur: 2900, yBias: -0.06 });
   ui.showClosing();
   setBusy(false);
 }
@@ -184,7 +184,7 @@ async function resume(saved) {
   setBusy(true);
   index = target;
   map.setAct(CHAPTERS[index].act);
-  await map.setChapterCamera(index, { dur: 1400 });
+  await map.setChapterCamera(index, { dur: 1800 });
   presentChapter(index);
   setBusy(false);
 }

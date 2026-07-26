@@ -5,10 +5,10 @@
    ═══════════════════════════════════════════════════════════════ */
 
 import { CHAPTERS } from './chapters.js';
-import { worldXY, viewScale, REDUCED } from './map.js';
+import { worldXY, viewScale, isCameraMoving, REDUCED } from './map.js';
 
 const NS = 'http://www.w3.org/2000/svg';
-const DRAW_MS = 700;
+const DRAW_MS = 1000;
 
 export const FLIGHT_SEG = 9;   // segment Irvine → Palermo
 
@@ -149,7 +149,11 @@ export function tick(now, scale) {
 
   if (REDUCED) return;
 
-  // marching-ants drift on the dashed future (pattern lives in CSS)
+  /* Marching ants on the dashed future. Held still while the camera is
+     moving — rewriting a dash offset forces the stroke to be rebuilt,
+     and it is invisible during a move anyway. */
+  if (isCameraMoving()) { lastTick = 0; return; }
+
   const dt = lastTick ? Math.min(100, now - lastTick) : 16;
   lastTick = now;
   marchOffset -= 14 * dt / 1000;          // ~14 px/s drift
