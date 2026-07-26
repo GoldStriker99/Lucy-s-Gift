@@ -87,7 +87,16 @@ body.camera-moving .boat-bob,
 body.camera-moving .citrus .crown,
 body.camera-moving .pin .halo,
 body.camera-moving .pin .pulse,
-body.camera-moving .pin-present .rays {
+body.camera-moving .pin-present .rays,
+/* …and while the in-between photo covers the map, none of this is
+   even visible, so it should not be costing anything either. */
+body.in-between .cloud > path,
+body.in-between .sun-rays,
+body.in-between .boat-bob,
+body.in-between .citrus .crown,
+body.in-between .pin .halo,
+body.in-between .pin .pulse,
+body.in-between .pin-present .rays {
   animation-play-state: paused;
 }
 
@@ -252,18 +261,16 @@ body.camera-moving .pin-present .rays {
   transform-box: fill-box;
   transform-origin: center;
 }
-.pin.dropped .halo { animation: halo-pulse 3.2s ease-in-out infinite; }
+/* Only the pin she is standing on breathes. Thirteen lit pins each
+   running two infinite animations was real work for a phone to do
+   forever, and the quiet ones read fine as simply "placed". */
 .pin.current .halo { animation: halo-pulse 1.8s ease-in-out infinite; }
 @keyframes halo-pulse {
   0%, 100% { opacity: 0;    transform: scale(0.7); }
   45%      { opacity: 0.28; transform: scale(1.25); }
 }
 
-/* soft idle breathing on every placed pin */
-.pin.dropped .pulse {
-  transform-box: fill-box; transform-origin: 50% 100%;
-  animation: pin-breathe 4.5s ease-in-out infinite;
-}
+.pin .pulse { transform-box: fill-box; transform-origin: 50% 100%; }
 .pin.current .pulse { animation: pin-breathe 2.2s ease-in-out infinite; }
 @keyframes pin-breathe {
   0%, 100% { transform: scale(1); }

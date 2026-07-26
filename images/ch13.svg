@@ -1,9 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
-<rect width="800" height="500" fill="#F7F0E1"/>
-<rect x="20" y="20" width="760" height="460" rx="22" fill="#C98A8A" opacity="0.32"/>
-<circle cx="648" cy="112" r="46" fill="#E8C67E" opacity="0.85"/>
-<path d="M -20 392 Q 200 318 420 382 T 830 366 L 830 520 L -20 520 Z" fill="#C98A8A" opacity="0.5"/>
-<path d="M 348 250 C 328 220 328 194 348 181 C 363 171 383 176 406 200 C 429 176 449 171 464 181 C 484 194 484 220 464 250 C 447 274 423 295 406 308 C 389 295 365 274 348 250 Z" fill="#C98A8A" opacity="0.9"/>
-<text x="400" y="372" text-anchor="middle" font-family="Bradley Hand, Chalkboard SE, cursive" font-size="31" fill="#5D4F41">the Bay Area</text>
-<text x="400" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="17" fill="#8C7B67">your photo here — set the path in js/chapters.js</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#C98A8A"/><stop offset="100%" stop-color="#B06E6E"/>
+  </linearGradient>
+  <radialGradient id="v" cx="50%" cy="42%" r="72%">
+    <stop offset="0%" stop-color="#F7F0E1" stop-opacity="0.30"/>
+    <stop offset="100%" stop-color="#F7F0E1" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="900" height="1200" fill="url(#g)"/>
+<rect width="900" height="1200" fill="url(#v)"/>
+<circle cx="712" cy="232" r="74" fill="#F7F0E1" opacity="0.34"/>
+<path d="M -40 812 Q 220 700 470 792 T 940 762 L 940 1240 L -40 1240 Z" fill="#F7F0E1" opacity="0.16"/>
+<path d="M -40 946 Q 260 862 520 936 T 940 906 L 940 1240 L -40 1240 Z" fill="#5D4F41" opacity="0.10"/>
+<path d="M 380 560 C 344 506 344 468 380 449 C 402 437 428 444 450 474 C 472 444 498 437 520 449 C 556 468 556 506 520 560 C 494 596 462 626 450 642 C 438 626 406 596 380 560 Z" fill="#F7F0E1" opacity="0.42"/>
 </svg>

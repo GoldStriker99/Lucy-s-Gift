@@ -205,6 +205,82 @@ body.phase-closing #controls { opacity: 0; pointer-events: none; transform: tran
 #btn-next .chev { font-size: 1.25em; line-height: 0; transform: translateY(-1px); }
 body.busy #btn-next, body.busy #btn-back { opacity: 0.45; pointer-events: none; }
 
+/* ── the in-between ──
+   A full-bleed photo of the place she is about to arrive at, held over
+   the screen while the map repositions underneath. Opacity and
+   transform only, so it stays cheap on a phone. */
+#interstitial {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  overflow: hidden;
+  background: var(--ink);
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-glide);
+  pointer-events: none;
+}
+#interstitial.showing { opacity: 1; pointer-events: auto; }
+
+#inter-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  transition: transform 2.6s var(--ease-glide);
+}
+#interstitial.showing #inter-img { transform: scale(1); }
+
+.inter-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(63, 52, 41, 0.30) 0%,
+    rgba(63, 52, 41, 0.05) 32%,
+    rgba(63, 52, 41, 0.62) 78%,
+    rgba(63, 52, 41, 0.86) 100%);
+}
+
+.inter-text {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: calc(11dvh + var(--safe-bottom));
+  padding: 0 30px;
+  text-align: center;
+  color: var(--cloud);
+}
+.inter-text > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s var(--ease-glide), transform 0.7s var(--ease-glide);
+}
+#interstitial.showing .inter-text > * { opacity: 1; transform: none; }
+#interstitial.showing .inter-text > *:nth-child(1) { transition-delay: 0.22s; }
+#interstitial.showing .inter-text > *:nth-child(2) { transition-delay: 0.30s; }
+#interstitial.showing .inter-text > *:nth-child(3) { transition-delay: 0.38s; }
+
+.inter-place {
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+#inter-title {
+  margin-top: 8px;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-style: italic;
+}
+#inter-caption {
+  margin-top: 12px;
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  opacity: 0.92;
+}
+
 /* ── passport stamp ── */
 #stamp {
   position: absolute;

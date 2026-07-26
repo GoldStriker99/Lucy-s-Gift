@@ -253,15 +253,25 @@ function flyTo(target, { dur, onWidest } = {}) {
 
 export const cameraSpan = () => cam.span;
 
-/* Frame a chapter: pin sits above centre so the card never covers it. */
-export function setChapterCamera(i, { dur, onWidest } = {}) {
+/* Frame a chapter: pin sits above centre so the card never covers it.
+   `instant` cuts straight there with no animation — used when the
+   in-between photo is covering the screen, which is both invisible and
+   by far the cheapest thing a phone can be asked to do. */
+export function setChapterCamera(i, { dur, onWidest, instant = false } = {}) {
   const { x, y } = worldXY(CHAPTERS[i]);
   const span = SPAN[i];
-  return flyTo({
+  const target = {
     cx: x + (i % 2 ? -1 : 1) * 0.05 * span,
     cy: y + 0.17 * span * (view.h0 / view.w0),
     span,
-  }, { dur, onWidest });
+  };
+  if (instant) {
+    finishTween();
+    jumpTo(target);
+    onWidest?.();
+    return Promise.resolve();
+  }
+  return flyTo(target, { dur, onWidest });
 }
 
 export function fitBounds(b, { pad = 0.18, dur, yBias = 0, onWidest } = {}) {

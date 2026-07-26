@@ -66,31 +66,41 @@ async function advance(i) {
   save();
 
   ui.hideCard();
+
+  /* The in-between carries the transition: a full-screen photo of where
+     she's headed fades up and holds. Behind it the map cuts straight to
+     the new framing and the route is already drawn, so when the photo
+     clears she is simply there. Nothing heavy animates while anything
+     is on screen — which is what keeps this smooth on a phone. */
+  await wait(map.REDUCED ? 0 : 260);        // let the card get out of the way
+  await ui.showInterstitial(i);
+
   map.setAct(CHAPTERS[i].act);
+  map.setChapterCamera(i, { instant: true });
+  if (isNew && i > 0) route.drawSegment(i - 1, { instant: true });
 
-  /* The camera arcs out, travels, and settles. The route segment is
-     drawn at the top of that arc — the one moment both the place she
-     is leaving and the place she is going are on screen together. */
-  await map.setChapterCamera(i, {
-    onWidest: () => { if (isNew && i > 0) route.drawSegment(i - 1); },
-  });
-
+  ui.hideInterstitial();
+  await wait(map.REDUCED ? 0 : 420);        // photo clears, the place appears
   if (!droppedSet.has(i)) { droppedSet.add(i); map.dropPin(i); }
-  await wait(map.REDUCED ? 0 : 380);
+  await wait(map.REDUCED ? 0 : 420);        // …and the pin lands in view
   presentChapter(i);
   setBusy(false);
 }
 
 const droppedSet = new Set();
 
-/* revisit — everything already drawn, just reframe + card */
+/* revisit — everything already drawn, so it gets the same in-between */
 async function revisit(i) {
   setBusy(true);
   index = i;
   save();
   ui.hideCard();
+  await wait(map.REDUCED ? 0 : 260);
+  await ui.showInterstitial(i);
   map.setAct(CHAPTERS[i].act);
-  await map.setChapterCamera(i);
+  map.setChapterCamera(i, { instant: true });
+  ui.hideInterstitial();
+  await wait(map.REDUCED ? 0 : 620);
   presentChapter(i);
   setBusy(false);
 }
@@ -184,7 +194,7 @@ async function resume(saved) {
   setBusy(true);
   index = target;
   map.setAct(CHAPTERS[index].act);
-  await map.setChapterCamera(index, { dur: 1800 });
+  map.setChapterCamera(index, { instant: true });   // cold start, nothing to travel from
   presentChapter(index);
   setBusy(false);
 }
