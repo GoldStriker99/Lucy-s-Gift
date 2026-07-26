@@ -128,13 +128,30 @@ body.phase-title #compass, body.phase-closing #compass { opacity: 0; pointer-eve
   overscroll-behavior: contain;
 }
 
-/* full-bleed photo across the top of the screen */
+/* Full-bleed photo across the top of the screen.
+   Height is set directly rather than via aspect-ratio: pairing
+   aspect-ratio with a max-height lets the ratio shrink the WIDTH once
+   the cap bites, which on a phone (where browser chrome makes dvh
+   smaller than the screen is wide) left a gap down one side. */
 .card-photo {
   position: relative;
+  flex: none;
+  width: 100%;
+  height: clamp(200px, 40dvh, 440px);
   overflow: hidden;
-  aspect-ratio: 1 / 1;
-  max-height: 54dvh;
   background: var(--paper-deep);
+}
+
+/* soft fade above the buttons, so a long memory reads as scrollable
+   rather than simply cut off */
+#card::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: calc(84px + var(--safe-bottom));
+  height: 36px;
+  background: linear-gradient(transparent, var(--paper));
+  pointer-events: none;
 }
 .card-photo img {
   width: 100%; height: 100%;
@@ -150,14 +167,22 @@ body.phase-title #compass, body.phase-closing #compass { opacity: 0; pointer-eve
   padding: 40px 24px 16px;
   font-family: var(--font-hand);
   font-size: 1rem;
+  text-align: center;
   color: var(--cloud);
   background: linear-gradient(transparent, rgba(63, 52, 41, 0.7));
 }
 .card-photo figcaption:empty { display: none; }
 
+/* One centred column under the photo, matching the title and closing
+   screens. max-width keeps the lines readable on a wide screen. */
+.card-text {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 24px 28px 28px;
+  text-align: center;
+}
 .card-meta {
-  margin-top: 22px;
-  padding: 0 26px;
   font-size: 0.76rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -165,14 +190,12 @@ body.phase-title #compass, body.phase-closing #compass { opacity: 0; pointer-eve
 }
 .meta-dot { margin: 0 0.5em; color: var(--ink-faint); }
 #card-title {
-  margin-top: 6px;
-  padding: 0 26px;
+  margin-top: 8px;
   font-size: 1.85rem;
-  line-height: 1.15;
+  line-height: 1.18;
 }
 #card-body {
-  margin-top: 12px;
-  padding: 0 26px 24px;
+  margin-top: 14px;
   font-size: 1.05rem;
   line-height: 1.62;
   color: var(--ink);
