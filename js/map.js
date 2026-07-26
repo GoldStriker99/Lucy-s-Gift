@@ -198,6 +198,16 @@ function finishTween() {
 
 export const isCameraMoving = () => tween !== null;
 
+/* What the camera can currently see, in world coordinates. */
+export function viewRect() {
+  const halfW = cam.span / 2;
+  const halfH = (cam.span * (view.h0 / view.w0)) / 2;
+  return {
+    minX: cam.cx - halfW, maxX: cam.cx + halfW,
+    minY: cam.cy - halfH, maxY: cam.cy + halfH,
+  };
+}
+
 /* Drives the current tween. Called from main.js's single rAF loop. */
 export function tickCamera(now) {
   if (!tween) return;

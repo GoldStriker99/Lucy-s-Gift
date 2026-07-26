@@ -14,12 +14,12 @@ const ZOOM_MS = 2100;
 
 /* Frame the crossing from the arc itself, so this keeps working if the
    departure or arrival chapter ever moves. */
-function flightBounds(pathEl) {
-  const b = pathEl.getBBox();
-  const padX = b.width * 0.04;
-  const padY = b.height * 0.10;
-  return { minX: b.x - padX, maxX: b.x + b.width + padX,
-           minY: b.y - padY, maxY: b.y + b.height + padY };
+function flightBounds() {
+  const b = route.flightSegBBox();
+  const padX = (b.maxX - b.minX) * 0.04;
+  const padY = (b.maxY - b.minY) * 0.10;
+  return { minX: b.minX - padX, maxX: b.maxX + padX,
+           minY: b.minY - padY, maxY: b.maxY + padY };
 }
 
 const easeInOutSine = (t) => -(Math.cos(Math.PI * t) - 1) / 2;
@@ -90,7 +90,7 @@ export function flyToPalermo({ showStamp }) {
     // can't animate — go straight to the end state.
     if (document.hidden) { finalize(true); return; }
     map.setAct(3);
-    map.fitBounds(flightBounds(pathEl), { pad: 0.05, dur: ZOOM_MS });
+    map.fitBounds(flightBounds(), { pad: 0.05, dur: ZOOM_MS });
 
     later(() => {
       if (finished) return;

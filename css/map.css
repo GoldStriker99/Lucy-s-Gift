@@ -8,6 +8,12 @@
   width: 100%;
   height: 100%;
   display: block;
+  /* The sea is a flat backdrop painted once at screen size. It used to
+     be a <rect> inside the camera group, which meant that at San Diego
+     zoom (~800×) it became a 3.7-million-pixel gradient the phone had
+     to re-paint every frame — the reason zooming in went choppy while
+     zoomed-out stayed smooth. */
+  background: radial-gradient(75% 75% at 50% 42%, #C3D8CD 0%, #ABC6BA 100%);
 }
 
 /* the camera: js/map.js animates this transform */
@@ -59,6 +65,13 @@
 /* clouds fade a little at close zoom so they don't swallow San Diego */
 #clouds { opacity: 0.9; transition: opacity 0.9s var(--ease-glide); }
 #map[data-act="1"] #clouds { opacity: 0.55; }
+
+/* Two sets of clouds at wildly different scales: ocean-sized ones for
+   the world view, small ones for the close acts. Only ever render the
+   set that belongs to the current act — a world cloud at San Diego
+   zoom is ~42,000px across and costs real time even off screen. */
+#map[data-act="3"] .cloud-local,
+#map:not([data-act="3"]) .cloud-wide { display: none; }
 
 /* ── landmarks ──
    Every landmark is drawn in its own ~20-unit box and scaled into

@@ -5,7 +5,7 @@
    ═══════════════════════════════════════════════════════════════ */
 
 import { CHAPTERS } from './chapters.js';
-import { worldXY, viewScale, isCameraMoving, REDUCED } from './map.js';
+import { worldXY, viewScale, isCameraMoving, viewRect, REDUCED } from './map.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 const DRAW_MS = 1000;
@@ -55,7 +55,9 @@ export function initRoute() {
     routesG.appendChild(el);
     const len = el.getTotalLength();
     if (!dashed) el.style.visibility = 'hidden';   // until drawn
-    segs.push({ el, len, dashed, flight, drawn: false });
+    const bb = el.getBBox();                       // world-space extent, fixed
+    segs.push({ el, len, dashed, flight, drawn: false, culled: false,
+                bb: { minX: bb.x, minY: bb.y, maxX: bb.x + bb.width, maxY: bb.y + bb.height } });
   }
 
   glowEl = document.createElementNS(NS, 'circle');
@@ -112,6 +114,10 @@ export function drawSegment(i, { instant = false } = {}) {
    the pen); these expose just enough control. */
 export function flightSegEl() { return segs[FLIGHT_SEG].el; }
 export function flightSegLen() { return segs[FLIGHT_SEG].len; }
+/* Measured once at init and cached: when the flight starts the camera
+   is still zoomed in on Irvine, so this segment is culled, and getBBox
+   on a display:none element reports zeros. */
+export function flightSegBBox() { return segs[FLIGHT_SEG].bb; }
 export function setFlightProgress(p) {
   const seg = segs[FLIGHT_SEG];
   seg.el.style.visibility = '';
@@ -133,8 +139,31 @@ export function resetFlightSegment() {
   seg.el.style.visibility = 'hidden';
 }
 
+/* Hide segments that are nowhere near the screen.
+
+   The route spans an ocean, so at San Diego zoom the Atlantic crossing
+   is a few hundred thousand pixels long — and with non-scaling-stroke
+   the browser still walks it every frame. Toggling display only when a
+   segment actually crosses in or out of view keeps this near-free. */
+function cull() {
+  const v = viewRect();
+  const padX = (v.maxX - v.minX) * 0.5;
+  const padY = (v.maxY - v.minY) * 0.5;
+  for (const seg of segs) {
+    const b = seg.bb;
+    const off = b.maxX < v.minX - padX || b.minX > v.maxX + padX ||
+                b.maxY < v.minY - padY || b.minY > v.maxY + padY;
+    if (off !== seg.culled) {
+      seg.culled = off;
+      seg.el.style.display = off ? 'none' : '';
+    }
+  }
+}
+
 /* One shared tick, called from main.js's single rAF loop. */
 export function tick(now, scale) {
+  cull();
+
   // traveling glow at the head of a drawing segment
   if (glowTween) {
     const t = Math.min(1, (now - glowTween.start) / glowTween.dur);
@@ -150,9 +179,12 @@ export function tick(now, scale) {
   if (REDUCED) return;
 
   /* Marching ants on the dashed future. Held still while the camera is
-     moving — rewriting a dash offset forces the stroke to be rebuilt,
-     and it is invisible during a move anyway. */
-  if (isCameraMoving()) { lastTick = 0; return; }
+     moving or while the card covers the map — rewriting a dash offset
+     forces the stroke to be rebuilt, and it is invisible either way. */
+  if (isCameraMoving() || document.body.classList.contains('reading')) {
+    lastTick = 0;
+    return;
+  }
 
   const dt = lastTick ? Math.min(100, now - lastTick) : 16;
   lastTick = now;
