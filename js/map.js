@@ -58,9 +58,10 @@ export const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let svg, world, pinsG;
 const vb = { x: 0, y: 0, w: 1000, h: 700 };
 const view = { w: 0, h: 0, s: 1, w0: 1000, h0: 700 };
-const cam = { cx: 0, cy: 0, z: 1 };
+/* cam.span is the visible width in world units — the camera's unit of
+   zoom. Everything else (scale, pin size) is derived from it. */
+const cam = { cx: 0, cy: 0, span: 1000 };
 const pinEls = [];
-let idleTimer = 0;
 
 export function initMap(onPinTap) {
   svg = document.getElementById('map');
@@ -71,9 +72,15 @@ export function initMap(onPinTap) {
   vb.x = vx; vb.y = vy; vb.w = vw; vb.h = vh;
 
   measure();
-  addEventListener('resize', () => { measure(); applyCamera(false); });
+  cam.cx = vb.x + vb.w / 2;
+  cam.cy = vb.y + vb.h / 2;
+  cam.span = view.w0;
+  addEventListener('resize', () => { measure(); writeCamera(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) finishTween();     // rAF is about to stop
+  });
   buildPins(onPinTap);
-  applyCamera(false);
+  writeCamera();
 }
 
 function measure() {
@@ -86,57 +93,184 @@ function measure() {
   view.h0 = view.h / view.s;
 }
 
-export const viewScale = () => ({ z: cam.z, s: view.s });
+export const viewScale = () => ({ z: view.w0 / cam.span, s: view.s });
 
-function setTransition(el, animate, dur) {
-  el.style.transition = (animate && !REDUCED)
-    ? `transform ${dur}ms var(--ease-glide)` : 'none';
+/* ═══════════════════════════════════════════════════════════════
+   The camera move.
+
+   Two places are often thousands of map units and hundreds of zoom
+   levels apart. Interpolating scale straight from A to B looks
+   violent — it covers most of the distance in the first few frames
+   and it forces the browser to re-rasterise a very large SVG at
+   wildly changing scales.
+
+   So the camera follows the van Wijk & Nuij "smooth and efficient
+   zooming and panning" curve instead: it pulls back far enough to
+   hold both places, travels across, and settles into the new one.
+   Nearby chapters barely bow; far ones arc right out. Same maths
+   d3.interpolateZoom uses.
+   ═══════════════════════════════════════════════════════════════ */
+
+const RHO = 1.55;        // how hard it pulls back. √2 is the classic value
+const RHO2 = RHO * RHO;
+const RHO4 = RHO2 * RHO2;
+
+function planFly(a, b) {
+  const dx = b.cx - a.cx, dy = b.cy - a.cy;
+  const d = Math.hypot(dx, dy);
+  const w0 = a.span, w1 = b.span;
+
+  // Straight zoom, no travel — interpolate scale logarithmically.
+  if (d < 1e-6) {
+    const S = Math.abs(Math.log(w1 / w0)) / RHO;
+    return {
+      S: S || 1e-6,
+      at: (s) => ({
+        cx: b.cx, cy: b.cy,
+        span: w0 * Math.exp((w1 > w0 ? 1 : -1) * RHO * s),
+      }),
+    };
+  }
+
+  const b0 = (w1 * w1 - w0 * w0 + RHO4 * d * d) / (2 * w0 * RHO2 * d);
+  const b1 = (w1 * w1 - w0 * w0 - RHO4 * d * d) / (2 * w1 * RHO2 * d);
+  const r0 = Math.log(-b0 + Math.sqrt(b0 * b0 + 1));
+  const r1 = Math.log(-b1 + Math.sqrt(b1 * b1 + 1));
+  const S = (r1 - r0) / RHO;
+
+  if (!isFinite(S) || S <= 0) {                    // degenerate — just cut
+    return { S: 1e-6, at: () => ({ cx: b.cx, cy: b.cy, span: w1 }) };
+  }
+
+  const coshr0 = Math.cosh(r0), sinhr0 = Math.sinh(r0);
+  return {
+    S,
+    at(s) {
+      const t = RHO * s + r0;
+      const u = (w0 / RHO2) * (coshr0 * Math.tanh(t) - sinhr0);
+      const k = u / d;
+      return { cx: a.cx + dx * k, cy: a.cy + dy * k, span: w0 * coshr0 / Math.cosh(t) };
+    },
+  };
 }
 
-function applyCamera(animate, dur = 1200) {
-  setTransition(world, animate, dur);
-  world.style.willChange = animate ? 'transform' : '';
+const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+let tween = null;
+
+function writeCamera() {
+  const z = view.w0 / cam.span;
   const ox = vb.x + vb.w / 2, oy = vb.y + vb.h / 2;
   world.style.transform =
-    `translate(${ox}px, ${oy}px) scale(${cam.z}) translate(${-cam.cx}px, ${-cam.cy}px)`;
+    `translate(${ox}px, ${oy}px) scale(${z}) translate(${-cam.cx}px, ${-cam.cy}px)`;
 
   /* Pins hold a constant pixel size, but are capped as a fraction of
      the visible span so a far zoom-out doesn't drop a marker the size
      of Sicily onto Sicily. */
-  const spanNow = view.w0 / cam.z;
-  const k = Math.min(PIN_PX / (PIN_ART * cam.z * view.s),
-                     (PIN_MAX_FRAC * spanNow) / PIN_ART);
+  const k = Math.min(PIN_PX / (PIN_ART * z * view.s),
+                     (PIN_MAX_FRAC * cam.span) / PIN_ART);
   for (const el of pinEls) {
-    setTransition(el, animate, dur);
     el.style.transform =
       `translate(${el._wx}px, ${el._wy}px) scale(${k * el._weight})`;
   }
-  clearTimeout(idleTimer);
-  idleTimer = setTimeout(() => { world.style.willChange = ''; }, dur + 100);
 }
 
-function moveTo(cx, cy, z, animate = true, dur = 1200) {
-  cam.cx = cx; cam.cy = cy; cam.z = z;
-  applyCamera(animate, dur);
-  return wait(animate && !REDUCED ? dur : 0);
+function jumpTo(target) {
+  cam.cx = target.cx; cam.cy = target.cy; cam.span = target.span;
+  writeCamera();
 }
+
+/* Land the current move immediately at its destination and release
+   whoever is awaiting it. Used on arrival, and as the escape hatch
+   whenever the tab is backgrounded — requestAnimationFrame stops
+   there, and a camera that never arrives would wedge navigation with
+   the controls disabled. */
+function finishTween() {
+  if (!tween) return;
+  const done = tween;
+  tween = null;
+  jumpTo(done.target);
+  world.style.willChange = '';
+  clearTimeout(done.guard);
+  if (!done.widestFired) done.onWidest?.();
+  done.resolve();
+}
+
+/* Drives the current tween. Called from main.js's single rAF loop. */
+export function tickCamera(now) {
+  if (!tween) return;
+  const t = Math.min(1, (now - tween.start) / tween.dur);
+  if (t >= 1) { finishTween(); return; }
+
+  const p = tween.plan.at(easeInOut(t) * tween.plan.S);
+  cam.cx = p.cx; cam.cy = p.cy; cam.span = p.span;
+  writeCamera();
+
+  // Tell the caller the moment we're widest, so the route can draw
+  // while both ends are on screen.
+  if (!tween.widestFired) {
+    if (p.span < tween.maxSpan - 1e-9 || t >= 0.45) {
+      tween.widestFired = true;
+      tween.onWidest?.();
+    } else {
+      tween.maxSpan = Math.max(tween.maxSpan, p.span);
+    }
+  }
+}
+
+/* Fly to a framing. Resolves on arrival. */
+function flyTo(target, { dur, onWidest } = {}) {
+  finishTween();                       // never queue two moves
+
+  if (REDUCED || document.hidden) {
+    jumpTo(target);
+    onWidest?.();
+    return Promise.resolve();
+  }
+
+  const from = { cx: cam.cx, cy: cam.cy, span: cam.span };
+  const plan = planFly(from, target);
+
+  // Duration follows how much ground is covered in zoom-space, so a
+  // hop across campus stays snappy and an ocean crossing gets room.
+  const ms = dur ?? Math.max(750, Math.min(2400, 620 * plan.S));
+
+  world.style.willChange = 'transform';
+  world.style.transition = 'none';
+  for (const el of pinEls) el.style.transition = 'none';
+
+  return new Promise((resolve) => {
+    tween = { plan, target, start: performance.now(), dur: ms, resolve,
+              onWidest, widestFired: false, maxSpan: from.span,
+              // belt and braces: if frames stop coming, land anyway
+              guard: setTimeout(finishTween, ms + 400) };
+  });
+}
+
+export const cameraSpan = () => cam.span;
 
 /* Frame a chapter: pin sits above centre so the card never covers it. */
-export function setChapterCamera(i, { animate = true, dur = 1200 } = {}) {
+export function setChapterCamera(i, { dur, onWidest } = {}) {
   const { x, y } = worldXY(CHAPTERS[i]);
-  const z = view.w0 / SPAN[i];
-  const cx = x + (i % 2 ? -1 : 1) * 0.05 * SPAN[i];
-  const cy = y + 0.17 * (view.h0 / z);
-  return moveTo(cx, cy, z, animate, dur);
+  const span = SPAN[i];
+  return flyTo({
+    cx: x + (i % 2 ? -1 : 1) * 0.05 * span,
+    cy: y + 0.17 * span * (view.h0 / view.w0),
+    span,
+  }, { dur, onWidest });
 }
 
-export function fitBounds(b, { pad = 0.18, animate = true, dur = 1400, yBias = 0 } = {}) {
+export function fitBounds(b, { pad = 0.18, dur, yBias = 0, onWidest } = {}) {
   const bw = Math.max(1e-6, b.maxX - b.minX);
   const bh = Math.max(1e-6, b.maxY - b.minY);
-  const z = Math.min(view.w0 / (bw * (1 + pad * 2)), view.h0 / (bh * (1 + pad * 2)));
-  const cx = (b.minX + b.maxX) / 2;
-  const cy = (b.minY + b.maxY) / 2 + yBias * (view.h0 / z);
-  return moveTo(cx, cy, z, animate, dur);
+  // widen to whichever axis needs more room, in world units
+  const span = Math.max(bw * (1 + pad * 2),
+                        bh * (1 + pad * 2) * (view.w0 / view.h0));
+  return flyTo({
+    cx: (b.minX + b.maxX) / 2,
+    cy: (b.minY + b.maxY) / 2 + yBias * span * (view.h0 / view.w0),
+    span,
+  }, { dur, onWidest });
 }
 
 export function allPinsBounds() {

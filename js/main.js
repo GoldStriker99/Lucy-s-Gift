@@ -3,7 +3,7 @@
    single rAF loop, swipe navigation, and the compass easter egg.
    ═══════════════════════════════════════════════════════════════ */
 
-import { initMap, viewScale } from './map.js';
+import { initMap, viewScale, tickCamera } from './map.js';
 import { initRoute, tick as routeTick } from './route.js';
 import { initNavigation, next, back, goTo } from './navigation.js';
 import { tick as uiTick } from './ui.js';
@@ -16,6 +16,7 @@ initNavigation();
 let running = true;
 function loop(now) {
   if (running) {
+    tickCamera(now);          // camera first — route dashes read its scale
     routeTick(now, viewScale());
     uiTick(now);
   }

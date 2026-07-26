@@ -32,19 +32,29 @@
 .coast-mid  { stroke-width: 2px; }
 .coast-fine { stroke-width: 2px; }
 
-/* ── act detail layers (crossfade as the camera reframes) ── */
+/* ── act detail layers (crossfade as the camera reframes) ──
+   A layer that is merely transparent still gets rasterised, and at
+   San Diego zoom the world layer is scaled by ~800×, which is enough
+   to stall a phone on every frame of a camera move. So once a layer
+   has faded out it is taken out of rendering entirely; the delay on
+   `visibility` lets the fade finish first. */
 .act-detail {
   opacity: 0;
-  transition: opacity 0.9s var(--ease-glide);
+  visibility: hidden;
+  transition: opacity 0.9s var(--ease-glide), visibility 0s linear 0.9s;
   pointer-events: none;
 }
-#map[data-act="1"] #act1-detail { opacity: 1; }
+#map[data-act="1"] #act1-detail,
 #map[data-act="2"] #geo-cal,
-#map[data-act="2"] #act2-detail { opacity: 1; }
-#map[data-act="3"] #act3-detail { opacity: 1; }
+#map[data-act="2"] #act2-detail,
+#map[data-act="3"] #act3-detail,
 #map[data-act="4"] #geo-cal,
 #map[data-act="4"] #act2-detail,
-#map[data-act="4"] #act4-detail { opacity: 1; }
+#map[data-act="4"] #act4-detail {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.9s var(--ease-glide), visibility 0s linear 0s;
+}
 
 /* clouds fade a little at close zoom so they don't swallow San Diego */
 #clouds { opacity: 0.9; transition: opacity 0.9s var(--ease-glide); }

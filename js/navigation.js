@@ -67,10 +67,14 @@ async function advance(i) {
 
   ui.hideCard();
   map.setAct(CHAPTERS[i].act);
-  map.setChapterCamera(i, { dur: 1100 });
 
-  await wait(map.REDUCED ? 0 : 300);
-  if (isNew && i > 0) await route.drawSegment(i - 1);   // seg i-1 connects prev → i
+  /* The camera arcs out, travels, and settles. The route segment is
+     drawn at the top of that arc — the one moment both the place she
+     is leaving and the place she is going are on screen together. */
+  await map.setChapterCamera(i, {
+    onWidest: () => { if (isNew && i > 0) route.drawSegment(i - 1); },
+  });
+
   if (!droppedSet.has(i)) { droppedSet.add(i); map.dropPin(i); }
   await wait(map.REDUCED ? 0 : 250);
   presentChapter(i);
@@ -86,8 +90,7 @@ async function revisit(i) {
   save();
   ui.hideCard();
   map.setAct(CHAPTERS[i].act);
-  map.setChapterCamera(i, { dur: 1000 });
-  await wait(map.REDUCED ? 0 : 700);
+  await map.setChapterCamera(i);
   presentChapter(i);
   setBusy(false);
 }
@@ -121,8 +124,7 @@ async function runFlight() {
 
   // settle into Palermo's own framing, then the card rises normally
   map.setAct(3);
-  map.setChapterCamera(index, { dur: 1100 });
-  await wait(map.REDUCED ? 0 : 800);
+  await map.setChapterCamera(index);
   presentChapter(index);
   setBusy(false);
 }
@@ -134,8 +136,7 @@ async function finish() {
   setPhase('closing');
   save();
   map.setAct(3);
-  map.fitBounds(map.allPinsBounds(), { pad: 0.16, dur: 1700, yBias: -0.06 });
-  await wait(map.REDUCED ? 0 : 1500);
+  await map.fitBounds(map.allPinsBounds(), { pad: 0.16, dur: 1900, yBias: -0.06 });
   ui.showClosing();
   setBusy(false);
 }
@@ -183,8 +184,7 @@ async function resume(saved) {
   setBusy(true);
   index = target;
   map.setAct(CHAPTERS[index].act);
-  map.setChapterCamera(index, { dur: 1400 });
-  await wait(map.REDUCED ? 0 : 1100);
+  await map.setChapterCamera(index, { dur: 1400 });
   presentChapter(index);
   setBusy(false);
 }
