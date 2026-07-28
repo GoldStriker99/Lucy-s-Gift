@@ -3,20 +3,36 @@
    single rAF loop, swipe navigation, and the compass easter egg.
    ═══════════════════════════════════════════════════════════════ */
 
-import { initMap, viewScale, tickCamera } from './map.js';
+import { initMap, viewScale, tickCamera, enablePan } from './map.js';
 import { initRoute, tick as routeTick } from './route.js';
-import { initNavigation, next, back, goTo } from './navigation.js';
+import { initFog, tickFog } from './fog.js';
+import { initNavigation, onPinTap } from './navigation.js';
 import { tick as uiTick } from './ui.js';
 
-initMap((i) => goTo(i));   // tapping a lit pin revisits its chapter
+const stage = document.getElementById('stage');
+
+initMap((i) => onPinTap(i));   // the map is navigated by tapping pins
 initRoute();
-initNavigation();
+initFog();
+
+/* Free roam. Returns a probe telling us whether the last gesture was a
+   drag, so dragging the map never counts as choosing a pin. */
+const wasDragging = enablePan(
+  stage,
+  () => document.body.classList.contains('busy') ||
+        document.body.classList.contains('reading') ||
+        !document.body.classList.contains('phase-chapters')
+);
+
+initNavigation(wasDragging);
 
 /* ── the one rAF loop for everything continuous ── */
 let running = true;
+let lastFrame = performance.now();
 function loop(now) {
   if (running) {
     tickCamera(now);          // camera first — route dashes read its scale
+    tickFog(now - lastFrame); lastFrame = now;
     routeTick(now, viewScale());
     uiTick(now);
   }
@@ -24,25 +40,6 @@ function loop(now) {
 }
 requestAnimationFrame(loop);
 document.addEventListener('visibilitychange', () => { running = !document.hidden; });
-
-/* ── swipe left/right to advance/back ── */
-const stage = document.getElementById('stage');
-let swipe = null;
-stage.addEventListener('pointerdown', (e) => {
-  swipe = { x: e.clientX, y: e.clientY, t: e.timeStamp };
-}, { passive: true });
-stage.addEventListener('pointerup', (e) => {
-  if (!swipe) return;
-  const dx = e.clientX - swipe.x;
-  const dy = e.clientY - swipe.y;
-  swipe = null;
-  /* Judged on shape, not speed: clearly long and clearly horizontal.
-     No duration cap — event timestamps stretch when the main thread is
-     busy animating, and a slow deliberate swipe that does nothing feels
-     broken. Mid-transition taps are already absorbed by the busy guard. */
-  if (Math.abs(dx) < 64 || Math.abs(dx) < 2.2 * Math.abs(dy)) return;
-  if (dx < 0) next(); else back();
-}, { passive: true });
 
 /* ── keep the stage a stage: no pinch zoom ──
    (double-tap zoom is already disabled by touch-action: manipulation) */

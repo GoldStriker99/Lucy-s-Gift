@@ -4,13 +4,13 @@
    drifting line into the future.
    ═══════════════════════════════════════════════════════════════ */
 
-import { CHAPTERS } from './chapters.js';
-import { worldXY, viewScale, isCameraMoving, viewRect, REDUCED } from './map.js';
+import { PLACES, FLIGHT_AT } from './places.js';
+import { placeXY, viewScale, isCameraMoving, viewRect, REDUCED } from './map.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 const DRAW_MS = 1000;
 
-export const FLIGHT_SEG = 9;   // segment Irvine → Palermo
+export const FLIGHT_SEG = FLIGHT_AT;   // the segment Irvine → Palermo
 
 let routesG, fxG, glowEl;
 const segs = [];               // { el, len, dashed, flight, drawn }
@@ -32,8 +32,8 @@ function curveD(a, b, bow) {
    whatever the real distance between the two chapters turns out to be.
    Also used as the plane's motion path. */
 export const FLIGHT_D = (() => {
-  const a = worldXY(CHAPTERS[FLIGHT_SEG]);
-  const b = worldXY(CHAPTERS[FLIGHT_SEG + 1]);
+  const a = placeXY(FLIGHT_SEG);
+  const b = placeXY(FLIGHT_SEG + 1);
   const dx = b.x - a.x;
   const bow = Math.abs(dx) * 0.23;          // how far north it swings
   return `M ${a.x} ${a.y} C ${a.x + dx * 0.28} ${a.y - bow}, ` +
@@ -44,9 +44,9 @@ export function initRoute() {
   routesG = document.getElementById('routes');
   fxG = document.getElementById('fx');
 
-  for (let i = 0; i < CHAPTERS.length - 1; i++) {
-    const a = worldXY(CHAPTERS[i]);
-    const b = worldXY(CHAPTERS[i + 1]);
+  for (let i = 0; i < PLACES.length - 1; i++) {
+    const a = placeXY(i);
+    const b = placeXY(i + 1);
     const dashed = i >= FLIGHT_SEG + 1;
     const flight = i === FLIGHT_SEG;
     const el = document.createElementNS(NS, 'path');

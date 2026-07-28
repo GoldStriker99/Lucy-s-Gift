@@ -4,6 +4,7 @@
    ═══════════════════════════════════════════════════════════════ */
 
 import { CHAPTERS } from './chapters.js';
+import { PLACES } from './places.js';
 import { CONFIG } from './config.js';
 import { REDUCED } from './map.js';
 
@@ -44,8 +45,8 @@ export function initUI(h) {
   reply.textContent = CONFIG.replyButton;
   reply.href = `sms:${CONFIG.replyPhone}&body=${encodeURIComponent(CONFIG.replyBody)}`;
 
-  // progress dots
-  CHAPTERS.forEach(() => {
+  // one dot per place on the map, not per page
+  PLACES.forEach(() => {
     const d = document.createElement('span');
     d.className = 'dot';
     els.progress.appendChild(d);
@@ -53,7 +54,6 @@ export function initUI(h) {
 
   // buttons
   els.btnNext.addEventListener('click', () => handlers.onNext());
-  els.btnBack.addEventListener('click', () => handlers.onBack());
   els.btnBegin.addEventListener('click', () => handlers.onBegin());
   els.btnContinue.addEventListener('click', () => handlers.onContinue());
   els.btnRestart.addEventListener('click', () => handlers.onRestart());
@@ -75,11 +75,11 @@ export function hideTitle() {
   els.titleScreen.classList.add('leaving');
 }
 
-/* ── progress dots ── */
-export function setDots(current, maxReached) {
+/* ── progress ── how many memories she has uncovered */
+export function setProgress(found, total) {
   [...els.progress.children].forEach((d, i) => {
-    d.classList.toggle('now', i === current);
-    d.classList.toggle('done', i !== current && i <= maxReached);
+    d.classList.toggle('done', i < found);
+    d.classList.toggle('now', i === found && found < total);
   });
 }
 
@@ -99,7 +99,7 @@ export function showCard(i, { label = 'Next', showChev = true } = {}) {
   els.body.textContent = ch.body;
   els.btnNextLabel.textContent = label;
   els.chev.style.display = showChev ? '' : 'none';
-  els.btnBack.classList.toggle('gone', i === 0);
+  els.btnBack.classList.add('gone');
 
   els.scroll.scrollTop = 0;
   els.card.classList.remove('card-hidden', 'peek');

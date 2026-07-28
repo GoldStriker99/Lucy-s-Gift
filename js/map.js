@@ -7,9 +7,12 @@
    artwork was generated with (see README → "Rebuilding the map").
    ═══════════════════════════════════════════════════════════════ */
 
+import { PLACES, placeSpan } from './places.js';
+
 import { CHAPTERS } from './chapters.js';
 
 const NS = 'http://www.w3.org/2000/svg';
+const CH_STATUS = (i) => CHAPTERS[PLACES[i].pages[0]].status;
 
 /* ── projection ── */
 const K = 100;          // world units per degree of longitude
@@ -27,27 +30,9 @@ export const project = (lon, lat) => ({
   y: (MERCY0 - mercY(lat)) * K,
 });
 
-export const worldXY = (ch) => project(ch.lon, ch.lat);
+export const worldXY = (p) => project(p.lon, p.lat);
+export const placeXY = (i) => worldXY(PLACES[i]);
 
-/* How wide a view each chapter gets, in world units.
-   1 unit ≈ 0.9 km near San Diego, so 20 ≈ an 18 km city view.
-   Consecutive chapters are deliberately different so the camera
-   visibly moves even between neighbours. */
-const SPAN = [
-  11,    //  1 Price Center — UCSD
-  6.5,   //  2 the dorm, steak night (right next door, so go closer)
-  15,    //  3 Catania, La Jolla
-  620,   //  4 Vegas
-  9,     //  5 Sixth College
-  22,    //  6 thrifting in La Mesa
-  330,   //  7 Six Flags
-  16,    //  8 Del Mar fair
-  11,    //  9 the love letter
-  240,   // 10 Irvine — the Odyssey  [flight departs]
-  760,   // 11 Palermo
-  900,   // 12 landing back in California
-  300,   // 13 the Bay Area
-];
 
 const PIN_ART = 30;      // design height of the pin artwork
 const PIN_PX = 38;       // desired on-screen pin height
@@ -267,8 +252,8 @@ export const cameraSpan = () => cam.span;
    `instant` cuts straight there with no animation — used on a cold
    resume, where there is no previous place to travel from. */
 export function setChapterCamera(i, { dur, onWidest, instant = false } = {}) {
-  const { x, y } = worldXY(CHAPTERS[i]);
-  const span = SPAN[i];
+  const { x, y } = placeXY(i);
+  const span = placeSpan(i);
   const target = {
     cx: x + (i % 2 ? -1 : 1) * 0.05 * span,
     cy: y + 0.17 * span * (view.h0 / view.w0),
@@ -283,21 +268,109 @@ export function setChapterCamera(i, { dur, onWidest, instant = false } = {}) {
   return flyTo(target, { dur, onWidest });
 }
 
-export function fitBounds(b, { pad = 0.18, dur, yBias = 0, onWidest } = {}) {
+export function fitBounds(b, { pad = 0.18, dur, yBias = 0, onWidest, instant = false } = {}) {
   const bw = Math.max(1e-6, b.maxX - b.minX);
   const bh = Math.max(1e-6, b.maxY - b.minY);
   // widen to whichever axis needs more room, in world units
   const span = Math.max(bw * (1 + pad * 2),
                         bh * (1 + pad * 2) * (view.w0 / view.h0));
-  return flyTo({
+  const target = {
     cx: (b.minX + b.maxX) / 2,
     cy: (b.minY + b.maxY) / 2 + yBias * span * (view.h0 / view.w0),
     span,
-  }, { dur, onWidest });
+  };
+  if (instant) { finishTween(); jumpTo(target); onWidest?.(); return Promise.resolve(); }
+  return flyTo(target, { dur, onWidest });
+}
+
+export const chapterSpan = placeSpan;
+
+/* World → screen, in CSS pixels. The fog veil lives in screen space and
+   re-projects itself through this every frame. */
+export const pxPerUnit = () => view.w / cam.span;
+export function worldToScreen(x, y) {
+  const k = view.w / cam.span;
+  return { x: (x - cam.cx) * k + view.w / 2, y: (y - cam.cy) * k + view.h / 2 };
+}
+
+/* Frame everything uncovered so far, so the world opens outward as she
+   explores. Only ever widens, which is the cheap direction to animate. */
+export function boundsThrough(upTo) {
+  const pts = PLACES.slice(0, upTo + 1).map(worldXY);
+  const b = {
+    minX: Math.min(...pts.map(p => p.x)), maxX: Math.max(...pts.map(p => p.x)),
+    minY: Math.min(...pts.map(p => p.y)), maxY: Math.max(...pts.map(p => p.y)),
+  };
+
+  /* Two places can sit almost on top of each other — the three UCSD
+     chapters are a few hundred metres apart — and fitting their bare
+     bounding box would zoom in far past anything recognisable. So the
+     frame is never tighter than the widest framing any revealed place
+     asks for. */
+  const floor = Math.max(...PLACES.slice(0, upTo + 1).map((_, k) => placeSpan(k)));
+  const cx = (b.minX + b.maxX) / 2, cy = (b.minY + b.maxY) / 2;
+  const halfW = Math.max((b.maxX - b.minX) / 2, floor / 2);
+  const halfH = Math.max((b.maxY - b.minY) / 2, (floor / 2) * (view.h0 / view.w0));
+  return { minX: cx - halfW, maxX: cx + halfW, minY: cy - halfH, maxY: cy + halfH };
+}
+
+/* ── free roam ──
+   Drag to pan. Translation only: the scale never changes here, which is
+   what keeps it cheap. Kept loosely inside what she has uncovered so she
+   can't wander off into blank paper. */
+let panBounds = null;
+export function setPanBounds(b) { panBounds = b; }
+
+function clampCam() {
+  if (!panBounds) return;
+  const halfW = cam.span / 2;
+  const halfH = (cam.span * (view.h0 / view.w0)) / 2;
+  const padX = cam.span * 0.45, padY = halfH * 0.9;
+  const minX = panBounds.minX - padX + halfW * 0;
+  const maxX = panBounds.maxX + padX;
+  const minY = panBounds.minY - padY;
+  const maxY = panBounds.maxY + padY;
+  cam.cx = Math.max(Math.min(cam.cx, maxX), minX);
+  cam.cy = Math.max(Math.min(cam.cy, maxY), minY);
+}
+
+export function enablePan(stage, isBlocked) {
+  let active = false, lastX = 0, lastY = 0, moved = 0, id = null;
+
+  stage.addEventListener('pointerdown', (e) => {
+    if (isBlocked() || tween) return;
+    if (e.target.closest('#card, #controls, #compass, #title-screen, #closing')) return;
+    active = true; id = e.pointerId;
+    lastX = e.clientX; lastY = e.clientY; moved = 0;
+    document.body.classList.add('panning');
+  }, { passive: true });
+
+  stage.addEventListener('pointermove', (e) => {
+    if (!active || e.pointerId !== id) return;
+    const dx = e.clientX - lastX, dy = e.clientY - lastY;
+    lastX = e.clientX; lastY = e.clientY;
+    moved += Math.abs(dx) + Math.abs(dy);
+    const perPx = cam.span / view.w;          // world units per screen px
+    cam.cx -= dx * perPx;
+    cam.cy -= dy * perPx;
+    clampCam();
+    writeCamera();
+  }, { passive: true });
+
+  const end = () => {
+    if (!active) return;
+    active = false; id = null;
+    document.body.classList.remove('panning');
+  };
+  stage.addEventListener('pointerup', end, { passive: true });
+  stage.addEventListener('pointercancel', end, { passive: true });
+
+  // a pin tap should not register if she was actually dragging the map
+  return () => moved > 10;
 }
 
 export function allPinsBounds() {
-  const pts = CHAPTERS.map(worldXY);
+  const pts = PLACES.map(worldXY);
   return {
     minX: Math.min(...pts.map(p => p.x)), maxX: Math.max(...pts.map(p => p.x)),
     minY: Math.min(...pts.map(p => p.y)), maxY: Math.max(...pts.map(p => p.y)),
@@ -309,8 +382,8 @@ export function lightSicily(on = true) { svg.classList.toggle('sicily-lit', on);
 
 /* ── pins ── */
 
-function pinMarkup(ch, isFinale) {
-  const rays = ch.status === 'present' ? `
+function pinMarkup(status, isFinale) {
+  const rays = status === 'present' ? `
       <g class="rays">
         <line x1="0" y1="-32" x2="0" y2="-38"/><line x1="12.7" y1="-26.7" x2="17" y2="-31"/>
         <line x1="18" y1="-14" x2="24" y2="-14"/><line x1="12.7" y1="-1.3" x2="17" y2="3"/>
@@ -334,14 +407,16 @@ function pinMarkup(ch, isFinale) {
 }
 
 function buildPins(onTap) {
-  CHAPTERS.forEach((ch, i) => {
+  PLACES.forEach((ch, i) => {
     const g = document.createElementNS(NS, 'g');
-    const isFinale = i === CHAPTERS.length - 1;
-    g.setAttribute('class', `pin pin-${ch.status}${isFinale ? ' pin-finale' : ''} locked`);
+    const isFinale = i === PLACES.length - 1;
+    // every pin exists on the map from the start — the far ones are just
+    // grey and unreachable, sitting out in the cloud
+    g.setAttribute('class', `pin pin-${CH_STATUS(i)}${isFinale ? ' pin-finale' : ''} dropped locked`);
     const { x, y } = worldXY(ch);
     g._wx = x; g._wy = y;
-    g._weight = ch.status === 'present' ? 1.18 : isFinale ? 1.35 : 1;
-    g.innerHTML = pinMarkup(ch, isFinale);
+    g._weight = CH_STATUS(i) === 'present' ? 1.18 : isFinale ? 1.35 : 1;
+    g.innerHTML = pinMarkup(CH_STATUS(i), isFinale);
     g.addEventListener('click', () => onTap(i));
     pinsG.appendChild(g);
     pinEls.push(g);
@@ -363,10 +438,17 @@ export function undropPin(i) {
   pinEls[i].classList.add('locked');
 }
 
-export function setPinStates(current, maxReached) {
+/* Three states, and only three:
+     locked  — grey, inert, out there in the mist
+     ready   — red and breathing, waiting to be opened
+     opened  — read already, still lit but quiet, tappable to revisit */
+export function setPinStates({ unlocked, opened }) {
   pinEls.forEach((el, i) => {
-    el.classList.toggle('current', i === current);
-    el.classList.toggle('locked', i > maxReached);
+    const isReady = i === unlocked && !opened.has(i);
+    el.classList.toggle('locked', i > unlocked);
+    el.classList.toggle('ready', isReady);
+    el.classList.toggle('opened', opened.has(i));
+    el.classList.toggle('current', isReady);
   });
 }
 

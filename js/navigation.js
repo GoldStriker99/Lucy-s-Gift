@@ -1,32 +1,41 @@
 /* ═══════════════════════════════════════════════════════════════
-   navigation.js — the state machine. One chapter at a time, in
-   order, each advance a scripted beat:
-   map move → route draw → pin drop → card rise.
-   Persists progress to localStorage so she can resume.
+   navigation.js — exploration, not a slideshow.
+
+   The map is hers to roam. Everything starts under cloud with a single
+   red pin at UCSD; every other pin is grey and inert. Opening a memory
+   parts the cloud over the next place and widens the view to take it
+   in, turning that pin red. Anything she has already opened stays
+   tappable, so she can wander back.
+
+   Progress is still strictly in order — there is only ever one red pin,
+   so she never has to wonder what to do next.
    ═══════════════════════════════════════════════════════════════ */
 
 import { CHAPTERS } from './chapters.js';
+import { PLACES, FLIGHT_AT } from './places.js';
 import * as map from './map.js';
 import * as route from './route.js';
+import * as fog from './fog.js';
 import * as ui from './ui.js';
 import { flyToPalermo } from './flight.js';
 
-const KEY = 'a-map-of-us-progress-v1';
-const FLIGHT_AT = 9;           // index of the last stop before she flies (Irvine)
-const LAST = CHAPTERS.length - 1;
-const CLOSING = CHAPTERS.length; // saved index meaning "reached the end"
+const KEY = 'a-map-of-us-progress-v3';
+const LAST = PLACES.length - 1;
 
-let index = -1;
-let maxReached = 0;
-let flightPlayed = false;
+let unlocked = 0;               // furthest place the cloud has parted over
+const opened = new Set();       // places she has actually read
 let phase = 'title';
 let busy = false;
+let openPlace = -1;             // the place whose card is on screen
+let page = 0;                   // …and which of its pages
+let wasDragging = () => false;
 
 const wait = (ms) => new Promise(res => setTimeout(res, ms));
 
 function save() {
-  try { localStorage.setItem(KEY, JSON.stringify({ i: index, m: maxReached, f: flightPlayed })); }
-  catch { /* private mode — she just starts over */ }
+  try {
+    localStorage.setItem(KEY, JSON.stringify({ u: unlocked, o: [...opened] }));
+  } catch { /* private mode — she just starts over */ }
 }
 function load() {
   try { return JSON.parse(localStorage.getItem(KEY) || 'null'); }
@@ -37,102 +46,100 @@ function setBusy(b) {
   busy = b;
   document.body.classList.toggle('busy', b);
 }
-
 function setPhase(p) {
   document.body.classList.remove(`phase-${phase}`);
   phase = p;
   document.body.classList.add(`phase-${phase}`);
 }
 
-function primaryLabel(i) {
-  if (i === FLIGHT_AT) return flightPlayed ? 'Fly again ✈' : 'Board the plane ✈';
-  if (i === LAST) return 'One last thing ♡';
-  return 'Next';
+function refreshPins() {
+  map.setPinStates({ unlocked, opened });
+  ui.setProgress(opened.size, PLACES.length);
 }
 
-function presentChapter(i) {
-  ui.setDots(i, maxReached);
-  map.setPinStates(i, maxReached);
-  ui.showCard(i, { label: primaryLabel(i), showChev: i !== FLIGHT_AT && i !== LAST });
-  ui.prefetch(i + 1);
-}
-
-/* ── the advance beat ── */
-async function advance(i) {
+/* ── opening a place ── */
+async function open(i) {
+  if (busy || phase !== 'chapters') return;
+  if (i > unlocked) return;                 // still under cloud
   setBusy(true);
-  const isNew = i > maxReached;
-  if (isNew) maxReached = i;
-  index = i;
+  opened.add(i);
+  openPlace = i;
+  page = 0;
   save();
+  refreshPins();
+  showPage(i, 0);
+  setBusy(false);
+}
 
-  /* The beat, in order:
-       card drops away  →  the map travels  →  pin lands  →  card rises
-     Nothing else is on screen while the map is moving, so the travel
-     gets the whole frame budget, and the reading is undisturbed by a
-     map animating underneath it. */
-  ui.hideCard();
-  await wait(map.REDUCED ? 0 : 620);        // card is fully out of view
-
-  map.setAct(CHAPTERS[i].act);
-  await map.setChapterCamera(i, {
-    onWidest: () => { if (isNew && i > 0) route.drawSegment(i - 1); },
+/* A place can hold more than one page — UCSD is the theatre and then
+   the steak. The button turns the page until the last one, and only
+   then closes and opens up the next stretch of map. */
+function showPage(placeIdx, p) {
+  const pages = PLACES[placeIdx].pages;
+  const last = p === pages.length - 1;
+  ui.showCard(pages[p], {
+    label: !last ? 'Next page' : (placeIdx === LAST ? 'One last thing ♡' : 'Close'),
+    showChev: !last,
   });
-
-  if (!droppedSet.has(i)) { droppedSet.add(i); map.dropPin(i); }
-  await wait(map.REDUCED ? 0 : 520);        // let the pin land before covering it
-  presentChapter(i);
-  setBusy(false);
 }
 
-const droppedSet = new Set();
+/* ── closing it, which opens up the next stretch of map ── */
+async function closeCard() {
+  if (busy || phase !== 'chapters') return;
 
-/* revisit — everything already drawn, so it is just card out, travel,
-   card back in */
-async function revisit(i) {
-  setBusy(true);
-  index = i;
-  save();
-  ui.hideCard();
-  await wait(map.REDUCED ? 0 : 620);
-  map.setAct(CHAPTERS[i].act);
-  await map.setChapterCamera(i);
-  await wait(map.REDUCED ? 0 : 320);
-  presentChapter(i);
-  setBusy(false);
-}
-
-/* ── the flight ── */
-async function runFlight() {
-  setBusy(true);
-  ui.hideCard();
-
-  if (map.REDUCED) {
-    // no flight: route drawn, pin placed, stamp already stamped
-    route.setFlightProgress(1);
-    map.lightSicily(true);
-    map.dropPin(FLIGHT_AT + 1, { instant: true });
-    ui.showStamp({ autohide: true });
-  } else {
-    if (flightPlayed) {         // replaying: rewind the theater first
-      route.resetFlightSegment();
-      map.undropPin(FLIGHT_AT + 1);
-      map.lightSicily(false);
-      await wait(350);
-    }
-    await flyToPalermo({ showStamp: () => ui.showStamp({ autohide: true }) });
+  const here = openPlace;
+  if (here < 0) return;
+  const pages = PLACES[here].pages;
+  if (page < pages.length - 1) {      // still more to read here
+    page += 1;
+    showPage(here, page);
+    return;
   }
 
-  flightPlayed = true;
-  droppedSet.add(FLIGHT_AT + 1);
-  index = FLIGHT_AT + 1;
-  maxReached = Math.max(maxReached, index);
-  save();
+  setBusy(true);
+  ui.hideCard();
+  openPlace = -1;
+  await wait(map.REDUCED ? 0 : 620);
 
-  // settle into Palermo's own framing, then the card rises normally
-  map.setAct(3);
-  await map.setChapterCamera(index);
-  presentChapter(index);
+  /* Only closing the furthest place opens up new map. Wandering back
+     to somewhere she has already been just puts the card away. */
+  if (here === unlocked && unlocked < LAST) {
+    await reveal(unlocked + 1);
+  }
   setBusy(false);
+
+  if (opened.size === PLACES.length && unlocked === LAST) finish();
+}
+
+/* ── the reveal ── */
+async function reveal(i) {
+  map.setAct(PLACES[i].act);
+
+  // the crossing gets its own sequence rather than a simple cloud-part
+  if (i === FLIGHT_AT + 1 && !map.REDUCED) {
+    await flyToPalermo({ showStamp: () => ui.showStamp({ autohide: true }) });
+  } else if (i === FLIGHT_AT + 1) {
+    route.setFlightProgress(1);
+    map.lightSicily(true);
+    ui.showStamp({ autohide: true });
+  }
+
+  fog.clearFog(i);
+  if (i > 0) route.drawSegment(i - 1);
+  if (i > FLIGHT_AT) map.lightSicily(true);
+
+  const b = map.boundsThrough(i);
+  map.setPanBounds(b);
+  await map.fitBounds(b, { pad: 0.22, yBias: -0.04 });
+
+  /* The cloud draws back onto a grey pin first — somewhere out there,
+     not yet hers — and only then does it warm to red. */
+  map.dropPin(i);
+  await wait(map.REDUCED ? 0 : 700);
+  unlocked = i;
+  save();
+  refreshPins();
+  await wait(map.REDUCED ? 0 : 400);
 }
 
 /* ── the closing ── */
@@ -149,72 +156,68 @@ async function finish() {
 
 /* ── public API ── */
 
-export function next() {
-  if (busy || phase !== 'chapters') return;
-  if (index === FLIGHT_AT) { runFlight(); return; }
-  if (index >= LAST) { finish(); return; }
-  if (index + 1 <= maxReached) revisit(index + 1);
-  else advance(index + 1);
-}
-
-export function back() {
-  if (busy || phase !== 'chapters') return;
-  if (index > 0) revisit(index - 1);
-}
-
-export function goTo(i) {
-  if (busy || phase !== 'chapters') return;
-  if (i < 0 || i > maxReached || i === index) return;   // no jumping ahead
-  revisit(i);
+export function onPinTap(i) {
+  if (wasDragging()) return;      // she was moving the map, not choosing
+  if (i > unlocked) return;
+  open(i);
 }
 
 async function begin() {
   setPhase('chapters');
   ui.hideTitle();
-  await advance(0);
+  unlocked = 0;
+  opened.clear();
+  save();
+
+  fog.clearFog(0);
+  const b = map.boundsThrough(0);
+  map.setPanBounds(b);
+  // wider than the clearing, so she can see cloud waiting at the edges
+  map.fitBounds(b, { pad: 0.32, yBias: -0.04, instant: true });
+  refreshPins();
+  await wait(map.REDUCED ? 0 : 500);
+  map.dropPin(0);
 }
 
-/* resume: rebuild every already-visited state instantly, then frame
-   the saved chapter */
 async function resume(saved) {
   setPhase('chapters');
   ui.hideTitle();
-  maxReached = Math.min(saved.m ?? 0, LAST);
-  flightPlayed = !!saved.f || maxReached > FLIGHT_AT;
-  for (let s = 0; s < maxReached; s++) route.drawSegment(s, { instant: true });
-  for (let p = 0; p <= maxReached; p++) { map.dropPin(p, { instant: true }); droppedSet.add(p); }
-  if (maxReached > FLIGHT_AT) map.lightSicily(true);
+  unlocked = Math.min(saved.u ?? 0, LAST);
+  for (const i of saved.o ?? []) opened.add(i);
 
-  const target = Math.min(saved.i ?? 0, CLOSING);
-  if (target >= CLOSING) { index = LAST; finish(); return; }
-  setBusy(true);
-  index = target;
-  map.setAct(CHAPTERS[index].act);
-  map.setChapterCamera(index, { instant: true });   // cold start, nothing to travel from
-  presentChapter(index);
-  setBusy(false);
+  for (let i = 0; i <= unlocked; i++) fog.clearFog(i, { instant: true });
+  for (let s = 0; s < unlocked; s++) route.drawSegment(s, { instant: true });
+  if (unlocked > FLIGHT_AT) map.lightSicily(true);
+
+  map.setAct(PLACES[unlocked].act);
+  const b = map.boundsThrough(unlocked);
+  map.setPanBounds(b);
+  map.fitBounds(b, { pad: 0.22, yBias: -0.04, instant: true });
+  refreshPins();
 }
 
-export function closeClosing() {   // "back to the map" from the end screen
+export function closeClosing() {
   ui.hideClosing();
   setPhase('chapters');
-  index = LAST;
-  revisit(LAST);
+  const b = map.boundsThrough(LAST);
+  map.setPanBounds(b);
+  map.fitBounds(b, { pad: 0.18 });
 }
 
-export function walkAgain() {      // from the closing screen: start at 1, all pins stay lit
+export function walkAgain() {
   ui.hideClosing();
   setPhase('chapters');
-  revisit(0);
+  open(0);
 }
 
-export function initNavigation() {
+export function initNavigation(dragProbe) {
+  wasDragging = dragProbe;
   const saved = load();
-  const hasProgress = saved && (saved.i ?? 0) > 0;
+  const hasProgress = saved && ((saved.u ?? 0) > 0 || (saved.o ?? []).length > 0);
 
   ui.initUI({
-    onNext: next,
-    onBack: back,
+    onNext: closeCard,
+    onBack: () => {},
     onBegin: () => { try { localStorage.removeItem(KEY); } catch {} begin(); },
     onContinue: () => resume(saved),
     onRestart: () => { try { localStorage.removeItem(KEY); } catch {} ui.showTitle({ resume: false }); },
@@ -222,6 +225,6 @@ export function initNavigation() {
     onWalkAgain: walkAgain,
   });
 
-  map.setAct(3);
+  map.setAct(1);
   ui.showTitle({ resume: hasProgress });
 }

@@ -238,11 +238,40 @@ body.reading .pin-present .rays {
 .plane-body { fill: var(--cloud); stroke: var(--ink); stroke-width: 1.4; stroke-linejoin: round; }
 .plane-fold { fill: var(--paper-deep); stroke: var(--ink); stroke-width: 1; stroke-linejoin: round; }
 
+/* ── the unexplored map ──
+   One screen-sized veil, masked so that each place she has uncovered
+   shows through as a soft hole. Fixed size whatever the zoom, so it
+   costs the same over a campus as over an ocean. */
+#fogveil {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 1.2s var(--ease-glide);
+}
+/* Cooler and paler than the land it covers. The paper cream of the map
+   and the cream of the cloud were close enough to be indistinguishable,
+   which made the fog invisible over land and only visible over sea. */
+#fogveil rect[mask] { fill: #EFEFEA; }
+/* Holes must union, not paint over one another: without this the pale
+   outer edge of a newly opened hole covers the dark centre of the one
+   beside it, and the older clearing fogs back over. Multiply keeps the
+   darkest value wherever two holes overlap. */
+#fog-holes circle { mix-blend-mode: multiply; }
+body.phase-title #fogveil,
+body.phase-closing #fogveil { opacity: 0; }
+
+body.panning { cursor: grabbing; }
+
 /* ── pins ──
    Outer <g class="pin"> gets translate+counter-scale from JS.
    Inner units are screen-normalized (art is ~30 units ≈ 38 px). */
 .pin { cursor: pointer; }
 .pin.locked { pointer-events: none; }
+.pin.ready, .pin.opened { cursor: pointer; }
 
 .pin .seed {
   fill: none;
@@ -266,8 +295,21 @@ body.reading .pin-present .rays {
 }
 .pin .marker { transform-box: fill-box; transform-origin: 50% 100%; }
 
-.pin .body { fill: var(--rose-deep); stroke: var(--paper); stroke-width: 1.6; }
+/* Grey and unreachable until the cloud parts, red once it is hers to
+   open, then a settled red for somewhere she has already been. */
+.pin .body {
+  fill: var(--rose-deep);
+  stroke: var(--paper);
+  stroke-width: 1.6;
+  transition: fill 0.8s var(--ease-glide);
+}
 .pin .dot  { fill: var(--paper); }
+
+.pin.locked .body   { fill: var(--ink-faint); }
+.pin.locked .heart  { fill: var(--ink-faint); }
+.pin.locked         { opacity: 0.55; }
+.pin.opened         { opacity: 0.85; }
+.pin.ready          { opacity: 1; }
 .pin .halo {
   fill: var(--rose-deep);
   opacity: 0;
@@ -277,14 +319,14 @@ body.reading .pin-present .rays {
 /* Only the pin she is standing on breathes. Thirteen lit pins each
    running two infinite animations was real work for a phone to do
    forever, and the quiet ones read fine as simply "placed". */
-.pin.current .halo { animation: halo-pulse 1.8s ease-in-out infinite; }
+.pin.ready .halo { animation: halo-pulse 1.8s ease-in-out infinite; }
 @keyframes halo-pulse {
   0%, 100% { opacity: 0;    transform: scale(0.7); }
   45%      { opacity: 0.28; transform: scale(1.25); }
 }
 
 .pin .pulse { transform-box: fill-box; transform-origin: 50% 100%; }
-.pin.current .pulse { animation: pin-breathe 2.2s ease-in-out infinite; }
+.pin.ready .pulse { animation: pin-breathe 2.2s ease-in-out infinite; }
 @keyframes pin-breathe {
   0%, 100% { transform: scale(1); }
   50%      { transform: scale(1.05); }

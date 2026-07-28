@@ -32,7 +32,7 @@
 
 export const CHAPTERS = [
 
-  { // ── 1 ────────────────────────────────────────────────
+  { // ── 1 ────────────────────
     id: "price-center",
     title: "Where it started",
     date: "the night of the show",
@@ -44,8 +44,9 @@ export const CHAPTERS = [
     body: "Of all the ways two people can meet, we picked the one with an audience. I still think about how calm you looked up there and how completely not-calm I was. Whatever the show was actually for, this is the part I kept.",
   },
 
-  { // ── 2 ────────────────────────────────────────────────
+  { // ── 2 ────────────────────
     id: "dorm-steak",
+    samePlace: true,          // ← another page of the UCSD pin, not a new pin
     title: "The steak",
     date: "a few days later",
     place: "Justice Lane, Earl Warren",
@@ -56,7 +57,7 @@ export const CHAPTERS = [
     body: "First time seeing you off-camera, and I decided the move was to cook. In a dorm. With one pan. It worked — and you looked genuinely surprised, which I'm choosing to remember as being impressed.",
   },
 
-  { // ── 3 ────────────────────────────────────────────────
+  { // ── 3 ────────────────────
     id: "catania",
     title: "Our first date",
     date: "the first real one",
@@ -68,7 +69,7 @@ export const CHAPTERS = [
     body: "An Italian place on Girard, which is funny to think about now that you're actually in Sicily eating the real thing. Everything after this was easier. We ran out of restaurant before we ran out of things to say.",
   },
 
-  { // ── 4 ────────────────────────────────────────────────
+  { // ── 4 ────────────────────
     id: "vegas",
     title: "Vegas formal",
     date: "our first trip",
@@ -80,19 +81,8 @@ export const CHAPTERS = [
     body: "First trip together, which is a real test, and we passed. Four hours of desert each way and you were still talking to me at the end of it. That's when I stopped thinking of this as a new thing.",
   },
 
-  { // ── 5 ────────────────────────────────────────────────
-    id: "sixth-college",
-    title: "End of the year",
-    date: "end of the school year",
-    place: "Sixth College, UCSD",
-    act: 1, status: "past",
-    lat: 32.880350, lon: -117.242170,
-    photo: "./images/ch05.svg",
-    caption: "the year, finished",
-    body: "Everyone spilling out of the res halls, the year finally over, that specific summer-is-starting feeling. Mostly I remember looking around a crowded room and being glad about exactly one person in it.",
-  },
 
-  { // ── 6 ────────────────────────────────────────────────
+  { // ── 5 ────────────────────
     id: "thrifting",
     title: "Thrifting before the drive",
     date: "before the Bay Area trip",
@@ -104,7 +94,7 @@ export const CHAPTERS = [
     body: "Killing time in a thrift store before the long drive north, trying on things neither of us was going to buy. It shouldn't be a memory worth pinning. It is anyway — that's sort of the point of this map.",
   },
 
-  { // ── 7 ────────────────────────────────────────────────
+  { // ── 6 ────────────────────
     id: "six-flags",
     title: "Magic Mountain",
     date: "the rollercoaster day",
@@ -116,7 +106,7 @@ export const CHAPTERS = [
     body: "Two hours north, an hour in line, ninety seconds of you gripping my arm hard enough to leave a mark. You said \"again\" before the ride had fully stopped moving.",
   },
 
-  { // ── 8 ────────────────────────────────────────────────
+  { // ── 7 ────────────────────
     id: "del-mar",
     title: "The fair",
     date: "fair season",
@@ -128,7 +118,7 @@ export const CHAPTERS = [
     body: "The fair by the racetrack, that stretch where the lagoon meets the ocean. Too much fried food and a ferris wheel at exactly the right time of evening. You won something small and carried it around all night like a trophy.",
   },
 
-  { // ── 9 ────────────────────────────────────────────────
+  { // ── 8 ────────────────────
     id: "love-letter",
     title: "The letter",
     date: "the one I wrote down",
@@ -140,7 +130,7 @@ export const CHAPTERS = [
     body: "Some things you can't say out loud without ruining them, so I wrote it down instead and handed it to you here. I meant all of it. I still do — that's the short version, and you already have the long one.",
   },
 
-  { // ── 10 ── THE FLIGHT DEPARTS FROM HERE ───────────────
+  { // ── 9 ──────────────────── THE FLIGHT DEPARTS FROM HERE ───────────────
     id: "irvine-odyssey",
     title: "The Odyssey, in 70mm",
     date: "right before you left",
@@ -152,7 +142,7 @@ export const CHAPTERS = [
     body: "We drove to Orange County to watch a three-hour film about a man trying to get home across the sea, and then, almost immediately, you got on a plane and crossed one. I didn't plan that. I'm taking credit for it anyway.",
   },
 
-  { // ── 11 ── WHERE SHE IS NOW ───────────────────────────
+  { // ── 10 ──────────────────── WHERE SHE IS NOW ───────────────────────────
     id: "palermo",
     title: "You are here",
     date: "right now",
@@ -164,7 +154,7 @@ export const CHAPTERS = [
     body: "Six thousand miles away, eating better than I ever will, sending me photos of doors. Beautiful doors, to be fair. The little boat off the coast is me, metaphorically. Waiting. Bobbing.",
   },
 
-  { // ── 12 ────────────────────────────────────────────────
+  { // ── 11 ────────────────────
     id: "landing",
     title: "When you land",
     date: "the day you're back",
@@ -176,7 +166,7 @@ export const CHAPTERS = [
     body: "The route home is dashed because it hasn't happened yet — but I already know how it goes. I'm at arrivals embarrassingly early, and the drive back is the shortest twenty minutes of the whole year.",
   },
 
-  { // ── 13 ── THE FINAL BEAT ─────────────────────────────
+  { // ── 12 ──────────────────── THE FINAL BEAT ─────────────────────────────
     id: "bay-area",
     title: "The drive north",
     date: "after you're home",

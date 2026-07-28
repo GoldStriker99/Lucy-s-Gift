@@ -84,6 +84,26 @@
     </g>
   </svg>
 
+  <!-- ═══════ THE UNEXPLORED MAP ═══════
+       A veil of cloud over the whole screen with a soft hole punched
+       through it at each place she has uncovered. Screen-space and a
+       fixed size, so it looks identical whether she is looking at one
+       campus or at an ocean. -->
+  <svg id="fogveil" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="fog-hole">
+        <stop offset="0%"   stop-color="#000"/>
+        <stop offset="58%"  stop-color="#000"/>
+        <stop offset="100%" stop-color="#fff"/>
+      </radialGradient>
+      <mask id="fog-mask" maskUnits="userSpaceOnUse">
+        <rect id="fog-mask-bg" x="0" y="0" width="100%" height="100%" fill="#fff"/>
+        <g id="fog-holes"></g>
+      </mask>
+    </defs>
+    <rect x="0" y="0" width="100%" height="100%" mask="url(#fog-mask)"/>
+  </svg>
+
   <!-- paper grain + soft vignette over the whole stage -->
   <div id="grain" aria-hidden="true"></div>
   <div id="vignette" aria-hidden="true"></div>

@@ -213,7 +213,9 @@ body.phase-title #compass, body.phase-closing #compass { opacity: 0; pointer-eve
 }
 body.phase-title #controls,
 body.phase-flight #controls,
-body.phase-closing #controls { opacity: 0; pointer-events: none; transform: translateY(16px); }
+body.phase-closing #controls,
+/* the map is hers to roam — buttons only appear with an open memory */
+body:not(.reading) #controls { opacity: 0; pointer-events: none; transform: translateY(16px); }
 
 #btn-back {
   flex: none;
