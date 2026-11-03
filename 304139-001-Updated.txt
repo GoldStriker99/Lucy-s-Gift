@@ -1,0 +1,7954 @@
+*PADS-LOGIC-V9.0* DESIGN EXPORT FILE FROM PADS LOGIC VVX.2.18
+*SCH*        GENERAL PARAMETERS OF THE SCHEMATIC DESIGN"
+
+CUR SHEET    1              Current Active Sheet
+USERGRID     50     10      Design and Label/Text grid settings
+LINEWIDTH    20             Width items will be created with
+CONNWIDTH    10             Width used to plot connections
+BUSWIDTH     25             Width used to plot buses
+BUSANGLE     25             Angle used when plotting buses
+NNVISPWRGND  4              Pwr/Gnd netname visibility default flag
+PCBFLAGS     1909           PCB Netlist and ECO options
+PINNAMESIZE  100    10      Height and LineWidth used by pin names
+TEXTSIZE     97     10      Height and LineWidth text will be created width
+JOBTIME      0              Amount of time spent on this LOGIC design
+DOTGRID      200            Space in thous/inch between graphic dots
+BACKUPTIME   5              Number of minutes between database backups
+TIEDOTSIZE   40             Diameter of tiedot point
+REFNAMESIZE  100    10      Height and LineWidth used by part ref. names
+PARTNAMESIZE 100    10      Height and LineWidth used by part type names
+PINNOSIZE    100    10      Height and LineWidth used by pin numbers
+NETNAMESIZE  100    10      Height and LineWidth used by net names
+REAL WIDTH   20             Widths greater then this are displayed real size
+SHEET SIZE   C             
+UNITS        0              Rules units type
+JOBNAME      304139-001.sch
+NTXCOL 11 9
+HIRCOL 23
+LINCOL 13
+TXTCOL 11 0
+CONCOL 10
+BUSCOL 10
+PTXCOL 11 0
+COMCOL 12
+NMCOL  11 0
+PNMCOL 11 0
+PINCOL 11 0
+NETCOL 11 0
+FBGCOL 15 0
+OFFREFVIEW   0              Offsheet references visibility default flag
+OFFREFNUM    0              Offsheet references per line
+SHEETNUMSEP  []             Sheet Number separators
+FONT MODE   System
+DEFAULT FONT "Regular Verdana"
+BORDER NAME CAES-C-SH2
+FIELDCOL 3 0
+
+*CAM* PLOTTER SETTINGS 
+
+*MISC*      MISCELLANEOUS PARAMETERS
+*REMARK*    PARENT_KEYWORD PARENT_VALUE
+*REMARK*  [ { 
+*REMARK*       CHILD_KEYWORD CHILD_VALUE
+*REMARK*     [ CHILD_KEYWORD CHILD_VALUE
+*REMARK*     [ { 
+*REMARK*          GRAND_CHILD_KEYWORD GRAND_CHILD_VALUE [...] 
+*REMARK*       } ]] 
+*REMARK*    } ] 
+
+LAYER	MILS
+{
+LAYER	0
+{
+LAYER_THICKNESS	0
+DIELECTRIC	3.300000
+}
+LAYER	1
+{
+LAYER_NAME	Top
+LAYER_TYPE	ROUTING
+PLANE	NONE
+ROUTING_DIRECTION	HORIZONTAL
+ASSOCIATED_SILK_SCREEN	Silkscreen Top
+ASSOCIATED_PASTE_MASK	Paste Mask Top
+ASSOCIATED_SOLDER_MASK	Solder Mask Top
+ASSOCIATED_ASSEMBLY	Assembly Drawing Top
+COMPONENT	Y
+ROUTABLE	Y
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	10
+COPPER_THICKNESS	1.35
+DIELECTRIC	4.300000
+COST	0
+}
+LAYER	2
+{
+LAYER_NAME	Bottom
+LAYER_TYPE	ROUTING
+PLANE	NONE
+ROUTING_DIRECTION	VERTICAL
+ASSOCIATED_SILK_SCREEN	Silkscreen Bottom
+ASSOCIATED_PASTE_MASK	Paste Mask Bottom
+ASSOCIATED_SOLDER_MASK	Solder Mask Bottom
+ASSOCIATED_ASSEMBLY	Assembly Drawing Bottom
+COMPONENT	Y
+ROUTABLE	Y
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	1.35
+DIELECTRIC	3.300000
+COST	0
+}
+LAYER	3
+{
+LAYER_NAME	Layer_3
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	4
+{
+LAYER_NAME	Layer_4
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	5
+{
+LAYER_NAME	Layer_5
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	6
+{
+LAYER_NAME	Layer_6
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	7
+{
+LAYER_NAME	Layer_7
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	8
+{
+LAYER_NAME	Layer_8
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	9
+{
+LAYER_NAME	Layer_9
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	10
+{
+LAYER_NAME	Layer_10
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	11
+{
+LAYER_NAME	Layer_11
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	12
+{
+LAYER_NAME	Layer_12
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	13
+{
+LAYER_NAME	Layer_13
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	14
+{
+LAYER_NAME	Layer_14
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	15
+{
+LAYER_NAME	Layer_15
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	16
+{
+LAYER_NAME	Layer_16
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	17
+{
+LAYER_NAME	Layer_17
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	18
+{
+LAYER_NAME	Layer_18
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	19
+{
+LAYER_NAME	Layer_19
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	20
+{
+LAYER_NAME	Layer_20
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	21
+{
+LAYER_NAME	Solder Mask Top
+LAYER_TYPE	SOLDER_MASK
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	22
+{
+LAYER_NAME	Paste Mask Bottom
+LAYER_TYPE	PASTE_MASK
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	23
+{
+LAYER_NAME	Paste Mask Top
+LAYER_TYPE	PASTE_MASK
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	24
+{
+LAYER_NAME	Drill Drawing
+LAYER_TYPE	DRILL
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	25
+{
+LAYER_NAME	Layer_25
+LAYER_TYPE	UNASSIGNED
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	26
+{
+LAYER_NAME	Silkscreen Top
+LAYER_TYPE	SILK_SCREEN
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	27
+{
+LAYER_NAME	Assembly Drawing Top
+LAYER_TYPE	ASSEMBLY
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	28
+{
+LAYER_NAME	Solder Mask Bottom
+LAYER_TYPE	SOLDER_MASK
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	29
+{
+LAYER_NAME	Silkscreen Bottom
+LAYER_TYPE	SILK_SCREEN
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+LAYER	30
+{
+LAYER_NAME	Assembly Drawing Bottom
+LAYER_TYPE	ASSEMBLY
+PLANE	NONE
+ROUTING_DIRECTION	NO_PREFERENCE
+VISIBLE	Y
+SELECTABLE	Y
+ENABLED	Y
+LAYER_THICKNESS	0
+COPPER_THICKNESS	0
+DIELECTRIC	0.000000
+COST	0
+}
+}
+*REMARK*    PARENT_KEYWORD PARENT_VALUE
+*REMARK*  [ { 
+*REMARK*       CHILD_KEYWORD CHILD_VALUE
+*REMARK*     [ CHILD_KEYWORD CHILD_VALUE
+*REMARK*     [ { 
+*REMARK*          GRAND_CHILD_KEYWORD GRAND_CHILD_VALUE [...] 
+*REMARK*       } ]] 
+*REMARK*    } ] 
+
+RULES_SECTION	MILS
+{
+NET_CLASS	DATA
+DESIGN	RULES
+{
+RULE_SET	(1)
+{
+FOR	:
+{
+DEFAULT	:
+}
+AGAINST	:
+{
+DEFAULT	:
+}
+LAYER	0
+CLEARANCE_RULE	:
+{
+TRACK_TO_TRACK	6
+VIA_TO_TRACK	6
+VIA_TO_VIA	6
+PAD_TO_TRACK	6
+PAD_TO_VIA	6
+PAD_TO_PAD	6
+SMD_TO_TRACK	6
+SMD_TO_VIA	6
+SMD_TO_PAD	6
+SMD_TO_SMD	6
+COPPER_TO_TRACK	6
+COPPER_TO_VIA	6
+COPPER_TO_PAD	6
+COPPER_TO_SMD	6
+COPPER_TO_COPPER	6
+TEXT_TO_TRACK	6
+TEXT_TO_VIA	6
+TEXT_TO_PAD	6
+TEXT_TO_SMD	6
+OUTLINE_TO_TRACK	6
+OUTLINE_TO_VIA	6
+OUTLINE_TO_PAD	6
+OUTLINE_TO_SMD	6
+OUTLINE_TO_COPPER	6
+DRILL_TO_TRACK	6
+DRILL_TO_VIA	6
+DRILL_TO_PAD	6
+DRILL_TO_SMD	6
+DRILL_TO_COPPER	6
+SAME_NET_SMD_TO_VIA	6
+SAME_NET_SMD_TO_CRN	6
+SAME_NET_VIA_TO_VIA	6
+SAME_NET_PAD_TO_CRN	6
+MIN_TRACK_WIDTH	6
+REC_TRACK_WIDTH	6
+MAX_TRACK_WIDTH	6
+DRILL_TO_DRILL	6
+BODY_TO_BODY	6
+SAME_NET_TRACK_TO_CRN	6
+}
+}
+RULE_SET	(2)
+{
+FOR	:
+{
+DEFAULT	:
+}
+AGAINST	:
+{
+DEFAULT	:
+}
+LAYER	0
+ROUTE_RULE	:
+{
+LENGTH_MINIMIZATION_TYPE	1
+TRACE_SHARE	Y
+VIA_SHARE	Y
+AUTO_ROUTE	Y
+RIPUP	Y
+SHOVE	Y
+ROUTE_PRIORITY	3
+MAX_NUMBER_OF_VIAS	-1
+VALID_LAYER	1
+VALID_LAYER	2
+VALID_VIA_TYPE	*USE_CURRENT*
+}
+}
+RULE_SET	(3)
+{
+FOR	:
+{
+DEFAULT	:
+}
+AGAINST	:
+{
+DEFAULT	:
+}
+LAYER	0
+HIGH_SPEED_RULE	:
+{
+MIN_LENGTH	0
+MAX_LENGTH	50000
+STUB_LENGTH	0
+PARALLEL_LENGTH	1000
+PARALLEL_GAP	200
+TANDEM_LENGTH	1000
+TANDEM_GAP	200
+MIN_DELAY	0.000000
+MAX_DELAY	10.000000
+MIN_CAPACITANCE	0.000000
+MAX_CAPACITANCE	10.000000
+MIN_IMPEDANCE	50.000000
+MAX_IMPEDANCE	150.000000
+SHIELD_NET	*
+SHIELD_GAP	200
+MATCH_LENGTH_TOLERANCE	200
+}
+}
+}
+}
+
+*FIELDS*    USER FIELDS
+
+"Drawn By" 
+"Checked By" 
+"QC By" 
+"Released By" 
+"Drawn Date" 
+"Checked Date" 
+"QC Date" 
+"Release Date" 
+"Company Name" 
+"Title" TITLE
+"Code" 65628
+"Drawing Number" 
+"Revision" 1
+"Scale" NONE
+
+*SHT*   1 TITLE -1 $$$NONE
+*CAE*        GENERAL PARAMETERS FOR THE SHEET"
+
+SCALE        2.402          Scale of window expansion
+WINDOWCENTER 6661   5147    Point defining the center of the window
+BITCS0       0              system status bits
+BITCS1       0              system status bits
+BITCS2       0              system status bits
+
+*TEXT*       FREE TEXT
+
+
+*LINES*      LINES ITEMS
+
+DRW4451          LINES    18000  2050   118 90
+OPEN   2   1   255
+532    0     
+636    0     
+OPEN   2   1   255
+636    0      2700   729    634    0      636    0     
+636    0     
+OPEN   2   1   255
+532    0      1629   1071   532    0      532    0     
+532    0     
+OPEN   2   1   255
+390    0     
+412    72    
+OPEN   2   1   255
+532    0     
+562    98    
+OPEN   2   1   255
+562    98     3429   1071   562    98     562    98    
+562    98    
+OPEN   2   1   255
+698    122   
+696    122   
+OPEN   2   1   255
+672    122   
+672    122   
+OPEN   2   1   255
+562    98    
+434    98    
+OPEN   2   1   255
+336    246   
+336    246   
+CLOSED 85  1   255
+278    52    
+84     52    
+80     54    
+76     54    
+74     56    
+74     58    
+72     60    
+70     62    
+70     66    
+70     68    
+70     72    
+72     76    
+118    226   
+120    230   
+124    236   
+128    238   
+132    242   
+138    246   
+336    246   
+336    246   
+336    250   
+336    252   
+336    258   
+334    264   
+334    266   
+332    270   
+332    274   
+330    276   
+328    280   
+326    284   
+322    286   
+320    288   
+318    292   
+314    294   
+310    296   
+306    298   
+302    298   
+300    298   
+296    300   
+96     300   
+88     298   
+82     296   
+76     294   
+70     292   
+60     286   
+56     282   
+50     278   
+46     274   
+40     270   
+34     262   
+30     256   
+26     250   
+22     242   
+18     238   
+16     230   
+14     226   
+-32    70    
+-32    66    
+-34    64    
+-34    62    
+-34    60    
+-34    44    
+-34    40    
+-34    36    
+-32    34    
+-32    30    
+-30    26    
+-28    22    
+-26    18    
+-22    14    
+-18    8     
+-14    6     
+-10    4     
+-4     2     
+0      0     
+0      0     
+210    0     
+218    2     
+228    6     
+236    10    
+244    16    
+250    20    
+260    28    
+266    36    
+278    52    
+OPEN   8   1   255
+412    72    
+414    80    
+416    84    
+418    86    
+420    90    
+424    92    
+428    96    
+434    98    
+OPEN   40  1   255
+586    176   
+584    170   
+582    168   
+580    166   
+578    164   
+576    160   
+572    158   
+570    156   
+568    156   
+564    152   
+436    152    2700   -1070  436    152    438    154   
+436    154   
+458    220   
+458    224   
+460    226   
+460    228   
+462    230   
+464    234   
+466    236   
+468    238   
+470    240   
+474    242   
+478    244   
+482    246   
+582    246   
+588    246   
+590    246   
+592    244   
+594    244   
+596    244   
+596    242   
+598    240   
+600    238   
+600    236   
+600    234   
+600    232   
+600    228   
+600    226   
+600    222   
+586    176   
+OPEN   38  1   255
+390    0     
+286    0     
+354    224   
+358    232   
+362    240   
+364    244   
+368    250   
+370    254   
+372    258   
+374    262   
+378    264   
+380    268   
+386    274   
+392    278   
+398    284   
+402    286   
+408    290   
+418    294   
+426    298   
+434    300   
+650    300   
+662    300   
+674    298   
+678    296   
+684    294   
+690    290   
+696    284   
+700    278   
+704    272   
+706    266   
+706    264   
+706    258   
+708    246   
+708    242   
+706    236   
+704    228   
+702    220   
+636    0     
+CLOSED 100 1   255
+954    132   
+954    130   
+954    130   
+952    128   
+952    126   
+952    126   
+950    126   
+950    124   
+948    124   
+946    124   
+944    122   
+938    122   
+930    122   
+816    122   
+812    120   
+810    120   
+810    118   
+808    118   
+806    118   
+806    116   
+804    114   
+802    112   
+800    112   
+800    110   
+796    106   
+794    102   
+780    52    
+990    52    
+992    52    
+990    48    
+988    44    
+984    40    
+984    38    
+982    36    
+982    36    
+980    34    
+976    30    
+974    26    
+972    26    
+966    20    
+962    16    
+956    12    
+950    10    
+946    6     
+940    4     
+936    2     
+926    0     
+926    0     
+660    0      2700   -1070  660    0      660    0     
+660    0     
+726    214   
+732    232   
+736    240   
+740    250   
+746    258   
+752    266   
+760    272   
+766    280   
+774    284   
+782    290   
+790    294   
+798    296   
+808    300   
+1004   300   
+1016   298   
+1024   296   
+1030   294   
+1034   290   
+1038   288   
+1042   282   
+1044   280   
+1046   278   
+1048   274   
+1048   270   
+1050   264   
+1050   262   
+1052   256   
+1052   246    43     -943   1052   246    1052   246   
+1052   246   
+854    246   
+848    242   
+844    240   
+842    238   
+840    236   
+836    230   
+834    226   
+832    220   
+818    176   
+960    176   
+962    174   
+962    174   
+962    172   
+962    172   
+964    172   
+964    170   
+964    170   
+964    168   
+964    168   
+962    166   
+954    132   
+CLOSED 118 1   255
+1022   28    
+1026   32    
+1034   36    
+1042   42    
+1050   46    
+1056   48    
+1058   50    
+1066   52    
+1080   52    
+1248   52    
+1250   54    
+1252   56    
+1254   58    
+1256   58    
+1260   60    
+1264   64    
+1264   66    
+1266   68    
+1268   76    
+1276   100   
+1276   102   
+1278   106   
+1278   108   
+1276   110   
+1276   114   
+1274   116   
+1274   118   
+1272   120   
+1270   120   
+1268   122   
+1266   122   
+1038   122    2700   -1070  1038   122    1040   122   
+1038   122   
+1072   234   
+1074   240   
+1078   246   
+1080   250   
+1084   256   
+1088   260   
+1092   264   
+1096   270   
+1100   274   
+1106   278   
+1112   284   
+1118   288   
+1124   290   
+1130   294   
+1136   296   
+1144   298   
+1152   300   
+1382   300   
+1386   298   
+1390   298   
+1396   296   
+1400   294   
+1404   290   
+1408   288   
+1410   284   
+1414   280   
+1416   276   
+1418   272   
+1420   266   
+1420   260   
+1420   260   
+1420   256   
+1422   250   
+1422   246   
+1422   246   
+1422   246   
+1194   246   
+1188   242   
+1184   240   
+1180   238   
+1178   234   
+1174   230   
+1174   228   
+1158   176   
+1342   176   
+1348   176   
+1352   174   
+1358   172   
+1366   168   
+1372   164   
+1378   158   
+1382   150   
+1384   144   
+1386   136   
+1388   132   
+1388   128   
+1386   122   
+1370   70    
+1370   66    
+1368   66    
+1368   62    
+1366   60    
+1366   58    
+1364   56    
+1362   52    
+1360   50    
+1358   46    
+1354   40    
+1350   36    
+1348   32    
+1344   28    
+1340   24    
+1336   20    
+1326   14    
+1320   8     
+1314   6     
+1310   4     
+1306   2     
+1302   2     
+1294   0     
+1000   0     
+1006   10    
+1014   18    
+1016   22    
+1022   28    
+CIRCLE 2   21  255
+-5856  74    
+-5834  74    
+CIRCLE 2   21  255
+-5856  -1120 
+-5834  -1120 
+CIRCLE 2   21  255
+-5856  -132  
+-5834  -132  
+CIRCLE 2   21  255
+-5856  180   
+-5834  180   
+CIRCLE 2   21  255
+-5856  -30   
+-5834  -30   
+CIRCLE 2   21  255
+-5856  -1006 
+-5834  -1006 
+CIRCLE 2   21  255
+-5856  -886  
+-5834  -886  
+CIRCLE 2   21  255
+-5856  -750  
+-5834  -750  
+CIRCLE 2   21  255
+-5856  -646  
+-5834  -646  
+CIRCLE 2   21  255
+-5856  -330  
+-5834  -330  
+CIRCLE 2   21  255
+-5856  -236  
+-5834  -236  
+OPEN   2   1   255
+-3600  -996  
+-3600  -882  
+OPEN   2   1   255
+-3600  -1100 
+-3600  -1218 
+OPEN   2   1   255
+-3656  -1050 
+-3776  -1050 
+OPEN   2   1   255
+-3306  -1050 
+-2918  -1050 
+OPEN   2   1   255
+-3544  -1050 
+-3398  -1050 
+OPEN   2   1   255
+-2880  -1050 
+-2822  -1050 
+OPEN   2   1   255
+-3380  -1050 
+-3324  -1050 
+OPEN   2   1   255
+-3600  -1022 
+-3600  -1080 
+OPEN   2   1   255
+-3630  -1050 
+-3572  -1050 
+OPEN   2   1   255
+-13500 716   
+-17500 716   
+OPEN   2   1   255
+-13500 -1300 
+-13500 716   
+OPEN   2   1   255
+3426   6448  
+3626   6448  
+OPEN   2   1   255
+3426   6448  
+3626   6448  
+OPEN   2   1   255
+-7002  14126 
+-7002  14332 
+OPEN   2   1   255
+-7000  -1326 
+-7000  -1528 
+OPEN   2   1   255
+-17530 6450  
+-17730 6450  
+OPEN   2   1   255
+-2500  12836 
+-2500  14100 
+OPEN   2   1   255
+3400   12836 
+-2500  12836 
+OPEN   2   1   255
+-800   -88   
+3400   -88   
+OPEN   2   1   255
+-800   -700  
+3400   -700  
+OPEN   2   1   255
+-800   -1050 
+3400   -1050 
+OPEN   2   1   255
+-8200  -950  
+-6000  -950  
+OPEN   2   1   255
+-6000  450   
+-6000  -1300 
+OPEN   2   1   255
+-2800  450   
+-2800  -1300 
+OPEN   2   1   255
+-800   450   
+-800   -1300 
+OPEN   2   1   255
+-8200  450   
+-8200  -1300 
+OPEN   2   1   255
+3400   450   
+-8200  450   
+OPEN   2   1   255
+-17500 1716  
+-17500 1216  
+OPEN   2   1   255
+-17500 14100 
+-17500 -1300 
+OPEN   2   1   255
+3400   14100 
+-17500 14100 
+OPEN   2   1   255
+3400   -1300 
+3400   14100 
+OPEN   2   1   255
+-17500 -1300 
+3400   -1300 
+OPEN   2   1   255
+4000   14950 
+3800   14950 
+OPEN   2   1   255
+4000   14950 
+4000   14750 
+OPEN   2   1   255
+3400   10700 
+4000   10700 
+OPEN   2   1   255
+3400   6450  
+4000   6450  
+OPEN   2   1   255
+3800   5850  
+3400   5850  
+OPEN   2   1   255
+3800   5300  
+3400   5300  
+OPEN   2   1   255
+3400   2200  
+4000   2200  
+OPEN   2   1   255
+3400   2650  
+3800   2650  
+OPEN   2   1   255
+3800   2650  
+3800   5850  
+OPEN   2   1   255
+-1500  14100 
+-1500  14950 
+OPEN   2   1   255
+-7000  14200 
+-7000  14950 
+OPEN   2   1   255
+-12500 14100 
+-12500 14950 
+OPEN   2   1   255
+4000   -2050 
+3800   -2050 
+OPEN   2   1   255
+4000   -2050 
+4000   -1850 
+OPEN   2   1   255
+-1500  -1300 
+-1500  -2050 
+OPEN   2   1   255
+-7000  -1300 
+-7000  -2050 
+OPEN   2   1   255
+-12500 -1300 
+-12500 -2050 
+OPEN   2   1   255
+-18000 14950 
+-17800 14950 
+OPEN   2   1   255
+-18000 14750 
+-18000 14950 
+OPEN   2   1   255
+-17500 10700 
+-18000 10700 
+OPEN   2   1   255
+-17500 6450  
+-18000 6450  
+OPEN   2   1   255
+-17500 2200  
+-18000 2200  
+OPEN   2   1   255
+-18000 -2050 
+-17800 -2050 
+OPEN   2   1   255
+-18000 -1850 
+-18000 -2050 
+OPEN   2   1   255
+-3300  -1128 
+-2900  -1200 
+OPEN   2   1   255
+-3300  -974  
+-2900  -900  
+OPEN   2   1   255
+-3300  -1128 
+-3300  -974  
+OPEN   2   1   255
+-2900  -900  
+-2900  -1200 
+CIRCLE 2   1   255
+-3678  -1050 
+-3524  -1050 
+CIRCLE 2   1   255
+-3750  -1050 
+-3450  -1050 
+OPEN   2   1   255
+-3850  -840  
+-3850  -1300 
+OPEN   2   1   255
+-2800  -840  
+-3850  -840  
+OPEN   2   1   255
+2200   13086 
+2200   12836 
+OPEN   2   1   255
+1100   13086 
+1100   12836 
+OPEN   2   1   255
+-2100  13086 
+-2100  12836 
+OPEN   2   1   255
+-2500  13550 
+3400   13550 
+OPEN   2   1   255
+-7100  -1100 
+-7100  450   
+OPEN   2   1   255
+-8200  250   
+-6000  250   
+OPEN   2   1   255
+-8200  50    
+-6000  50    
+OPEN   2   1   255
+-8200  -150  
+-6000  -150  
+OPEN   2   1   255
+-8200  -350  
+-6000  -350  
+OPEN   2   1   255
+-8200  -550  
+-6000  -550  
+OPEN   2   1   255
+-8200  -750  
+-6000  -750  
+OPEN   2   1   255
+-8200  -1100 
+-6000  -1100 
+OPEN   2   1   255
+-6000  290   
+-2800  290   
+OPEN   2   1   255
+-2800  210   
+-800   210   
+OPEN   2   1   255
+-2800  0     
+-800   0     
+OPEN   2   1   255
+-2800  -210  
+-800   -210  
+OPEN   2   1   255
+-2800  -420  
+-800   -420  
+OPEN   2   1   255
+-2800  -630  
+-800   -630  
+OPEN   2   1   255
+-2800  -840  
+-800   -840  
+OPEN   2   1   255
+-2800  -1050 
+-800   -1050 
+OPEN   2   1   255
+1700   -1050 
+1700   -1300 
+OPEN   2   1   255
+200    -1050 
+200    -1300 
+OPEN   2   1   255
+-400   -700  
+-400   -1050 
+OPEN   2   1   255
+700    -700  
+700    -1050 
+OPEN   2   1   255
+-2500  13086 
+3400   13086 
+OPEN   2   1   255
+-2500  13300 
+-2500  12850 
+OPEN   4   10  255
+-4960  -890  
+-4930  -920  
+-4870  -830  
+-4810  -830  
+-17400 224    0   0 97   10 0 "Default Font"
+CAES SYSTEMS LLC ("CAES") AND SHALL BE KEPT IN STRICT
+2630   -1180  0   8 153  10 1 "Default Font"
+Number of Sheets
+2170   -1180  0   8 153  10 1 "Default Font"
+Sheet Number
+2390   -920   0   12 208  10 1 "Default Font"
+Drawing Number
+1290   -380   0   12 167  10 1 "Default Font"
+Title
+-17750 350    0   0 292  0  0 "Regular Arial"
+A
+3524   5350   90  0 97   10 0 "Regular Arial"
+SH
+3524   2724   90  0 97   10 0 "Regular Arial"
+DWG NO
+-17400 -1150  0   0 97   10 0 "Regular Arial"
+PRECEDING BY ACCEPTING THE RECEIPT OF THIS DOCUMENT OR ITEM.
+-17400 -1026  0   0 97   10 0 "Regular Arial"
+RECIPIENT, WHICHEVER FIRST OCCURS. ANY RECIPIENT SO AGREES TO ALL OF THE 
+-17400 -900   0   0 97   10 0 "Regular Arial"
+IT WAS MADE AVAILABLE TO RECIPIENT, OR TERMINATION OF RELATIONSHIP WITH
+-17400 -776   0   0 97   10 0 "Regular Arial"
+SHALL BE RETURNED TO CAES UPON REQUEST OR COMPLETION OF THE USE FOR WHICH
+-17400 -650   0   0 97   10 0 "Regular Arial"
+LEGEND SHALL BE INCLUDED IN ANY SUCH REPRODUCTION. THIS DOCUMENT OR ITEM
+-17400 -526   0   0 97   10 0 "Regular Arial"
+AGREEMENT. IF WRITTEN PERMISSION IS GRANTED BY CAES FOR REPRODUCTION, THIS
+-17400 -400   0   0 97   10 0 "Regular Arial"
+BY AN AUTHORIZED REPRESENTATIVE OF CAES IN A FULLY EXECUTED NON-DISCLOSURE
+-17400 -276   0   0 97   10 0 "Regular Arial"
+PURPOSE THAT HAS NOT BEEN EXPRESSLY AUTHORIZED IN ADVANCE AND IN WRITING
+-17400 -150   0   0 97   10 0 "Regular Arial"
+PART, DISCLOSED TO OTHERS, USED FOR MANUFACTURE OR SALE, OR FOR ANY
+-17400 -26    0   0 97   10 0 "Regular Arial"
+SUCH INFORMATION OR ITEMS SHALL NOT BE PUBLISHED, REPRODUCED IN WHOLE OR IN 
+-17400 100    0   0 97   10 0 "Regular Arial"
+CONFIDENCE EXCEPT WITH THE ADVANCE WRITTEN PERMISSION OF CAES.
+-17400 350    0   0 97   10 0 "Regular Arial"
+THE INFORMATION CONTAINED IN THIS DOCUMENT OR ITEM IS THE PROPERTY OF
+-16350 550    0   0 153  10 0 "Regular Arial"
+PROPRIETARY INFORMATION
+-16950 12900  0   0 139  10 0 "Default Font"
+RESISTOR VALUES ARE GIVEN IN OHMS
+-17200 12900  0   0 139  10 0 "Default Font"
+2.
+-16950 13600  0   0 139  10 0 "Default Font"
+PARTIAL REFERENCE DESIGNATIONS ARE SHOWN:
+-17200 13600  0   0 139  10 0 "Default Font"
+1.
+-16950 13150  0   0 139  10 0 "Default Font"
+SUBASSEMBLY DESIGNATIONS.
+-16950 13300  0   0 139  10 0 "Default Font"
+UNIT NUMBER, ASSEMBLY DESIGNATIONS AND
+-16950 13450  0   0 139  10 0 "Default Font"
+FOR COMPLETE DESIGNATION PREFIX WITH
+-17200 13800  0   0 139  10 0 "Default Font"
+NOTES:  UNLESS OTHERWISE SPECIFIED
+-580   13210  0   0 153  10 0 "Regular Arial"
+DO NOT REVISE MANUALLY
+-790   13360  0   0 153  10 0 "Regular Arial"
+COMPUTER CONTROLLED DRAWING
+2550   12900  0   0 125  10 0 "Regular Arial"
+APPROVED
+1500   12900  0   0 125  10 0 "Regular Arial"
+DATE
+-1000  12900  0   0 125  10 0 "Regular Arial"
+DESCRIPTION
+-2400  12900  0   0 125  10 0 "Regular Arial"
+REV
+-1750  13850  0   0 167  10 0 "Default Font"
+REVISION HISTORY-SEE SEPARATE ELECTRONIC APPROVAL
+-5240  330    0   0 125  10 0 "Regular Arial"
+UNLESS OTHERWISE SPECIFIED
+-7500  -1250  0   0 153  10 0 "Regular Arial"
+APPLICATION 
+-6750  -1060  0   0 97   10 0 "Regular Arial"
+USED ON
+-7870  -1060  0   0 97   10 0 "Regular Arial"
+NEXT ASSY
+-5770  -1150  0   0 97   10 0 "Regular Arial"
+MACHINE TOOL MISMATCH .003 MAX
+-5770  -1040  0   0 97   10 0 "Regular Arial"
+CONCENTRICITY MACHINED DIA:  .002 FIM
+-5000  -880   0   0 97   10 0 "Regular Arial"
+63
+-5770  -910   0   0 97   10 0 "Regular Arial"
+SURFACE FINISH:
+-5760  -780   0   0 97   10 0 "Regular Arial"
+REMOVE ALL BURRS AND SHARP EDGES .005 R MAX
+-5760  -670   0   0 97   10 0 "Regular Arial"
+HOLE TOLERANCES:  +.004/-.001
+-5110  -570   0   0 97   10 0 "Regular Arial"
+2 PLACE DECIMALS +/-.01
+-5110  -470   0   0 97   10 0 "Regular Arial"
+3 PLACE DECIMALS +/-.005
+-5770  -360   0   0 97   10 0 "Regular Arial"
+TOLERANCES:  ANGLES +/-1 DEG
+-5760  -260   0   0 97   10 0 "Regular Arial"
+DIMENSIONS ARE IN INCHES
+-5760  150    0   0 97   10 0 "Regular Arial"
+INTERPRET DRAWING IAW ASME Y14.100M-1998
+-5760  50     0   0 97   10 0 "Regular Arial"
+DIMENSIONING AND TOLERANCING IAW ASME Y14.5-2009
+-5760  -160   0   0 97   10 0 "Regular Arial"
+DIMENSIONAL LIMITS APPLY BEFORE PROCESSES
+-5760  -60    0   0 97   10 0 "Regular Arial"
+PARENTHETICAL INFO FOR REF ONLY
+-2750  -926   0   0 97   10 0 "Regular Arial"
+RLSE
+-2750  -726   0   0 97   10 0 "Regular Arial"
+CONTR
+-2750  -500   0   0 97   10 0 "Regular Arial"
+QA
+-2750  -300   0   0 97   10 0 "Regular Arial"
+APVD
+-2750  -100   0   0 97   10 0 "Regular Arial"
+ENGR
+-2750  124    0   0 97   10 0 "Regular Arial"
+CHK
+-1650  350    0   0 97   10 0 "Regular Arial"
+DATE
+-2750  350    0   0 97   10 0 "Regular Arial"
+DWN
+-650   -1000  0   0 194  20 0 "Regular Arial"
+C
+-100   -1000  0   0 194  20 0 "Regular Arial"
+65628
+-276   -1226  0   0 97   10 0 "Regular Arial"
+NONE
+-750   -1150  0   0 97   10 0 "Regular Arial"
+SCALE
+1820   -1220  0   0 97   10 0 "Default Font"
+SHEET             OF
+750    -800   0   0 97   10 0 "Regular Arial"
+DRAWING NO
+-100   -800   0   0 97   10 0 "Regular Arial"
+CAGE CODE
+-676   -800   0   0 97   10 0 "Regular Arial"
+SIZE
+2150   50     0   0 97   10 0 "Default Font"
+San Diego, CA 92123
+3500   12650  0   0 292  0  0 "Regular Arial"
+D
+3500   8550   0   0 292  0  0 "Regular Arial"
+C
+3750   5600   90  0 264  0  0 "Regular Arial"
+1
+900    14250  0   0 292  0  0 "Regular Arial"
+1
+-4250  14200  0   0 292  0  0 "Regular Arial"
+2
+-9850  14250  0   0 292  0  0 "Regular Arial"
+3
+3500   350    0   0 292  0  0 "Regular Arial"
+A
+900    -1700  0   0 292  0  0 "Regular Arial"
+1
+-4250  -1750  0   0 292  0  0 "Regular Arial"
+2
+-9850  -1700  0   0 292  0  0 "Regular Arial"
+3
+-15350 14250  0   0 292  0  0 "Regular Arial"
+4
+-17750 12400  0   0 292  0  0 "Regular Arial"
+D
+-17750 8550   0   0 292  0  0 "Regular Arial"
+C
+-17750 4300   0   0 292  0  0 "Regular Arial"
+B
+-15350 -1700  0   0 292  0  0 "Regular Arial"
+4
+2150   150    0   0 97   10 0 "Default Font"
+9404 Chesapeake Drive
+-1150  13650  0   0 167  10 0 "Default Font"
+ALL SHEETS ARE THE SAME REVISION
+3600   4200   90  12 208  10 1 "Default Font"
+Drawing Number
+2150   250    0   0 97   10 0 "Default Font"
+CAES SYSTEMS LLC
+
+*CAEDECAL*  ITEMS
+
+PIN              34000 34000 100 10 100 10 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+140 20 0 1 100 10 "Default Font"
+REF-DES
+230 0 0 8 100 10 "Default Font"
+PART-TYPE
+-520 0 0 1 100 10 "Default Font"
+*
+-80 0 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+200   0    
+
+PINB             34000 34000 100 10 100 10 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+230 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+140   0    
+CIRCLE 2   10  255
+140   0    
+190   0    
+
+PCLK             33500 33180 100 10 100 10 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+280 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+200   0    
+OPEN   3   10  255
+200   30   
+260   0    
+200   -30  
+
+PCLKB            33500 33180 100 10 100 10 4 3 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+280 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   3   10  255
+200   30   
+260   0    
+200   -30  
+OPEN   2   10  255
+0     0    
+140   0    
+CIRCLE 2   10  255
+190   0    
+140   0    
+
+PINIEB           34000 34000 100 10 100 10 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+220 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   4   10  255
+0     0    
+200   0    
+140   30   
+140   0    
+
+PINORB           34000 34000 100 10 100 10 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+300 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+180   0    
+CIRCLE 2   10  255
+230   0    
+180   0    
+
+PINSHORT         34000 34000 100 10 100 10 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+60 10 0 1 100 10 "Default Font"
+REF-DES
+140 10 0 8 100 10 "Default Font"
+PART-TYPE
+-530 10 0 1 100 10 "Default Font"
+*
+-70 10 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+100   0    
+
+PINVRTS          34000 34000 100 10 100 10 4 1 0 0 3 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+20 -80 0 0 100 10 "Default Font"
+REF-DES
+-20 -40 0 9 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     -100 
+0     0    
+
+REFIN            33500 33180 100 10 100 10 4 1 0 1 24 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+-360 0 0 1 100 10 "Default Font"
+REF-DES
+-360 -20 0 3 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   7   5   255
+0     0    
+-100  0    
+-150  -50  
+-300  -50  
+-300  50   
+-150  50   
+-100  0    
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+REFOUT           33500 33180 100 10 100 10 4 1 0 1 24 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+350 10 0 0 100 10 "Default Font"
+REF-DES
+350 -10 0 2 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   8   5   255
+0     0    
+100   0    
+100   50   
+250   50   
+300   0    
+250   -50  
+100   -50  
+100   0    
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+GND              33500 33180 100 10 100 10 4 4 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+100 -50 0 0 100 10 "Default Font"
+REF-DES
+0 200 0 0 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -100 
+OPEN   2   5   255
+-100  -100 
+100   -100 
+OPEN   2   5   255
+-60   -160 
+60    -160 
+OPEN   2   5   255
+-20   -220 
+20    -220 
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+AGND             33500 33180 100 10 100 10 4 1 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+260 0 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   6   5   255
+0     0    
+0     -50  
+-100  -50  
+0     -200 
+100   -50  
+0     -50  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+CHGND            33500 33180 100 10 100 10 4 5 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+264 -40 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -100 
+OPEN   2   5   255
+-100  -100 
+100   -100 
+OPEN   2   5   255
+-100  -100 
+-150  -200 
+OPEN   2   5   255
+0     -100 
+-50   -200 
+OPEN   2   5   255
+100   -100 
+50    -200 
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
++5V              33500 33180 100 10 100 10 4 2 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+0 250 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 0 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     200  
+COPCLS 4   5   255
+0     200  
+-50   100  
+50    100  
+0     200  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+BUBBLE           33500 33180 100 10 100 10 4 2 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+0 300 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+0     100  
+CIRCLE 2   10  255
+0     100  
+0     200  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+Y                33500 33180 100 10 100 10 4 2 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+0 300 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   3   10  255
+0     0    
+0     100  
+-100  200  
+OPEN   2   10  255
+0     100  
+100   200  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
++12V             33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+4 484 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     300  
+COPCLS 4   5   255
+0     300  
+-50   150  
+50    150  
+0     300  
+-108   356    0   0 97  10
++12V
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+-5V              33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+16 -520 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -300 
+COPCLS 4   5   255
+0     -300 
+50    -150 
+-50   -150 
+0     -300 
+-80    -388   0   0 97  10
+-5V
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+-12V             33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+8 -560 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -300 
+COPCLS 4   5   255
+0     -300 
+50    -150 
+-50   -150 
+0     -300 
+-116   -412   0   0 97  10
+-12V
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
++5VA             33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+8 468 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+0     300  
+COPCLS 4   10  255
+0     300  
+-50   150  
+50    150  
+0     300  
+-108   336    0   0 97  10
++5VA
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+
+*PARTTYPE*   ITEMS
+
+$OSR_SYMS UND  0   0   2     0
+TIMESTAMP 1999.03.30.22.52.06
+OFF 2
+REFIN S 
+REFOUT L 
+
+$GND_SYMS UND  0   0   2     0
+TIMESTAMP 1999.03.30.22.52.06
+GND 3
+GND G GND
+AGND G AGND
+CHGND G CHGND
+
+$PWR_SYMS UND  0   0   2     0
+TIMESTAMP 1999.03.30.22.52.06
+PWR 7
++5V P +5V
+BUBBLE P +5V
+Y P +5V
++12V P +12V
+-5V P -5V
+-12V P -12V
++5VA P +5VA
+
+
+
+*PART*       ITEMS
+
+
+
+
+*BUSSES*
+
+
+*OFFPAGE REFS*
+
+
+*TIEDOTS*
+
+
+*CONNECTION*
+
+
+*NETNAMES*
+
+
+*SHT*   2 $$$NONE -1 $$$NONE
+*CAE*        GENERAL PARAMETERS FOR THE SHEET"
+
+SCALE        2.770          Scale of window expansion
+WINDOWCENTER 515    3390    Point defining the center of the window
+BITCS0       0              system status bits
+BITCS1       0              system status bits
+BITCS2       0              system status bits
+
+*TEXT*       FREE TEXT
+
+
+*LINES*      LINES ITEMS
+
+DRW4557          LINES    15400  950    58  34
+OPEN   2   1   255
+532    0     
+636    0     
+OPEN   2   1   255
+636    0      2700   729    634    0      636    0     
+636    0     
+OPEN   2   1   255
+532    0      1629   1071   532    0      532    0     
+532    0     
+OPEN   2   1   255
+390    0     
+412    72    
+OPEN   2   1   255
+532    0     
+562    98    
+OPEN   2   1   255
+562    98     3429   1071   562    98     562    98    
+562    98    
+OPEN   2   1   255
+698    122   
+696    122   
+OPEN   2   1   255
+672    122   
+672    122   
+OPEN   2   1   255
+562    98    
+434    98    
+OPEN   2   1   255
+336    246   
+336    246   
+CLOSED 85  1   255
+278    52    
+84     52    
+80     54    
+76     54    
+74     56    
+74     58    
+72     60    
+70     62    
+70     66    
+70     68    
+70     72    
+72     76    
+118    226   
+120    230   
+124    236   
+128    238   
+132    242   
+138    246   
+336    246   
+336    246   
+336    250   
+336    252   
+336    258   
+334    264   
+334    266   
+332    270   
+332    274   
+330    276   
+328    280   
+326    284   
+322    286   
+320    288   
+318    292   
+314    294   
+310    296   
+306    298   
+302    298   
+300    298   
+296    300   
+96     300   
+88     298   
+82     296   
+76     294   
+70     292   
+60     286   
+56     282   
+50     278   
+46     274   
+40     270   
+34     262   
+30     256   
+26     250   
+22     242   
+18     238   
+16     230   
+14     226   
+-32    70    
+-32    66    
+-34    64    
+-34    62    
+-34    60    
+-34    44    
+-34    40    
+-34    36    
+-32    34    
+-32    30    
+-30    26    
+-28    22    
+-26    18    
+-22    14    
+-18    8     
+-14    6     
+-10    4     
+-4     2     
+0      0     
+0      0     
+210    0     
+218    2     
+228    6     
+236    10    
+244    16    
+250    20    
+260    28    
+266    36    
+278    52    
+OPEN   8   1   255
+412    72    
+414    80    
+416    84    
+418    86    
+420    90    
+424    92    
+428    96    
+434    98    
+OPEN   40  1   255
+586    176   
+584    170   
+582    168   
+580    166   
+578    164   
+576    160   
+572    158   
+570    156   
+568    156   
+564    152   
+436    152    2700   -1070  436    152    438    154   
+436    154   
+458    220   
+458    224   
+460    226   
+460    228   
+462    230   
+464    234   
+466    236   
+468    238   
+470    240   
+474    242   
+478    244   
+482    246   
+582    246   
+588    246   
+590    246   
+592    244   
+594    244   
+596    244   
+596    242   
+598    240   
+600    238   
+600    236   
+600    234   
+600    232   
+600    228   
+600    226   
+600    222   
+586    176   
+OPEN   38  1   255
+390    0     
+286    0     
+354    224   
+358    232   
+362    240   
+364    244   
+368    250   
+370    254   
+372    258   
+374    262   
+378    264   
+380    268   
+386    274   
+392    278   
+398    284   
+402    286   
+408    290   
+418    294   
+426    298   
+434    300   
+650    300   
+662    300   
+674    298   
+678    296   
+684    294   
+690    290   
+696    284   
+700    278   
+704    272   
+706    266   
+706    264   
+706    258   
+708    246   
+708    242   
+706    236   
+704    228   
+702    220   
+636    0     
+CLOSED 100 1   255
+954    132   
+954    130   
+954    130   
+952    128   
+952    126   
+952    126   
+950    126   
+950    124   
+948    124   
+946    124   
+944    122   
+938    122   
+930    122   
+816    122   
+812    120   
+810    120   
+810    118   
+808    118   
+806    118   
+806    116   
+804    114   
+802    112   
+800    112   
+800    110   
+796    106   
+794    102   
+780    52    
+990    52    
+992    52    
+990    48    
+988    44    
+984    40    
+984    38    
+982    36    
+982    36    
+980    34    
+976    30    
+974    26    
+972    26    
+966    20    
+962    16    
+956    12    
+950    10    
+946    6     
+940    4     
+936    2     
+926    0     
+926    0     
+660    0      2700   -1070  660    0      660    0     
+660    0     
+726    214   
+732    232   
+736    240   
+740    250   
+746    258   
+752    266   
+760    272   
+766    280   
+774    284   
+782    290   
+790    294   
+798    296   
+808    300   
+1004   300   
+1016   298   
+1024   296   
+1030   294   
+1034   290   
+1038   288   
+1042   282   
+1044   280   
+1046   278   
+1048   274   
+1048   270   
+1050   264   
+1050   262   
+1052   256   
+1052   246    43     -943   1052   246    1052   246   
+1052   246   
+854    246   
+848    242   
+844    240   
+842    238   
+840    236   
+836    230   
+834    226   
+832    220   
+818    176   
+960    176   
+962    174   
+962    174   
+962    172   
+962    172   
+964    172   
+964    170   
+964    170   
+964    168   
+964    168   
+962    166   
+954    132   
+CLOSED 118 1   255
+1022   28    
+1026   32    
+1034   36    
+1042   42    
+1050   46    
+1056   48    
+1058   50    
+1066   52    
+1080   52    
+1248   52    
+1250   54    
+1252   56    
+1254   58    
+1256   58    
+1260   60    
+1264   64    
+1264   66    
+1266   68    
+1268   76    
+1276   100   
+1276   102   
+1278   106   
+1278   108   
+1276   110   
+1276   114   
+1274   116   
+1274   118   
+1272   120   
+1270   120   
+1268   122   
+1266   122   
+1038   122    2700   -1070  1038   122    1040   122   
+1038   122   
+1072   234   
+1074   240   
+1078   246   
+1080   250   
+1084   256   
+1088   260   
+1092   264   
+1096   270   
+1100   274   
+1106   278   
+1112   284   
+1118   288   
+1124   290   
+1130   294   
+1136   296   
+1144   298   
+1152   300   
+1382   300   
+1386   298   
+1390   298   
+1396   296   
+1400   294   
+1404   290   
+1408   288   
+1410   284   
+1414   280   
+1416   276   
+1418   272   
+1420   266   
+1420   260   
+1420   260   
+1420   256   
+1422   250   
+1422   246   
+1422   246   
+1422   246   
+1194   246   
+1188   242   
+1184   240   
+1180   238   
+1178   234   
+1174   230   
+1174   228   
+1158   176   
+1342   176   
+1348   176   
+1352   174   
+1358   172   
+1366   168   
+1372   164   
+1378   158   
+1382   150   
+1384   144   
+1386   136   
+1388   132   
+1388   128   
+1386   122   
+1370   70    
+1370   66    
+1368   66    
+1368   62    
+1366   60    
+1366   58    
+1364   56    
+1362   52    
+1360   50    
+1358   46    
+1354   40    
+1350   36    
+1348   32    
+1344   28    
+1340   24    
+1336   20    
+1326   14    
+1320   8     
+1314   6     
+1310   4     
+1306   2     
+1302   2     
+1294   0     
+1000   0     
+1006   10    
+1014   18    
+1016   22    
+1022   28    
+OPEN   2   1   255
+6000   15200 
+-14900 15200 
+OPEN   2   1   255
+6000   -200  
+6000   15200 
+OPEN   2   1   255
+-14900 -200  
+6000   -200  
+OPEN   2   1   255
+-4400  -226  
+-4400  -428  
+OPEN   2   1   255
+6026   7548  
+6226   7548  
+OPEN   2   1   255
+6026   7548  
+6226   7548  
+OPEN   2   1   255
+-4402  15226 
+-4402  15432 
+OPEN   2   1   255
+-14930 7550  
+-15130 7550  
+OPEN   2   1   255
+1776   -200  
+1776   462   
+OPEN   2   1   255
+-424   462   
+-424   -200  
+OPEN   2   1   255
+6000   462   
+-424   462   
+OPEN   2   1   255
+1776   6     
+6000   6     
+OPEN   2   1   255
+-15400 -750  
+-15400 -950  
+OPEN   2   1   255
+-15400 -950  
+-15200 -950  
+OPEN   2   1   255
+6600   -950  
+6400   -950  
+OPEN   2   1   255
+6600   -950  
+6600   -750  
+OPEN   2   1   255
+6600   16050 
+6600   15850 
+OPEN   2   1   255
+6600   16050 
+6400   16050 
+OPEN   2   1   255
+-15400 16050 
+-15200 16050 
+OPEN   2   1   255
+-15400 15850 
+-15400 16050 
+OPEN   2   1   255
+6000   7550  
+6600   7550  
+OPEN   2   1   255
+-14900 7550  
+-15400 7550  
+OPEN   2   1   255
+-4400  -200  
+-4400  -950  
+OPEN   2   1   255
+1100   -200  
+1100   -950  
+OPEN   2   1   255
+6000   3300  
+6600   3300  
+OPEN   2   1   255
+6000   3750  
+6400   3750  
+OPEN   2   1   255
+6400   3750  
+6400   6950  
+OPEN   2   1   255
+6400   6950  
+6000   6950  
+OPEN   2   1   255
+6400   6400  
+6000   6400  
+OPEN   2   1   255
+-9900  -200  
+-9900  -950  
+OPEN   2   1   255
+-4400  15300 
+-4400  16050 
+OPEN   2   1   255
+6000   11800 
+6600   11800 
+OPEN   2   1   255
+1100   15200 
+1100   16050 
+OPEN   2   1   255
+-9900  15200 
+-9900  16050 
+OPEN   2   1   255
+-14900 11800 
+-15400 11800 
+OPEN   2   1   255
+-14900 3300  
+-15400 3300  
+OPEN   2   1   255
+5584   462   
+5584   26    
+OPEN   2   1   255
+4550   -200  
+4550   6     
+OPEN   2   1   255
+2812   -200  
+2812   6     
+OPEN   2   1   255
+3184   462   
+3184   6     
+OPEN   2   1   255
+2108   462   
+2108   6     
+OPEN   2   1   255
+-14900 15200 
+-14900 -200  
+3650   -550   0   0 250  25 0 "Default Font"
+1
+-1900  -600   0   0 250  25 0 "Default Font"
+2
+-7250  -600   0   0 250  25 0 "Default Font"
+3
+-12750 -600   0   0 250  25 0 "Default Font"
+4
+6100   6450   90  0 97   10 0 "Default Font"
+SH:
+6250   6600   90  8 278  10 1 "Default Font"
+Sheet Number
+6100   3850   90  0 97   10 0 "Default Font"
+DRAWING NO:
+6250   5150   90  12 306  10 1 "Default Font"
+Drawing Number
+2650   150    0   12 306  10 1 "Default Font"
+Code
+1950   150    0   12 306  10 1 "Default Font"
+Sheet Size
+4550   150    0   12 306  10 1 "Default Font"
+Drawing Number
+5800   150    0   12 306  10 1 "Default Font"
+Revision
+2250   -100   0   8 153  10 1 "Default Font"
+Scale
+4950   -100   0   8 153  10 1 "Default Font"
+Sheet Number
+5450   -100   0   8 153  10 1 "Default Font"
+Number of Sheets
+5650   350    0   0 97   10 0 "Default Font"
+REV:
+1850   350    0   0 97   10 0 "Default Font"
+SIZE:
+2450   350    0   0 97   10 0 "Default Font"
+CODE:
+3250   350    0   0 97   10 0 "Default Font"
+DRAWING NO:
+4600   -150   0   0 97   10 0 "Default Font"
+SHEET:            OF
+1800   -100   0   0 97   10 0 "Default Font"
+SCALE:
+3500   15450  0   0 250  25 0 "Default Font"
+1
+-1800  15450  0   0 250  25 0 "Default Font"
+2
+-7250  15450  0   0 250  25 0 "Default Font"
+3
+-12750 15450  0   0 250  25 0 "Default Font"
+4
+-15200 13350  0   0 250  25 0 "Default Font"
+D
+-15200 9650   0   0 250  25 0 "Default Font"
+C
+-15200 5400   0   0 250  25 0 "Default Font"
+B
+-15200 1450   0   0 250  25 0 "Default Font"
+A
+6200   9550   0   0 250  25 0 "Default Font"
+C
+6200   13400  0   0 250  25 0 "Default Font"
+D
+6250   7150   0   0 250  25 0 "Default Font"
+B
+6250   1550   0   0 250  25 0 "Default Font"
+A
+1770   580    0   0 222  10 0 "Default Font"
+PROPRIETARY/EXPORT CONTROLLED
+
+*CAEDECAL*  ITEMS
+
+PIN              34000 34000 100 10 100 10 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+140 20 0 1 100 10 "Default Font"
+REF-DES
+230 0 0 8 100 10 "Default Font"
+PART-TYPE
+-520 0 0 1 100 10 "Default Font"
+*
+-80 0 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+200   0    
+
+PINB             34000 34000 100 10 100 10 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+230 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+140   0    
+CIRCLE 2   10  255
+140   0    
+190   0    
+
+PCLK             33500 33180 100 10 100 10 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+280 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+200   0    
+OPEN   3   10  255
+200   30   
+260   0    
+200   -30  
+
+PCLKB            33500 33180 100 10 100 10 4 3 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+280 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   3   10  255
+200   30   
+260   0    
+200   -30  
+OPEN   2   10  255
+0     0    
+140   0    
+CIRCLE 2   10  255
+190   0    
+140   0    
+
+PINIEB           34000 34000 100 10 100 10 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+220 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   4   10  255
+0     0    
+200   0    
+140   30   
+140   0    
+
+PINORB           34000 34000 100 10 100 10 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+300 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+180   0    
+CIRCLE 2   10  255
+230   0    
+180   0    
+
+PINSHORT         34000 34000 100 10 100 10 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+60 10 0 1 100 10 "Default Font"
+REF-DES
+140 10 0 8 100 10 "Default Font"
+PART-TYPE
+-530 10 0 1 100 10 "Default Font"
+*
+-70 10 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+100   0    
+
+PINVRTS          34000 34000 100 10 100 10 4 1 0 0 3 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+20 -80 0 0 100 10 "Default Font"
+REF-DES
+-20 -40 0 9 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     -100 
+0     0    
+
+PIN_R180_U_L100  0     0     97 10 97 10 2 1 0 0 0 1
+TIMESTAMP 2026.07.27.22.15.21
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+-100  0    
+
+PIN_R0_U_L100    0     0     97 10 97 10 2 1 0 0 0 1
+TIMESTAMP 2026.07.27.22.15.21
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+100   0    
+
+PIN_R0_U_L200    0     0     69 1 69 1 2 1 0 0 0 1
+TIMESTAMP 2026.01.15.23.15.13
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+200   0    
+
+PIN_R270_U_L100  0     0     69 1 69 1 2 1 0 0 0 1
+TIMESTAMP 2026.10.22.18.16.57
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+0     -100 
+
+PIN_R90_U_L100   0     0     69 1 69 1 2 1 0 0 0 1
+TIMESTAMP 2026.10.22.18.16.57
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+0     100  
+
+PIN_R180_U_L200  0     0     69 1 69 1 2 1 0 0 0 1
+TIMESTAMP 2026.01.29.23.45.24
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+-200  0    
+
+REFIN            33500 33180 100 10 100 10 4 1 0 1 24 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+-360 0 0 1 100 10 "Default Font"
+REF-DES
+-360 -20 0 3 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   7   5   255
+0     0    
+-100  0    
+-150  -50  
+-300  -50  
+-300  50   
+-150  50   
+-100  0    
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+REFOUT           33500 33180 100 10 100 10 4 1 0 1 24 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+350 10 0 0 100 10 "Default Font"
+REF-DES
+350 -10 0 2 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   8   5   255
+0     0    
+100   0    
+100   50   
+250   50   
+300   0    
+250   -50  
+100   -50  
+100   0    
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+GND              33500 33180 100 10 100 10 4 4 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+100 -50 0 0 100 10 "Default Font"
+REF-DES
+0 200 0 0 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -100 
+OPEN   2   5   255
+-100  -100 
+100   -100 
+OPEN   2   5   255
+-60   -160 
+60    -160 
+OPEN   2   5   255
+-20   -220 
+20    -220 
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+AGND             33500 33180 100 10 100 10 4 1 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+260 0 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   6   5   255
+0     0    
+0     -50  
+-100  -50  
+0     -200 
+100   -50  
+0     -50  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+CHGND            33500 33180 100 10 100 10 4 5 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+264 -40 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -100 
+OPEN   2   5   255
+-100  -100 
+100   -100 
+OPEN   2   5   255
+-100  -100 
+-150  -200 
+OPEN   2   5   255
+0     -100 
+-50   -200 
+OPEN   2   5   255
+100   -100 
+50    -200 
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
++5V              33500 33180 100 10 100 10 4 2 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+0 250 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 0 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     200  
+COPCLS 4   5   255
+0     200  
+-50   100  
+50    100  
+0     200  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+BUBBLE           33500 33180 100 10 100 10 4 2 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+0 300 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+0     100  
+CIRCLE 2   10  255
+0     100  
+0     200  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+Y                33500 33180 100 10 100 10 4 2 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+0 300 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   3   10  255
+0     0    
+0     100  
+-100  200  
+OPEN   2   10  255
+0     100  
+100   200  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
++12V             33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+4 484 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     300  
+COPCLS 4   5   255
+0     300  
+-50   150  
+50    150  
+0     300  
+-108   356    0   0 97  10
++12V
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+-5V              33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+16 -520 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -300 
+COPCLS 4   5   255
+0     -300 
+50    -150 
+-50   -150 
+0     -300 
+-80    -388   0   0 97  10
+-5V
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+-12V             33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+8 -560 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -300 
+COPCLS 4   5   255
+0     -300 
+50    -150 
+-50   -150 
+0     -300 
+-116   -412   0   0 97  10
+-12V
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
++5VA             33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+8 468 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+0     300  
+COPCLS 4   10  255
+0     300  
+-50   150  
+50    150  
+0     300  
+-108   336    0   0 97  10
++5VA
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+LTC3644/LTC3644_2 32000 32000 100 10 100 10 5 2 0 36 0 0
+TIMESTAMP 2026.10.22.21.19.59
+"Default Font"
+"Default Font"
+2200 1724 0 12 82 5 "Default Font"
+REF-DES
+2250 1930 0 12 82 5 "Default Font"
+PART-TYPE
+2210 1650 0 12 82 5 "Default Font"
+VALUE
+500 1500 0 12 1 1 "Default Font"
+C
+1970 1840 0 8 100 10 "Default Font"
+*
+OPEN   4   5   255
+3000  1500 
+3000  -3650
+1500  -3650
+1500  1500 
+OPEN   2   5   255
+1500  1500 
+3000  1500 
+T1300  1400  0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  1300  0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  1200  0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  1100  0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  1000  0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  800   0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  700   0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  600   0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  500   0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  100   0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  0     0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  -600  0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  -1400 0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  -1500 0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  -1600 0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1700  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1800  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1900  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T2000  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T2100  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T2200  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T2300  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T2400  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T2500  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T2600  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T2700  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T2800  -3850 90 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T3200  1400  0 1 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T3200  800   0 1 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T3200  0     0 1 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T3200  -600  0 1 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T3200  -1400 0 1 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T3200  -2000 0 1 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T3200  -2800 0 1 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T3200  -3400 0 1 140 20 0 1 240 10 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+T1300  -1700 0 0 140 20 0 1 230 0 0 8 PIN
+P-520 0 0 1 -80 0 0 1 0
+
+C1210C226K3RACTU 32000 32000 69 1 69 1 3 2 0 2 26 0
+TIMESTAMP 2026.10.22.19.10.02
+"Default Font"
+"Default Font"
+0 150 0 0 70 7 "Default Font"
+REF-DES
+0 -200 0 0 70 7 "Default Font"
+PART-TYPE
+60 110 0 12 70 7 "Default Font"
+Value
+COPCLS 5   1   254
+0     74   
+24    74   
+24    -74  
+0     -74  
+0     74   
+COPCLS 5   1   254
+74    74   
+100   74   
+100   -74  
+74    -74  
+74    74   
+T200   0     0 0 -28 8 0 4 -138 0 0 9 PIN_R180_U_L100
+P-100 0 0 1 -100 0 0 1 0
+T-100  0     0 0 -28 8 0 0 138 0 0 8 PIN_R0_U_L100
+P-100 0 0 1 -100 0 0 1 0
+
+RESZ-H           32000 32000 100 10 100 10 4 1 0 2 2 0
+TIMESTAMP 2023.08.08.23.47.05
+"Default Font"
+"Default Font"
+280 130 0 4 125 10 "Default Font"
+REF-DES
+310 200 0 4 100 10 "Default Font"
+PART-TYPE
+300 -100 0 6 100 10 "Default Font"
+VALUE
+300 -200 0 6 100 10 "Default Font"
+*
+OPEN   10  10  255
+100   0    
+120   0    
+150   60   
+210   -60  
+270   60   
+330   -60  
+390   60   
+450   -60  
+470   0    
+500   0    
+T0     0     0 0 34 16 0 0 170 -30 0 8 PINSHORT
+P-80 -30 0 1 -70 10 0 1 0
+T600   0     0 1 0 20 0 0 170 -30 0 8 PINSHORT
+P-90 -20 0 1 -70 10 0 1 0
+
+C0805C105K3RACTU 0     0     69 1 69 1 2 2 0 2 16 0
+TIMESTAMP 2026.10.22.18.16.47
+"Default Font"
+"Default Font"
+0 150 0 0 70 7 "Default Font"
+REF-DES
+0 -200 0 0 70 7 "Default Font"
+PART-TYPE
+COPCLS 5   1   254
+0     74   
+24    74   
+24    -74  
+0     -74  
+0     74   
+COPCLS 5   1   254
+74    74   
+100   74   
+100   -74  
+74    -74  
+74    74   
+T-100  0     0 0 -28 8 0 0 138 0 0 8 PIN_R0_U_L100
+P0 0 0 0 50 20 0 0 128
+T200   0     0 0 -28 8 0 4 -138 0 0 9 PIN_R180_U_L100
+P0 0 0 1 50 20 0 0 128
+
+C1206C106K4RACTU 0     0     69 1 69 1 2 4 0 2 24 0
+TIMESTAMP 2026.10.22.18.16.57
+"Default Font"
+"Default Font"
+40 24 0 0 70 7 "Default Font"
+REF-DES
+40 -164 0 0 70 7 "Default Font"
+PART-TYPE
+OPEN   2   10  255
+-100  0    
+100   0    
+OPEN   2   6   255
+0     -40  
+0     -100 
+OPEN   2   10  255
+0     -38   900   -378  -158  -358  158   -38  
+98    -72  
+OPEN   2   10  255
+-96   -72   1273  -373  -158  -358  158   -40  
+0     -40  
+T0     100   0 0 -28 8 90 4 0 -138 90 10 PIN_R270_U_L100
+P0 0 0 1 50 20 0 0 128
+T0     -200  0 0 -28 8 90 0 0 138 90 8 PIN_R90_U_L100
+P0 0 0 0 50 20 0 0 128
+
+VLS6045EX-6R8M   0     0     69 1 69 1 2 6 0 2 24 0
+TIMESTAMP 2026.10.22.19.45.38
+"Default Font"
+"Default Font"
+-200 100 0 0 70 7 "Default Font"
+REF-DES
+-200 -100 0 2 70 7 "Default Font"
+PART-TYPE
+OPEN   2   10  255
+-200  0    
+-300  0    
+OPEN   2   10  255
+200   0    
+300   0    
+OPEN   2   10  255
+-200  0     1800  -1800 -200  -50   -100  50   
+-100  0    
+OPEN   2   10  255
+-100  0     1800  -1800 -100  -50   0     50   
+0     0    
+OPEN   2   10  255
+0     0     1800  -1800 0     -50   100   50   
+100   0    
+OPEN   2   10  255
+100   0     1800  -1800 100   -50   200   50   
+200   0    
+T-500  0     0 0 -28 8 0 0 238 0 0 8 PIN_R0_U_L200
+P0 0 0 0 50 20 0 0 128
+T500   0     0 0 -28 8 0 4 -238 0 0 9 PIN_R180_U_L200
+P0 0 0 1 50 20 0 0 128
+
+CAPH             0     0     69 1 69 1 2 6 0 2 24 0
+TIMESTAMP 2026.10.22.18.17.20
+"Default Font"
+"Default Font"
+-36 108 0 0 82 8 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 "Default Font"
+PART-TYPE
+OPEN   2   8   255
+136   -74  
+136   0    
+OPEN   2   8   255
+136   0    
+136   74   
+OPEN   2   8   255
+162   -74  
+162   0    
+OPEN   2   8   255
+162   0    
+162   74   
+OPEN   2   8   255
+162   0    
+200   0    
+OPEN   2   8   255
+100   0    
+136   0    
+T0     0     0 0 -28 8 0 0 138 0 0 8 PIN_R0_U_L100
+P0 0 0 0 50 20 0 0 128
+T300   0     0 0 -28 8 0 4 -138 0 0 9 PIN_R180_U_L100
+P0 0 0 1 50 20 0 0 128
+
+C_POLAR          0     0     69 1 69 1 2 4 1 2 24 0
+TIMESTAMP 2026.10.29.16.40.59
+"Default Font"
+"Default Font"
+46 132 0 4 56 6 "Default Font"
+REF-DES
+36 -200 0 4 56 6 "Default Font"
+PART-TYPE
+OPEN   2   10  255
+74    74   
+74    -74  
+OPEN   2   10  255
+24    -74  
+24    74   
+OPEN   2   6   255
+0     0    
+24    0    
+OPEN   2   6   255
+74    0    
+100   0    
+100    -74    0   0 56  6 
++
+T200   0     0 0 -28 8 0 4 -138 0 0 9 PIN_R180_U_L100
+P0 0 0 1 50 20 0 0 128
+T-100  0     0 0 -28 8 0 0 138 0 0 8 PIN_R0_U_L100
+P0 0 0 0 50 20 0 0 128
+
+RESZ-V           32000 32000 100 10 100 10 4 1 0 2 2 0
+TIMESTAMP 2026.11.03.19.08.33
+"Default Font"
+"Default Font"
+100 -280 0 0 100 10 "Default Font"
+REF-DES
+100 -180 0 0 100 10 "Default Font"
+PART-TYPE
+100 -320 0 2 100 10 "Default Font"
+VALUE
+100 -420 0 2 100 10 "Default Font"
+*
+OPEN   10  10  255
+0     -500 
+0     -480 
+-60   -450 
+60    -390 
+-60   -330 
+60    -270 
+-60   -210 
+60    -150 
+0     -130 
+0     -100 
+T0     0     0 0 20 -80 0 0 -20 -40 0 9 PINVRTS
+P840 80 0 1 0 0 0 0 128
+T0     -600  0 2 20 -80 0 0 -20 -40 0 9 PINVRTS
+P840 40 0 1 0 0 0 0 128
+
+
+*PARTTYPE*   ITEMS
+
+$OSR_SYMS UND  0   0   2     0
+TIMESTAMP 1999.03.30.22.52.06
+OFF 2
+REFIN S 
+REFOUT L 
+
+$GND_SYMS UND  0   0   2     0
+TIMESTAMP 1999.03.30.22.52.06
+GND 3
+GND G GND
+AGND G AGND
+CHGND G CHGND
+
+$PWR_SYMS UND  0   0   2     0
+TIMESTAMP 1999.03.30.22.52.06
+PWR 7
++5V P +5V
+BUBBLE P +5V
+Y P +5V
++12V P +12V
+-5V P -5V
+-12V P -12V
++5VA P +5VA
+
+LTC3644EY_PBF U    1   0   0     0
+TIMESTAMP 2026.10.22.21.19.58
+GATE 1 36 0
+LTC3644/LTC3644_2
+B6 0 U VIN1
+E6 0 U VIN2
+E1 0 U VIN3
+B1 0 U VIN4
+A5 0 U SVIN
+C5 0 U RUN1
+F5 0 U RUN2
+F2 0 U RUN3
+C2 0 U RUN4
+A2 0 U INTVCC
+D5 0 U PHASE
+D2 0 U MODE/SYNC
+B2 0 U PGOOD4
+E2 0 U PGOOD3
+E5 0 U PGOOD2
+F4 0 U GND
+F3 0 U GND
+E4 0 U GND
+E3 0 U GND
+D4 0 U GND
+D3 0 U GND
+C4 0 U GND
+C3 0 U GND
+B4 0 U GND
+B3 0 U GND
+A4 0 U GND
+A3 0 U GND
+C6 0 U SW1
+A6 0 U FB1
+D6 0 U SW2
+F6 0 U FB2
+D1 0 U SW3
+F1 0 U FB3
+C1 0 U SW4
+A1 0 U FB4
+B5 0 U PGOOD1
+
+C1210C226K3RACTU CAP  1   0   0     0
+TIMESTAMP 2026.10.22.19.10.01
+GATE 1 2 0
+C1210C226K3RACTU
+1 0 B 1
+2 0 B 2
+
+RT0603FRE07100KL RES  1   0   0     0
+TIMESTAMP 2026.10.22.18.47.19
+GATE 1 2 0
+RESZ-H
+1 0 B 1
+2 0 B 2
+
+C0805C105K3RACTU CAP  1   0   0     0
+TIMESTAMP 2026.10.22.18.16.47
+GATE 1 2 0
+C0805C105K3RACTU
+1 0 B 1
+2 0 B 2
+
+C1206C106K4RACTU CAP  1   0   0     0
+TIMESTAMP 2026.10.22.18.16.57
+GATE 1 2 0
+C1206C106K4RACTU
+1 0 B 1
+2 0 B 2
+
+VLS6045EX-6R8M IND  1   0   0     0
+TIMESTAMP 2026.10.22.19.45.38
+GATE 1 2 0
+VLS6045EX-6R8M
+1 0 B 1
+2 0 B 2
+
+RT0603BRD07590KL RES  1   0   0     0
+TIMESTAMP 2026.10.22.21.16.30
+GATE 1 2 0
+RESZ-H
+1 0 B 1
+2 0 B 2
+
+RT0603BRD0760KL RES  1   0   0     0
+TIMESTAMP 2026.10.22.21.26.58
+GATE 1 2 0
+RESZ-H
+1 0 B 1
+2 0 B 2
+
+C0402C220J5GACTU CAP  1   0   0     0
+TIMESTAMP 2026.10.22.18.17.10
+GATE 1 2 1
+CAPH
+1 1 B C1
+2 1 B C2
+
+C1210C476M4PACTU CAP  1   0   0     0
+TIMESTAMP 2026.10.22.18.17.20
+GATE 1 2 1
+CAPH
+1 1 B C1
+2 1 B C2
+
+WCAP-ATG5_5X11 CAP  1   0   0     0
+TIMESTAMP 2026.10.29.16.40.59
+GATE 1 2 0
+C_POLAR
+1 0 B +
+2 0 B -
+
+RT0603BRE07787KL RES  1   0   0     0
+TIMESTAMP 2026.11.03.19.08.33
+GATE 1 2 0
+RESZ-V
+1 0 B 1
+2 0 B 2
+
+
+
+*PART*       ITEMS
+
+
+
+U1           LTC3644EY_PBF    6100  12000   0 0 100 10 100 10 3 6 36 0 0 0
+"Default Font"
+"Default Font"
+2200 1724 0 12 82 5 0 "Default Font"
+REF-DES
+2250 1930 0 12 82 5 0 "Default Font"
+PART-TYPE
+1970 1840 0 8 100 10 0 "Default Font"
+*
+"Type" Power Management
+"Copyright" Copyright (C) 2026 Ultra Librarian. All rights reserved.
+"Manufacturer_Name" Analog Devices Inc
+"Manufacturer_Part_Number" LTC3644EY#PBF
+"Part Number" 
+"PCB DECAL" 05_08_1671_ADI
+0 140 20 0 1
+1 140 20 0 1
+2 140 20 0 1
+3 140 20 0 1
+4 140 20 0 1
+5 140 20 0 1
+6 140 20 0 1
+7 140 20 0 1
+8 140 20 0 1
+9 140 20 0 1
+10 140 20 0 1
+11 140 20 0 1
+12 140 20 0 1
+13 140 20 0 1
+14 140 20 0 1
+15 140 20 0 1
+16 140 20 0 1
+17 140 20 0 1
+18 140 20 0 1
+19 140 20 0 1
+20 140 20 0 1
+21 140 20 0 1
+22 140 20 0 1
+23 140 20 0 1
+24 140 20 0 1
+25 140 20 0 1
+26 140 20 0 1
+27 140 20 0 1
+28 140 20 0 1
+29 140 20 0 1
+30 140 20 0 1
+31 140 20 0 1
+32 140 20 0 1
+33 140 20 0 1
+34 140 20 0 1
+35 140 20 0 1
+
+C2           C1210C226K3RACTU 4800  13200  90 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+110 90 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+20 230 90 10 70 7 3 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________22_µF_±10%_25V_Ceramic_Capacitor_X7R_1210_(3225_Metric)______________________________________________
+"Package" 1210-2_KEMET
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=snap
+"MP" C1210C226K3RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X280
+"PCB DECAL" CAPC3225X280
+"Value" 22uF
+"Geometry.Height" 1102.36mil
+0 -28 8 0 4
+1 -28 8 0 0
+
+R3           RT0603FRE07100KL 7200  11400  90 0 100 10 100 10 4 12 2 0 0 26
+"Default Font"
+"Default Font"
+450 -160 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+300 -200 0 6 100 10 0 "Default Font"
+MP
+230 -190 90 5 100 10 3 "Default Font"
+Value
+"MF" Yageo
+"Description" ______________________________________________________100_kOhms_±1%_0.1W,_1/10W_Chip_Resistor_0603_(1608_Metric)_-_Thin_Film______________________________________________
+"Package" 1608_Yageo
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/RT0603FRE07100KL/Yageo/view-part/?ref=snap
+"MP" RT0603FRE07100KL
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/RT0603FRE07100KL/Yageo/view-part/?ref=eda
+"PKG_TYPE" RESC1608X55N
+"PCB DECAL" RESC1608X55N
+"Value" 100K
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+C3           C1210C226K3RACTU 5300  13100  90 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+110 90 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+20 230 90 10 70 7 3 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________22_µF_±10%_25V_Ceramic_Capacitor_X7R_1210_(3225_Metric)______________________________________________
+"Package" 1210-2_KEMET
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=snap
+"MP" C1210C226K3RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X280
+"PCB DECAL" CAPC3225X280
+"Value" 22uF
+"Geometry.Height" 1102.36mil
+0 -28 8 0 4
+1 -28 8 0 0
+
+C4           C1210C226K3RACTU 5800  13000  90 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+110 90 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+20 230 90 10 70 7 3 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________22_µF_±10%_25V_Ceramic_Capacitor_X7R_1210_(3225_Metric)______________________________________________
+"Package" 1210-2_KEMET
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=snap
+"MP" C1210C226K3RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X280
+"PCB DECAL" CAPC3225X280
+"Value" 22uF
+"Geometry.Height" 1102.36mil
+0 -28 8 0 4
+1 -28 8 0 0
+
+C5           C1210C226K3RACTU 6300  12900  90 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+110 90 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+20 230 90 10 70 7 3 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________22_µF_±10%_25V_Ceramic_Capacitor_X7R_1210_(3225_Metric)______________________________________________
+"Package" 1210-2_KEMET
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=snap
+"MP" C1210C226K3RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X280
+"PCB DECAL" CAPC3225X280
+"Value" 22uF
+"Geometry.Height" 1102.36mil
+0 -28 8 0 4
+1 -28 8 0 0
+
+C6           C0805C105K3RACTU 6650  12800  90 0 69 1 69 1 3 11 2 0 0 26
+"Default Font"
+"Default Font"
+110 100 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+-10 100 90 1 70 7 1 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________Multilayer_Ceramic_Capacitors_MLCC_-_SMD/SMT_25V_1uF_X7R_0805_10%______________________________________________
+"Package" 805-2_KEMET
+"Value" 1uF
+"SnapEDA_Link" https://www.snapeda.com/parts/C0805C105K3RAC%20TU/Kemet/view-part/?ref=snap
+"MP" C0805C105K3RAC_TU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0805C105K3RAC%20TU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC2012X140N
+"PCB DECAL" CAPC2012X140N
+"Geometry.Height" 551.18mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C9           C1206C106K4RACTU 7000  12000   0 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+-100 30 0 0 70 7 0 "Default Font"
+REF-DES
+40 -164 0 0 70 7 0 "Default Font"
+PART-TYPE
+-170 -100 0 2 70 7 1 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________10_µF_±10%_16V_Ceramic_Capacitor_X7R_1206_(3216_Metric)______________________________________________
+"Package" 1206-2_KEMET
+"Value" 10uF
+"SnapEDA_Link" https://www.snapeda.com/parts/C1206C106K4RACTU/Kemet/view-part/?ref=snap
+"MP" C1206C106K4RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1206C106K4RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" 1206
+"PCB DECAL" 1206
+"Manufacturer" 
+"Mfr Part Number" 
+0 -28 8 90 4
+1 -28 8 90 0
+
+L1           VLS6045EX-6R8M   9900  13400   0 0 69 1 69 1 3 8 2 0 0 26
+"Default Font"
+"Default Font"
+-200 100 0 0 70 7 0 "Default Font"
+REF-DES
+-200 -100 0 2 70 7 0 "Default Font"
+PART-TYPE
+-180 -20 0 2 70 7 1 "Default Font"
+Value
+"PARTREV" N/A
+"MANUFACTURER" TDK
+"MAXIMUM_PACKAGE_HEIGHT" 4.5mm
+"STANDARD" Manufacturer_Recommendations
+"PKG_TYPE" IND_VLS6045EX-6R8M
+"PCB DECAL" IND_VLS6045EX-6R8M
+"Value" 6.8uH
+"Geometry.Height" 177.17mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+L2           VLS6045EX-6R8M   9900  12000   0 0 69 1 69 1 3 8 2 0 0 26
+"Default Font"
+"Default Font"
+-200 100 0 0 70 7 0 "Default Font"
+REF-DES
+-200 -100 0 2 70 7 0 "Default Font"
+PART-TYPE
+-200 -10 0 2 70 7 1 "Default Font"
+Value
+"PARTREV" N/A
+"MANUFACTURER" TDK
+"MAXIMUM_PACKAGE_HEIGHT" 4.5mm
+"STANDARD" Manufacturer_Recommendations
+"PKG_TYPE" IND_VLS6045EX-6R8M
+"PCB DECAL" IND_VLS6045EX-6R8M
+"Value" 6.8uH
+"Geometry.Height" 177.17mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+L3           VLS6045EX-6R8M   9900  10600   0 0 69 1 69 1 3 8 2 0 0 26
+"Default Font"
+"Default Font"
+-200 100 0 0 70 7 0 "Default Font"
+REF-DES
+-200 -100 0 2 70 7 0 "Default Font"
+PART-TYPE
+-190 -20 0 2 70 7 1 "Default Font"
+Value
+"PARTREV" N/A
+"MANUFACTURER" TDK
+"MAXIMUM_PACKAGE_HEIGHT" 4.5mm
+"STANDARD" Manufacturer_Recommendations
+"PKG_TYPE" IND_VLS6045EX-6R8M
+"PCB DECAL" IND_VLS6045EX-6R8M
+"Value" 6.8uH
+"Geometry.Height" 177.17mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+L4           VLS6045EX-6R8M   9900  9200    0 0 69 1 69 1 3 8 2 0 0 26
+"Default Font"
+"Default Font"
+-200 100 0 0 70 7 0 "Default Font"
+REF-DES
+-200 -100 0 2 70 7 0 "Default Font"
+PART-TYPE
+-190 -20 0 2 70 7 1 "Default Font"
+Value
+"PARTREV" N/A
+"MANUFACTURER" TDK
+"MAXIMUM_PACKAGE_HEIGHT" 4.5mm
+"STANDARD" Manufacturer_Recommendations
+"PKG_TYPE" IND_VLS6045EX-6R8M
+"PCB DECAL" IND_VLS6045EX-6R8M
+"Value" 6.8uH
+"Geometry.Height" 177.17mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+R1           RT0603BRD07590KL 10400 12800  90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 160 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 190 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 590K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R5           RT0603BRD07590KL 10400 11400  90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 160 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 190 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 590K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R7           RT0603BRD07590KL 10400 10000  90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 160 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 190 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 590K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R9           RT0603BRD07590KL 10400 8600   90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 160 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 190 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 590K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R2           RT0603BRD0760KL  10400 12200  90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 170 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 180 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 60K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R6           RT0603BRD0760KL  10400 10800  90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 170 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 180 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 60K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R8           RT0603BRD0760KL  10400 9400   90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 170 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 180 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 60K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R10          RT0603BRD0760KL  10400 8000   90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 170 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 180 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 60K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+C7           C0402C220J5GACTU 10600 13000  90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+240 -110 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+20 -310 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________Capacitor;_Ceramic;_Cap;_22.0pF;_Tol+5%;_SMT;_Vol-Rtg_50V;_C0G;_TR_|_KEMET_C0402C220J5GACTU______________________________________________
+"Package" 0402_Kemet
+"MPN" C0402C220J5GACTU
+"Price" None
+"VALUE" 22pF
+"VOLTAGERATING" 50V
+"OC_FARNELL" 1414580
+"SnapEDA_Link" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=snap
+"MP" C0402C220J5GACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 03C3047
+"TOLERANCE" ±5%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC1005X60N
+"PCB DECAL" CAPC1005X60N
+"Geometry.Height" 236.22mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C8           C1210C476M4PACTU 11000 12800  90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -110 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+10 -300 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________1210_C_47uF_Ceramic_Multilayer_Capacitor,_16_V,_+85degC,_X5R_Dielectric,_+/-20%_|_KEMET_C1210C476M4PACTU______________________________________________
+"Package" Package_
+"MPN" C1210C476M4PACTU
+"Price" None
+"VALUE" 47uF
+"VOLTAGERATING" 16V
+"OC_FARNELL" 1838761
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=snap
+"MP" C1210C476M4PACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 94M5703
+"TOLERANCE" ±20%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X272N
+"PCB DECAL" CAPC3225X272N
+"Geometry.Height" 1070.87mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C10          C0402C220J5GACTU 10600 11600  90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+240 -110 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+20 -310 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________Capacitor;_Ceramic;_Cap;_22.0pF;_Tol+5%;_SMT;_Vol-Rtg_50V;_C0G;_TR_|_KEMET_C0402C220J5GACTU______________________________________________
+"Package" 0402_Kemet
+"MPN" C0402C220J5GACTU
+"Price" None
+"VALUE" 22pF
+"VOLTAGERATING" 50V
+"OC_FARNELL" 1414580
+"SnapEDA_Link" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=snap
+"MP" C0402C220J5GACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 03C3047
+"TOLERANCE" ±5%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC1005X60N
+"PCB DECAL" CAPC1005X60N
+"Geometry.Height" 236.22mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C11          C1210C476M4PACTU 11000 11400  90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -150 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+10 -300 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________1210_C_47uF_Ceramic_Multilayer_Capacitor,_16_V,_+85degC,_X5R_Dielectric,_+/-20%_|_KEMET_C1210C476M4PACTU______________________________________________
+"Package" Package_
+"MPN" C1210C476M4PACTU
+"Price" None
+"VALUE" 47uF
+"VOLTAGERATING" 16V
+"OC_FARNELL" 1838761
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=snap
+"MP" C1210C476M4PACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 94M5703
+"TOLERANCE" ±20%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X272N
+"PCB DECAL" CAPC3225X272N
+"Geometry.Height" 1070.87mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C12          C0402C220J5GACTU 10600 10200  90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -150 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+20 -310 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________Capacitor;_Ceramic;_Cap;_22.0pF;_Tol+5%;_SMT;_Vol-Rtg_50V;_C0G;_TR_|_KEMET_C0402C220J5GACTU______________________________________________
+"Package" 0402_Kemet
+"MPN" C0402C220J5GACTU
+"Price" None
+"VALUE" 22pF
+"VOLTAGERATING" 50V
+"OC_FARNELL" 1414580
+"SnapEDA_Link" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=snap
+"MP" C0402C220J5GACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 03C3047
+"TOLERANCE" ±5%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC1005X60N
+"PCB DECAL" CAPC1005X60N
+"Geometry.Height" 236.22mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C13          C1210C476M4PACTU 11000 10000  90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -160 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+10 -300 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________1210_C_47uF_Ceramic_Multilayer_Capacitor,_16_V,_+85degC,_X5R_Dielectric,_+/-20%_|_KEMET_C1210C476M4PACTU______________________________________________
+"Package" Package_
+"MPN" C1210C476M4PACTU
+"Price" None
+"VALUE" 47uF
+"VOLTAGERATING" 16V
+"OC_FARNELL" 1838761
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=snap
+"MP" C1210C476M4PACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 94M5703
+"TOLERANCE" ±20%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X272N
+"PCB DECAL" CAPC3225X272N
+"Geometry.Height" 1070.87mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C14          C0402C220J5GACTU 10600 8800   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -150 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+20 -310 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________Capacitor;_Ceramic;_Cap;_22.0pF;_Tol+5%;_SMT;_Vol-Rtg_50V;_C0G;_TR_|_KEMET_C0402C220J5GACTU______________________________________________
+"Package" 0402_Kemet
+"MPN" C0402C220J5GACTU
+"Price" None
+"VALUE" 22pF
+"VOLTAGERATING" 50V
+"OC_FARNELL" 1414580
+"SnapEDA_Link" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=snap
+"MP" C0402C220J5GACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 03C3047
+"TOLERANCE" ±5%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC1005X60N
+"PCB DECAL" CAPC1005X60N
+"Geometry.Height" 236.22mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C15          C1210C476M4PACTU 11000 8600   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+260 -150 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+10 -300 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________1210_C_47uF_Ceramic_Multilayer_Capacitor,_16_V,_+85degC,_X5R_Dielectric,_+/-20%_|_KEMET_C1210C476M4PACTU______________________________________________
+"Package" Package_
+"MPN" C1210C476M4PACTU
+"Price" None
+"VALUE" 47uF
+"VOLTAGERATING" 16V
+"OC_FARNELL" 1838761
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=snap
+"MP" C1210C476M4PACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 94M5703
+"TOLERANCE" ±20%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X272N
+"PCB DECAL" CAPC3225X272N
+"Geometry.Height" 1070.87mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+R4           RT0603FRE07100KL 7200  10600  90 0 100 10 100 10 4 12 2 0 0 26
+"Default Font"
+"Default Font"
+450 -160 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+300 -200 0 6 100 10 0 "Default Font"
+MP
+230 -190 90 5 100 10 3 "Default Font"
+Value
+"MF" Yageo
+"Description" ______________________________________________________100_kOhms_±1%_0.1W,_1/10W_Chip_Resistor_0603_(1608_Metric)_-_Thin_Film______________________________________________
+"Package" 1608_Yageo
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/RT0603FRE07100KL/Yageo/view-part/?ref=snap
+"MP" RT0603FRE07100KL
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/RT0603FRE07100KL/Yageo/view-part/?ref=eda
+"PKG_TYPE" RESC1608X55N
+"PCB DECAL" RESC1608X55N
+"Value" 100K
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+C1           WCAP-ATG5_5X11   3000  13000  90 0 69 1 69 1 2 2 2 0 0 24
+"Default Font"
+"Default Font"
+46 132 0 4 56 6 0 "Default Font"
+REF-DES
+36 -200 0 4 56 6 0 "Default Font"
+PART-TYPE
+"PKG_TYPE" WCAP-ATG5_5X11DXL
+"PCB DECAL" WCAP-ATG5_5X11DXL
+0 -28 8 0 4
+1 -28 8 0 0
+
+U2           LTC3644EY_PBF    6100  5600    0 0 100 10 100 10 3 6 36 0 0 0
+"Default Font"
+"Default Font"
+2200 1724 0 12 82 5 0 "Default Font"
+REF-DES
+2250 1930 0 12 82 5 0 "Default Font"
+PART-TYPE
+1970 1840 0 8 100 10 0 "Default Font"
+*
+"Type" Power Management
+"Copyright" Copyright (C) 2026 Ultra Librarian. All rights reserved.
+"Manufacturer_Name" Analog Devices Inc
+"Manufacturer_Part_Number" LTC3644EY#PBF
+"Part Number" 
+"PCB DECAL" 05_08_1671_ADI
+0 140 20 0 1
+1 140 20 0 1
+2 140 20 0 1
+3 140 20 0 1
+4 140 20 0 1
+5 140 20 0 1
+6 140 20 0 1
+7 140 20 0 1
+8 140 20 0 1
+9 140 20 0 1
+10 140 20 0 1
+11 140 20 0 1
+12 140 20 0 1
+13 140 20 0 1
+14 140 20 0 1
+15 140 20 0 1
+16 140 20 0 1
+17 140 20 0 1
+18 140 20 0 1
+19 140 20 0 1
+20 140 20 0 1
+21 140 20 0 1
+22 140 20 0 1
+23 140 20 0 1
+24 140 20 0 1
+25 140 20 0 1
+26 140 20 0 1
+27 140 20 0 1
+28 140 20 0 1
+29 140 20 0 1
+30 140 20 0 1
+31 140 20 0 1
+32 140 20 0 1
+33 140 20 0 1
+34 140 20 0 1
+35 140 20 0 1
+
+C17          C1210C226K3RACTU 4800  6800   90 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+110 90 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+20 230 90 10 70 7 3 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________22_µF_±10%_25V_Ceramic_Capacitor_X7R_1210_(3225_Metric)______________________________________________
+"Package" 1210-2_KEMET
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=snap
+"MP" C1210C226K3RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X280
+"PCB DECAL" CAPC3225X280
+"Value" 22uF
+"Geometry.Height" 1102.36mil
+0 -28 8 0 4
+1 -28 8 0 0
+
+R13          RT0603FRE07100KL 7200  5000   90 0 100 10 100 10 4 12 2 0 0 26
+"Default Font"
+"Default Font"
+450 -160 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+300 -200 0 6 100 10 0 "Default Font"
+MP
+230 -190 90 5 100 10 3 "Default Font"
+Value
+"MF" Yageo
+"Description" ______________________________________________________100_kOhms_±1%_0.1W,_1/10W_Chip_Resistor_0603_(1608_Metric)_-_Thin_Film______________________________________________
+"Package" 1608_Yageo
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/RT0603FRE07100KL/Yageo/view-part/?ref=snap
+"MP" RT0603FRE07100KL
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/RT0603FRE07100KL/Yageo/view-part/?ref=eda
+"PKG_TYPE" RESC1608X55N
+"PCB DECAL" RESC1608X55N
+"Value" 100K
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+C18          C1210C226K3RACTU 5300  6700   90 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+110 90 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+20 230 90 10 70 7 3 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________22_µF_±10%_25V_Ceramic_Capacitor_X7R_1210_(3225_Metric)______________________________________________
+"Package" 1210-2_KEMET
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=snap
+"MP" C1210C226K3RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X280
+"PCB DECAL" CAPC3225X280
+"Value" 22uF
+"Geometry.Height" 1102.36mil
+0 -28 8 0 4
+1 -28 8 0 0
+
+C19          C1210C226K3RACTU 5800  6600   90 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+110 90 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+20 230 90 10 70 7 3 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________22_µF_±10%_25V_Ceramic_Capacitor_X7R_1210_(3225_Metric)______________________________________________
+"Package" 1210-2_KEMET
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=snap
+"MP" C1210C226K3RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X280
+"PCB DECAL" CAPC3225X280
+"Value" 22uF
+"Geometry.Height" 1102.36mil
+0 -28 8 0 4
+1 -28 8 0 0
+
+C20          C1210C226K3RACTU 6300  6500   90 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+110 90 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+20 230 90 10 70 7 3 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________22_µF_±10%_25V_Ceramic_Capacitor_X7R_1210_(3225_Metric)______________________________________________
+"Package" 1210-2_KEMET
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=snap
+"MP" C1210C226K3RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C226K3RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X280
+"PCB DECAL" CAPC3225X280
+"Value" 22uF
+"Geometry.Height" 1102.36mil
+0 -28 8 0 4
+1 -28 8 0 0
+
+C21          C0805C105K3RACTU 6650  6400   90 0 69 1 69 1 3 11 2 0 0 26
+"Default Font"
+"Default Font"
+110 100 90 0 70 7 0 "Default Font"
+REF-DES
+0 -200 0 0 70 7 0 "Default Font"
+PART-TYPE
+-10 100 90 1 70 7 1 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________Multilayer_Ceramic_Capacitors_MLCC_-_SMD/SMT_25V_1uF_X7R_0805_10%______________________________________________
+"Package" 805-2_KEMET
+"Value" 1uF
+"SnapEDA_Link" https://www.snapeda.com/parts/C0805C105K3RAC%20TU/Kemet/view-part/?ref=snap
+"MP" C0805C105K3RAC_TU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0805C105K3RAC%20TU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC2012X140N
+"PCB DECAL" CAPC2012X140N
+"Geometry.Height" 551.18mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C24          C1206C106K4RACTU 7000  5600    0 0 69 1 69 1 3 12 2 0 0 26
+"Default Font"
+"Default Font"
+-160 30 0 0 70 7 0 "Default Font"
+REF-DES
+40 -164 0 0 70 7 0 "Default Font"
+PART-TYPE
+-170 -100 0 2 70 7 1 "Default Font"
+Value
+"MF" KEMET
+"Description" ______________________________________________________10_µF_±10%_16V_Ceramic_Capacitor_X7R_1206_(3216_Metric)______________________________________________
+"Package" 1206-2_KEMET
+"Value" 10uF
+"SnapEDA_Link" https://www.snapeda.com/parts/C1206C106K4RACTU/Kemet/view-part/?ref=snap
+"MP" C1206C106K4RACTU
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1206C106K4RACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" 1206
+"PCB DECAL" 1206
+"Manufacturer" 
+"Mfr Part Number" 
+0 -28 8 90 4
+1 -28 8 90 0
+
+L5           VLS6045EX-6R8M   9900  7000    0 0 69 1 69 1 3 8 2 0 0 26
+"Default Font"
+"Default Font"
+-200 100 0 0 70 7 0 "Default Font"
+REF-DES
+-200 -100 0 2 70 7 0 "Default Font"
+PART-TYPE
+-180 -20 0 2 70 7 1 "Default Font"
+Value
+"PARTREV" N/A
+"MANUFACTURER" TDK
+"MAXIMUM_PACKAGE_HEIGHT" 4.5mm
+"STANDARD" Manufacturer_Recommendations
+"PKG_TYPE" IND_VLS6045EX-6R8M
+"PCB DECAL" IND_VLS6045EX-6R8M
+"Value" 6.8uH
+"Geometry.Height" 177.17mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+L6           VLS6045EX-6R8M   9900  5600    0 0 69 1 69 1 3 8 2 0 0 26
+"Default Font"
+"Default Font"
+-200 100 0 0 70 7 0 "Default Font"
+REF-DES
+-200 -100 0 2 70 7 0 "Default Font"
+PART-TYPE
+-200 -10 0 2 70 7 1 "Default Font"
+Value
+"PARTREV" N/A
+"MANUFACTURER" TDK
+"MAXIMUM_PACKAGE_HEIGHT" 4.5mm
+"STANDARD" Manufacturer_Recommendations
+"PKG_TYPE" IND_VLS6045EX-6R8M
+"PCB DECAL" IND_VLS6045EX-6R8M
+"Value" 6.8uH
+"Geometry.Height" 177.17mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+L7           VLS6045EX-6R8M   9900  4200    0 0 69 1 69 1 3 8 2 0 0 26
+"Default Font"
+"Default Font"
+-200 100 0 0 70 7 0 "Default Font"
+REF-DES
+-200 -100 0 2 70 7 0 "Default Font"
+PART-TYPE
+-190 -20 0 2 70 7 1 "Default Font"
+Value
+"PARTREV" N/A
+"MANUFACTURER" TDK
+"MAXIMUM_PACKAGE_HEIGHT" 4.5mm
+"STANDARD" Manufacturer_Recommendations
+"PKG_TYPE" IND_VLS6045EX-6R8M
+"PCB DECAL" IND_VLS6045EX-6R8M
+"Value" 6.8uH
+"Geometry.Height" 177.17mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+L8           VLS6045EX-6R8M   9900  2800    0 0 69 1 69 1 3 8 2 0 0 26
+"Default Font"
+"Default Font"
+-200 100 0 0 70 7 0 "Default Font"
+REF-DES
+-200 -100 0 2 70 7 0 "Default Font"
+PART-TYPE
+-190 -20 0 2 70 7 1 "Default Font"
+Value
+"PARTREV" N/A
+"MANUFACTURER" TDK
+"MAXIMUM_PACKAGE_HEIGHT" 4.5mm
+"STANDARD" Manufacturer_Recommendations
+"PKG_TYPE" IND_VLS6045EX-6R8M
+"PCB DECAL" IND_VLS6045EX-6R8M
+"Value" 6.8uH
+"Geometry.Height" 177.17mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+R11          RT0603BRE07787KL 10400 6400    0 3 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+100 -280 0 0 100 10 0 "Default Font"
+REF-DES
+100 -180 0 0 100 10 0 "Default Font"
+PART-TYPE
+100 -320 0 2 100 10 3 "Default Font"
+Value
+100 -420 0 2 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 787K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 20 -80 0 0
+1 20 -80 0 0
+
+R15          RT0603BRE07787KL 10400 5000    0 3 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+100 -280 0 0 100 10 0 "Default Font"
+REF-DES
+100 -180 0 0 100 10 0 "Default Font"
+PART-TYPE
+100 -320 0 2 100 10 3 "Default Font"
+Value
+100 -420 0 2 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 787K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 20 -80 0 0
+1 20 -80 0 0
+
+R17          RT0603BRE07787KL 10400 3600    0 3 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+100 -280 0 0 100 10 0 "Default Font"
+REF-DES
+100 -180 0 0 100 10 0 "Default Font"
+PART-TYPE
+100 -320 0 2 97 10 3 "Default Font"
+Value
+100 -420 0 2 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 787K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 20 -80 0 0
+1 20 -80 0 0
+
+R19          RT0603BRE07787KL 10400 2200    0 3 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+100 -280 0 0 100 10 0 "Default Font"
+REF-DES
+100 -180 0 0 100 10 0 "Default Font"
+PART-TYPE
+100 -320 0 2 100 10 3 "Default Font"
+Value
+100 -420 0 2 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 787K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 20 -80 0 0
+1 20 -80 0 0
+
+R12          RT0603BRD0760KL  10400 5800   90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 170 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 180 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 60K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R16          RT0603BRD0760KL  10400 4400   90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 170 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 180 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 60K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R18          RT0603BRD0760KL  10400 3000   90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 170 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 180 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 60K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+R20          RT0603BRD0760KL  10400 1600   90 0 100 10 100 10 4 4 2 0 0 26
+"Default Font"
+"Default Font"
+400 170 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+200 180 90 5 100 10 3 "Default Font"
+Value
+300 -200 0 6 100 10 0 "Default Font"
+*
+"PKG_TYPE" RESC1608X55N
+"Value" 60K
+"PCB DECAL" RESC1608X55N
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+C22          C0402C220J5GACTU 10600 6600   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -150 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+20 -310 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________Capacitor;_Ceramic;_Cap;_22.0pF;_Tol+5%;_SMT;_Vol-Rtg_50V;_C0G;_TR_|_KEMET_C0402C220J5GACTU______________________________________________
+"Package" 0402_Kemet
+"MPN" C0402C220J5GACTU
+"Price" None
+"VALUE" 22pF
+"VOLTAGERATING" 50V
+"OC_FARNELL" 1414580
+"SnapEDA_Link" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=snap
+"MP" C0402C220J5GACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 03C3047
+"TOLERANCE" ±5%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC1005X60N
+"PCB DECAL" CAPC1005X60N
+"Geometry.Height" 236.22mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C23          C1210C476M4PACTU 11000 6400   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -160 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+10 -300 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________1210_C_47uF_Ceramic_Multilayer_Capacitor,_16_V,_+85degC,_X5R_Dielectric,_+/-20%_|_KEMET_C1210C476M4PACTU______________________________________________
+"Package" Package_
+"MPN" C1210C476M4PACTU
+"Price" None
+"VALUE" 47uF
+"VOLTAGERATING" 16V
+"OC_FARNELL" 1838761
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=snap
+"MP" C1210C476M4PACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 94M5703
+"TOLERANCE" ±20%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X272N
+"PCB DECAL" CAPC3225X272N
+"Geometry.Height" 1070.87mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C25          C0402C220J5GACTU 10600 5200   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -160 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+20 -310 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________Capacitor;_Ceramic;_Cap;_22.0pF;_Tol+5%;_SMT;_Vol-Rtg_50V;_C0G;_TR_|_KEMET_C0402C220J5GACTU______________________________________________
+"Package" 0402_Kemet
+"MPN" C0402C220J5GACTU
+"Price" None
+"VALUE" 22pF
+"VOLTAGERATING" 50V
+"OC_FARNELL" 1414580
+"SnapEDA_Link" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=snap
+"MP" C0402C220J5GACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 03C3047
+"TOLERANCE" ±5%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC1005X60N
+"PCB DECAL" CAPC1005X60N
+"Geometry.Height" 236.22mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C26          C1210C476M4PACTU 11000 5000   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -150 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+10 -300 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________1210_C_47uF_Ceramic_Multilayer_Capacitor,_16_V,_+85degC,_X5R_Dielectric,_+/-20%_|_KEMET_C1210C476M4PACTU______________________________________________
+"Package" Package_
+"MPN" C1210C476M4PACTU
+"Price" None
+"VALUE" 47uF
+"VOLTAGERATING" 16V
+"OC_FARNELL" 1838761
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=snap
+"MP" C1210C476M4PACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 94M5703
+"TOLERANCE" ±20%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X272N
+"PCB DECAL" CAPC3225X272N
+"Geometry.Height" 1070.87mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C27          C0402C220J5GACTU 10600 3800   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -150 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+20 -310 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________Capacitor;_Ceramic;_Cap;_22.0pF;_Tol+5%;_SMT;_Vol-Rtg_50V;_C0G;_TR_|_KEMET_C0402C220J5GACTU______________________________________________
+"Package" 0402_Kemet
+"MPN" C0402C220J5GACTU
+"Price" None
+"VALUE" 22pF
+"VOLTAGERATING" 50V
+"OC_FARNELL" 1414580
+"SnapEDA_Link" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=snap
+"MP" C0402C220J5GACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 03C3047
+"TOLERANCE" ±5%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC1005X60N
+"PCB DECAL" CAPC1005X60N
+"Geometry.Height" 236.22mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C28          C1210C476M4PACTU 11000 3600   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -160 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+10 -300 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________1210_C_47uF_Ceramic_Multilayer_Capacitor,_16_V,_+85degC,_X5R_Dielectric,_+/-20%_|_KEMET_C1210C476M4PACTU______________________________________________
+"Package" Package_
+"MPN" C1210C476M4PACTU
+"Price" None
+"VALUE" 47uF
+"VOLTAGERATING" 16V
+"OC_FARNELL" 1838761
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=snap
+"MP" C1210C476M4PACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 94M5703
+"TOLERANCE" ±20%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X272N
+"PCB DECAL" CAPC3225X272N
+"Geometry.Height" 1070.87mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C29          C0402C220J5GACTU 10600 2400   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+250 -150 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+20 -310 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________Capacitor;_Ceramic;_Cap;_22.0pF;_Tol+5%;_SMT;_Vol-Rtg_50V;_C0G;_TR_|_KEMET_C0402C220J5GACTU______________________________________________
+"Package" 0402_Kemet
+"MPN" C0402C220J5GACTU
+"Price" None
+"VALUE" 22pF
+"VOLTAGERATING" 50V
+"OC_FARNELL" 1414580
+"SnapEDA_Link" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=snap
+"MP" C0402C220J5GACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 03C3047
+"TOLERANCE" ±5%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C0402C220J5GACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC1005X60N
+"PCB DECAL" CAPC1005X60N
+"Geometry.Height" 236.22mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+C30          C1210C476M4PACTU 11000 2200   90 0 69 1 69 1 3 18 2 0 0 26
+"Default Font"
+"Default Font"
+260 -150 90 0 82 8 0 "Default Font"
+REF-DES
+-222 -368 0 0 137 14 0 "Default Font"
+PART-TYPE
+10 -300 90 1 137 14 1 "Default Font"
+VALUE
+"MF" KEMET
+"Description" ______________________________________________________1210_C_47uF_Ceramic_Multilayer_Capacitor,_16_V,_+85degC,_X5R_Dielectric,_+/-20%_|_KEMET_C1210C476M4PACTU______________________________________________
+"Package" Package_
+"MPN" C1210C476M4PACTU
+"Price" None
+"VALUE" 47uF
+"VOLTAGERATING" 16V
+"OC_FARNELL" 1838761
+"SnapEDA_Link" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=snap
+"MP" C1210C476M4PACTU
+"SUPPLIER" Kemet
+"OC_NEWARK" 94M5703
+"TOLERANCE" ±20%
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/C1210C476M4PACTU/Kemet/view-part/?ref=eda
+"PKG_TYPE" CAPC3225X272N
+"PCB DECAL" CAPC3225X272N
+"Geometry.Height" 1070.87mil
+0 -28 8 0 0
+1 -28 8 0 4
+
+R14          RT0603FRE07100KL 7200  4200   90 0 100 10 100 10 4 12 2 0 0 26
+"Default Font"
+"Default Font"
+450 -160 90 4 125 10 0 "Default Font"
+REF-DES
+310 200 0 4 100 10 0 "Default Font"
+PART-TYPE
+300 -200 0 6 100 10 0 "Default Font"
+MP
+230 -190 90 5 100 10 3 "Default Font"
+Value
+"MF" Yageo
+"Description" ______________________________________________________100_kOhms_±1%_0.1W,_1/10W_Chip_Resistor_0603_(1608_Metric)_-_Thin_Film______________________________________________
+"Package" 1608_Yageo
+"Price" None
+"SnapEDA_Link" https://www.snapeda.com/parts/RT0603FRE07100KL/Yageo/view-part/?ref=snap
+"MP" RT0603FRE07100KL
+"Availability" In_Stock
+"Check_prices" https://www.snapeda.com/parts/RT0603FRE07100KL/Yageo/view-part/?ref=eda
+"PKG_TYPE" RESC1608X55N
+"PCB DECAL" RESC1608X55N
+"Value" 100K
+"Geometry.Height" 216.54mil
+0 34 16 0 0
+1 0 20 0 0
+
+C16          WCAP-ATG5_5X11   3000  6600   90 0 69 1 69 1 2 2 2 0 0 24
+"Default Font"
+"Default Font"
+46 132 0 4 56 6 0 "Default Font"
+REF-DES
+36 -200 0 4 56 6 0 "Default Font"
+PART-TYPE
+"PKG_TYPE" WCAP-ATG5_5X11DXL
+"PCB DECAL" WCAP-ATG5_5X11DXL
+0 -28 8 0 4
+1 -28 8 0 0
+
+
+*BUSSES*
+
+
+*OFFPAGE REFS*
+
+
+
+@@@O0    +12V $PWR_SYMS 1800   13400  90 0 2
+@@@O1    U1_6.5V_CH1 $OSR_SYMS 13450  13400  0 0 1
+@@@O2    U1_6.5V_CH2 $OSR_SYMS 13450  12000  0 0 1
+@@@O3    U1_6.5V_CH3 $OSR_SYMS 13450  10600  0 0 1
+@@@O4    U1_6.5V_CH4 $OSR_SYMS 13450  9200   0 0 1
+@@@O5    U2_8.5V_CH1 $OSR_SYMS 13450  7000   0 0 1
+@@@O6    U2_8.5V_CH2 $OSR_SYMS 13450  5600   0 0 1
+@@@O7    U2_8.5V_CH3 $OSR_SYMS 13450  4200   0 0 1
+@@@O8    U2_8.5V_CH4 $OSR_SYMS 13450  2800   0 0 1
+@@@O9    GND $GND_SYMS 4800   1400   0 0 0
+
+*TIEDOTS*
+
+
+
+@@@D0    7200   13300 
+@@@D1    7200   13200 
+@@@D2    7200   13100 
+@@@D3    7200   13000 
+@@@D4    7200   13100 
+@@@D5    7200   13200 
+@@@D6    7200   13300 
+@@@D7    7200   13400 
+@@@D8    7200   13000 
+@@@D9    7200   12800 
+@@@D10   7200   12700 
+@@@D11   7200   12600 
+@@@D12   7200   12000 
+@@@D13   7200   12100 
+@@@D14   7900   8000  
+@@@D15   8000   8000  
+@@@D16   8100   8000  
+@@@D17   8200   8000  
+@@@D18   8300   8000  
+@@@D19   8400   8000  
+@@@D20   8500   8000  
+@@@D21   8600   8000  
+@@@D22   8700   8000  
+@@@D23   8800   8000  
+@@@D24   4800   13400 
+@@@D25   7800   8000  
+@@@D26   7000   8000  
+@@@D27   6650   8000  
+@@@D28   6300   8000  
+@@@D29   5800   8000  
+@@@D30   5300   8000  
+@@@D31   10400  12800 
+@@@D32   10400  11400 
+@@@D33   10400  10000 
+@@@D34   10400  8600  
+@@@D35   10400  13400 
+@@@D36   10400  12800 
+@@@D37   10600  13400 
+@@@D38   10600  12000 
+@@@D39   10400  12000 
+@@@D40   10400  11400 
+@@@D41   10600  10600 
+@@@D42   10400  10600 
+@@@D43   10400  10000 
+@@@D44   10600  9200  
+@@@D45   10400  9200  
+@@@D46   10400  8600  
+@@@D47   11000  12200 
+@@@D48   11000  8000  
+@@@D49   11000  9400  
+@@@D50   11400  9400  
+@@@D51   11000  10800 
+@@@D52   11400  10800 
+@@@D53   11000  13400 
+@@@D54   11000  12000 
+@@@D55   11000  10600 
+@@@D56   11000  9200  
+@@@D57   4800   8000  
+@@@D58   8900   8000  
+@@@D59   10400  8000  
+@@@D60   7200   11400 
+@@@D61   7200   8000  
+@@@D62   3000   13400 
+@@@D63   7200   6900  
+@@@D64   7200   6800  
+@@@D65   7200   6700  
+@@@D66   7200   6600  
+@@@D67   7200   6700  
+@@@D68   7200   6800  
+@@@D69   7200   6900  
+@@@D70   7200   7000  
+@@@D71   7200   6600  
+@@@D72   7200   6400  
+@@@D73   7200   6300  
+@@@D74   7200   6200  
+@@@D75   7200   5600  
+@@@D76   7200   5700  
+@@@D77   7900   1600  
+@@@D78   8000   1600  
+@@@D79   8100   1600  
+@@@D80   8200   1600  
+@@@D81   8300   1600  
+@@@D82   8400   1600  
+@@@D83   8500   1600  
+@@@D84   8600   1600  
+@@@D85   8700   1600  
+@@@D86   8800   1600  
+@@@D87   4800   7000  
+@@@D88   7800   1600  
+@@@D89   7000   1600  
+@@@D90   6650   1600  
+@@@D91   6300   1600  
+@@@D92   5800   1600  
+@@@D93   5300   1600  
+@@@D94   10400  6400  
+@@@D95   10400  5000  
+@@@D96   10400  3600  
+@@@D97   10400  2200  
+@@@D98   10400  7000  
+@@@D99   10400  6400  
+@@@D100  10600  7000  
+@@@D101  10600  5600  
+@@@D102  10400  5600  
+@@@D103  10400  5000  
+@@@D104  10600  4200  
+@@@D105  10400  4200  
+@@@D106  10400  3600  
+@@@D107  10600  2800  
+@@@D108  10400  2800  
+@@@D109  10400  2200  
+@@@D110  11000  5800  
+@@@D111  11000  1600  
+@@@D112  11000  3000  
+@@@D113  11400  3000  
+@@@D114  11000  4400  
+@@@D115  11400  4400  
+@@@D116  11000  7000  
+@@@D117  11000  5600  
+@@@D118  11000  4200  
+@@@D119  11000  2800  
+@@@D120  4800   1600  
+@@@D121  8900   1600  
+@@@D122  10400  1600  
+@@@D123  7200   5000  
+@@@D124  7200   1600  
+@@@D125  3000   7000  
+@@@D126  4800   1600  
+@@@D127  2200   13400 
+@@@D128  3600   8000  
+@@@D129  3000   6000  
+
+*CONNECTION*
+
+
+*SIGNAL* +12V 0 0
+U1.E6        @@@D0        2 0
+7400   13300 
+7200   13300 
+U1.E1        @@@D1        2 0
+7400   13200 
+7200   13200 
+@@@D0        @@@D7        2 0
+7200   13300 
+7200   13400 
+U1.B1        @@@D2        2 0
+7400   13100 
+7200   13100 
+@@@D1        @@@D6        2 0
+7200   13200 
+7200   13300 
+U1.A5        @@@D3        2 0
+7400   13000 
+7200   13000 
+@@@D2        @@@D5        2 0
+7200   13100 
+7200   13200 
+@@@D3        @@@D4        2 0
+7200   13000 
+7200   13100 
+@@@D3        @@@D8        2 0
+7200   13000 
+7200   13000 
+@@@D4        @@@D2        2 0
+7200   13100 
+7200   13100 
+@@@D4        C5.1         2 0
+7200   13100 
+6300   13100 
+@@@D5        @@@D1        2 0
+7200   13200 
+7200   13200 
+@@@D5        C4.1         2 0
+7200   13200 
+5800   13200 
+@@@D6        @@@D0        2 0
+7200   13300 
+7200   13300 
+@@@D6        C3.1         2 0
+7200   13300 
+5300   13300 
+@@@D7        U1.B6        2 0
+7200   13400 
+7400   13400 
+@@@D7        @@@D24       2 0
+7200   13400 
+4800   13400 
+U1.C5        @@@D9        2 0
+7400   12800 
+7200   12800 
+@@@D8        C6.2         2 0
+7200   13000 
+6650   13000 
+U1.F5        @@@D10       2 0
+7400   12700 
+7200   12700 
+@@@D9        @@@D8        2 0
+7200   12800 
+7200   13000 
+U1.F2        @@@D11       2 0
+7400   12600 
+7200   12600 
+@@@D10       @@@D9        2 0
+7200   12700 
+7200   12800 
+U1.C2        @@@D11       3 0
+7400   12500 
+7200   12500 
+7200   12600 
+@@@D11       @@@D10       2 0
+7200   12600 
+7200   12700 
+@@@D24       C2.1         2 0
+4800   13400 
+4800   13400 
+@@@O0        @@@D127      2 0
+1800   13400 
+2200   13400 
+C1.1         @@@D62       2 0
+3000   13200 
+3000   13400 
+@@@D62       @@@D24       2 0
+3000   13400 
+4800   13400 
+U2.E6        @@@D63       2 0
+7400   6900  
+7200   6900  
+U2.E1        @@@D64       2 0
+7400   6800  
+7200   6800  
+@@@D63       @@@D70       2 0
+7200   6900  
+7200   7000  
+U2.B1        @@@D65       2 0
+7400   6700  
+7200   6700  
+@@@D64       @@@D69       2 0
+7200   6800  
+7200   6900  
+U2.A5        @@@D66       2 0
+7400   6600  
+7200   6600  
+@@@D65       @@@D68       2 0
+7200   6700  
+7200   6800  
+@@@D66       @@@D67       2 0
+7200   6600  
+7200   6700  
+@@@D66       @@@D71       2 0
+7200   6600  
+7200   6600  
+@@@D67       @@@D65       2 0
+7200   6700  
+7200   6700  
+@@@D67       C20.1        2 0
+7200   6700  
+6300   6700  
+@@@D68       @@@D64       2 0
+7200   6800  
+7200   6800  
+@@@D68       C19.1        2 0
+7200   6800  
+5800   6800  
+@@@D69       @@@D63       2 0
+7200   6900  
+7200   6900  
+@@@D69       C18.1        2 0
+7200   6900  
+5300   6900  
+@@@D70       U2.B6        2 0
+7200   7000  
+7400   7000  
+@@@D70       @@@D87       2 0
+7200   7000  
+4800   7000  
+U2.C5        @@@D72       2 0
+7400   6400  
+7200   6400  
+@@@D71       C21.2        2 0
+7200   6600  
+6650   6600  
+U2.F5        @@@D73       2 0
+7400   6300  
+7200   6300  
+@@@D72       @@@D71       2 0
+7200   6400  
+7200   6600  
+U2.F2        @@@D74       2 0
+7400   6200  
+7200   6200  
+@@@D73       @@@D72       2 0
+7200   6300  
+7200   6400  
+U2.C2        @@@D74       3 0
+7400   6100  
+7200   6100  
+7200   6200  
+@@@D74       @@@D73       2 0
+7200   6200  
+7200   6300  
+@@@D87       C17.1        2 0
+4800   7000  
+4800   7000  
+@@@D125      @@@D127      3 0
+3000   7000  
+2200   7000  
+2200   13400 
+C16.1        @@@D125      2 0
+3000   6800  
+3000   7000  
+@@@D125      @@@D87       2 0
+3000   7000  
+4800   7000  
+@@@D127      @@@D62       2 0
+2200   13400 
+3000   13400 
+
+*SIGNAL* $$$277 64 0
+U2.D5        @@@D75       2 0
+7400   5600  
+7200   5600  
+U2.A2        @@@D76       2 0
+7400   5700  
+7200   5700  
+@@@D75       R13.2        2 0
+7200   5600  
+7200   5600  
+@@@D76       @@@D75       2 0
+7200   5700  
+7200   5600  
+@@@D76       C24.1        2 0
+7200   5700  
+7000   5700  
+
+*SIGNAL* $$$13312 64 0
+U1.D5        @@@D12       2 0
+7400   12000 
+7200   12000 
+U1.A2        @@@D13       2 0
+7400   12100 
+7200   12100 
+@@@D12       R3.2         2 0
+7200   12000 
+7200   12000 
+@@@D13       @@@D12       2 0
+7200   12100 
+7200   12000 
+@@@D13       C9.1         2 0
+7200   12100 
+7000   12100 
+
+*SIGNAL* GND 0 0
+@@@D14       @@@D25       2 0
+7900   8000  
+7800   8000  
+U1.F3        @@@D14       2 0
+7900   8150  
+7900   8000  
+U1.E4        @@@D15       2 0
+8000   8150  
+8000   8000  
+U1.E3        @@@D16       2 0
+8100   8150  
+8100   8000  
+@@@D15       @@@D14       2 0
+8000   8000  
+7900   8000  
+U1.D4        @@@D17       2 0
+8200   8150  
+8200   8000  
+@@@D16       @@@D15       2 0
+8100   8000  
+8000   8000  
+U1.D3        @@@D18       2 0
+8300   8150  
+8300   8000  
+@@@D17       @@@D16       2 0
+8200   8000  
+8100   8000  
+U1.C4        @@@D19       2 0
+8400   8150  
+8400   8000  
+@@@D18       @@@D17       2 0
+8300   8000  
+8200   8000  
+U1.C3        @@@D20       2 0
+8500   8150  
+8500   8000  
+@@@D19       @@@D18       2 0
+8400   8000  
+8300   8000  
+U1.B4        @@@D21       2 0
+8600   8150  
+8600   8000  
+@@@D20       @@@D19       2 0
+8500   8000  
+8400   8000  
+U1.B3        @@@D22       2 0
+8700   8150  
+8700   8000  
+@@@D21       @@@D20       2 0
+8600   8000  
+8500   8000  
+U1.A4        @@@D23       2 0
+8800   8150  
+8800   8000  
+@@@D22       @@@D21       2 0
+8700   8000  
+8600   8000  
+U1.A3        @@@D58       2 0
+8900   8150  
+8900   8000  
+@@@D23       @@@D22       2 0
+8800   8000  
+8700   8000  
+@@@D25       U1.F4        2 0
+7800   8000  
+7800   8150  
+C9.2         @@@D26       2 0
+7000   11800 
+7000   8000  
+@@@D26       @@@D61       2 0
+7000   8000  
+7200   8000  
+C6.1         @@@D27       2 0
+6650   12700 
+6650   8000  
+C5.2         @@@D28       2 0
+6300   12800 
+6300   8000  
+@@@D27       @@@D26       2 0
+6650   8000  
+7000   8000  
+C4.2         @@@D29       2 0
+5800   12900 
+5800   8000  
+@@@D28       @@@D27       2 0
+6300   8000  
+6650   8000  
+C3.2         @@@D30       2 0
+5300   13000 
+5300   8000  
+@@@D29       @@@D28       2 0
+5800   8000  
+6300   8000  
+@@@D30       @@@D57       2 0
+5300   8000  
+4800   8000  
+@@@D30       @@@D29       2 0
+5300   8000  
+5800   8000  
+R2.1         @@@D47       2 0
+10400  12200 
+11000  12200 
+R6.1         @@@D51       2 0
+10400  10800 
+11000  10800 
+R8.1         @@@D49       2 0
+10400  9400  
+11000  9400  
+R10.1        @@@D59       2 0
+10400  8000  
+10400  8000  
+@@@D47       C8.1         2 0
+11000  12200 
+11000  12800 
+@@@D47       @@@D52       3 0
+11000  12200 
+11400  12200 
+11400  10800 
+@@@D48       C15.1        2 0
+11000  8000  
+11000  8600  
+@@@D49       C13.1        2 0
+11000  9400  
+11000  10000 
+@@@D49       @@@D50       2 0
+11000  9400  
+11400  9400  
+@@@D50       @@@D48       3 0
+11400  9400  
+11400  8000  
+11000  8000  
+@@@D51       C11.1        2 0
+11000  10800 
+11000  11400 
+@@@D51       @@@D52       2 0
+11000  10800 
+11400  10800 
+@@@D52       @@@D50       2 0
+11400  10800 
+11400  9400  
+@@@D57       C2.2         2 0
+4800   8000  
+4800   13100 
+@@@D57       @@@D128      2 0
+4800   8000  
+3600   8000  
+@@@D58       @@@D23       2 0
+8900   8000  
+8800   8000  
+@@@D58       @@@D59       2 0
+8900   8000  
+10400  8000  
+@@@D59       @@@D48       2 0
+10400  8000  
+11000  8000  
+R4.1         @@@D61       2 0
+7200   10600 
+7200   8000  
+@@@D61       @@@D25       2 0
+7200   8000  
+7800   8000  
+@@@D77       @@@D88       2 0
+7900   1600  
+7800   1600  
+U2.F3        @@@D77       2 0
+7900   1750  
+7900   1600  
+U2.E4        @@@D78       2 0
+8000   1750  
+8000   1600  
+U2.E3        @@@D79       2 0
+8100   1750  
+8100   1600  
+@@@D78       @@@D77       2 0
+8000   1600  
+7900   1600  
+U2.D4        @@@D80       2 0
+8200   1750  
+8200   1600  
+@@@D79       @@@D78       2 0
+8100   1600  
+8000   1600  
+U2.D3        @@@D81       2 0
+8300   1750  
+8300   1600  
+@@@D80       @@@D79       2 0
+8200   1600  
+8100   1600  
+U2.C4        @@@D82       2 0
+8400   1750  
+8400   1600  
+@@@D81       @@@D80       2 0
+8300   1600  
+8200   1600  
+U2.C3        @@@D83       2 0
+8500   1750  
+8500   1600  
+@@@D82       @@@D81       2 0
+8400   1600  
+8300   1600  
+U2.B4        @@@D84       2 0
+8600   1750  
+8600   1600  
+@@@D83       @@@D82       2 0
+8500   1600  
+8400   1600  
+U2.B3        @@@D85       2 0
+8700   1750  
+8700   1600  
+@@@D84       @@@D83       2 0
+8600   1600  
+8500   1600  
+U2.A4        @@@D86       2 0
+8800   1750  
+8800   1600  
+@@@D85       @@@D84       2 0
+8700   1600  
+8600   1600  
+U2.A3        @@@D121      2 0
+8900   1750  
+8900   1600  
+@@@D86       @@@D85       2 0
+8800   1600  
+8700   1600  
+@@@D88       U2.F4        2 0
+7800   1600  
+7800   1750  
+C24.2        @@@D89       2 0
+7000   5400  
+7000   1600  
+@@@D89       @@@D124      2 0
+7000   1600  
+7200   1600  
+C21.1        @@@D90       2 0
+6650   6300  
+6650   1600  
+C20.2        @@@D91       2 0
+6300   6400  
+6300   1600  
+@@@D90       @@@D89       2 0
+6650   1600  
+7000   1600  
+C19.2        @@@D92       2 0
+5800   6500  
+5800   1600  
+@@@D91       @@@D90       2 0
+6300   1600  
+6650   1600  
+C18.2        @@@D93       2 0
+5300   6600  
+5300   1600  
+@@@D92       @@@D91       2 0
+5800   1600  
+6300   1600  
+@@@D93       @@@D120      2 0
+5300   1600  
+4800   1600  
+@@@D93       @@@D92       2 0
+5300   1600  
+5800   1600  
+R12.1        @@@D110      2 0
+10400  5800  
+11000  5800  
+R16.1        @@@D114      2 0
+10400  4400  
+11000  4400  
+R18.1        @@@D112      2 0
+10400  3000  
+11000  3000  
+R20.1        @@@D122      2 0
+10400  1600  
+10400  1600  
+@@@D110      C23.1        2 0
+11000  5800  
+11000  6400  
+@@@D110      @@@D115      3 0
+11000  5800  
+11400  5800  
+11400  4400  
+@@@D111      C30.1        2 0
+11000  1600  
+11000  2200  
+@@@D112      C28.1        2 0
+11000  3000  
+11000  3600  
+@@@D112      @@@D113      2 0
+11000  3000  
+11400  3000  
+@@@D113      @@@D111      3 0
+11400  3000  
+11400  1600  
+11000  1600  
+@@@D114      C26.1        2 0
+11000  4400  
+11000  5000  
+@@@D114      @@@D115      2 0
+11000  4400  
+11400  4400  
+@@@D115      @@@D113      2 0
+11400  4400  
+11400  3000  
+@@@D120      C17.2        2 0
+4800   1600  
+4800   6700  
+@@@D120      @@@D126      2 0
+4800   1600  
+4800   1600  
+@@@D121      @@@D86       2 0
+8900   1600  
+8800   1600  
+@@@D121      @@@D122      2 0
+8900   1600  
+10400  1600  
+@@@D122      @@@D111      2 0
+10400  1600  
+11000  1600  
+R14.1        @@@D124      2 0
+7200   4200  
+7200   1600  
+@@@D124      @@@D88       2 0
+7200   1600  
+7800   1600  
+C16.2        @@@D129      2 0
+3000   6500  
+3000   6000  
+@@@D126      @@@O9        2 0
+4800   1600  
+4800   1400  
+@@@D128      C1.2         3 0
+3600   8000  
+3000   8000  
+3000   12900 
+@@@D128      @@@D129      3 0
+3600   8000  
+3600   6000  
+3000   6000  
+@@@D129      @@@D126      3 0
+3000   6000  
+3000   1600  
+4800   1600  
+
+*SIGNAL* $$$21053 64 0
+U1.C6        L1.1         2 0
+9300   13400 
+9400   13400 
+
+*SIGNAL* $$$21055 64 0
+U1.D6        L2.1         2 0
+9300   12000 
+9400   12000 
+
+*SIGNAL* $$$21057 64 0
+U1.D1        L3.1         2 0
+9300   10600 
+9400   10600 
+
+*SIGNAL* $$$21060 64 0
+U1.C1        L4.1         2 0
+9300   9200  
+9400   9200  
+
+*SIGNAL* U1_6.5V_CH1 0 0
+R1.2         @@@D35       2 0
+10400  13400 
+10400  13400 
+@@@D35       L1.2         2 0
+10400  13400 
+10400  13400 
+@@@D35       @@@D37       2 0
+10400  13400 
+10600  13400 
+@@@D37       C7.2         2 0
+10600  13400 
+10600  13300 
+@@@D37       @@@D53       2 0
+10600  13400 
+11000  13400 
+@@@D53       C8.2         2 0
+11000  13400 
+11000  13100 
+@@@D53       @@@O1        2 0
+11000  13400 
+13450  13400 
+
+*SIGNAL* $$$21862 64 0
+R2.2         @@@D31       2 0
+10400  12800 
+10400  12800 
+U1.A6        @@@D31       2 0
+9300   12800 
+10400  12800 
+@@@D31       @@@D36       2 0
+10400  12800 
+10400  12800 
+@@@D36       R1.1         2 0
+10400  12800 
+10400  12800 
+@@@D36       C7.1         3 0
+10400  12800 
+10600  12800 
+10600  13000 
+
+*SIGNAL* $$$21923 64 0
+R6.2         @@@D32       2 0
+10400  11400 
+10400  11400 
+U1.F6        @@@D32       2 0
+9300   11400 
+10400  11400 
+@@@D32       @@@D40       2 0
+10400  11400 
+10400  11400 
+@@@D40       C10.1        3 0
+10400  11400 
+10600  11400 
+10600  11600 
+@@@D40       R5.1         2 0
+10400  11400 
+10400  11400 
+
+*SIGNAL* $$$21926 64 0
+R8.2         @@@D33       2 0
+10400  10000 
+10400  10000 
+U1.F1        @@@D33       2 0
+9300   10000 
+10400  10000 
+@@@D33       @@@D43       2 0
+10400  10000 
+10400  10000 
+@@@D43       C12.1        3 0
+10400  10000 
+10600  10000 
+10600  10200 
+@@@D43       R7.1         2 0
+10400  10000 
+10400  10000 
+
+*SIGNAL* $$$21929 64 0
+R10.2        @@@D34       2 0
+10400  8600  
+10400  8600  
+U1.A1        @@@D34       2 0
+9300   8600  
+10400  8600  
+@@@D34       @@@D46       2 0
+10400  8600  
+10400  8600  
+@@@D46       C14.1        3 0
+10400  8600  
+10600  8600  
+10600  8800  
+@@@D46       R9.1         2 0
+10400  8600  
+10400  8600  
+
+*SIGNAL* $$$278 64 0
+U2.C6        L5.1         2 0
+9300   7000  
+9400   7000  
+
+*SIGNAL* $$$19188 64 0
+R3.1         @@@D60       2 0
+7200   11400 
+7200   11400 
+@@@D60       U1.D2        2 0
+7200   11400 
+7400   11400 
+@@@D60       R4.2         2 0
+7200   11400 
+7200   11200 
+
+*SIGNAL* $$$279 64 0
+U2.D6        L6.1         2 0
+9300   5600  
+9400   5600  
+
+*SIGNAL* U1_6.5V_CH2 0 0
+R5.2         @@@D39       2 0
+10400  12000 
+10400  12000 
+@@@D39       @@@D38       2 0
+10400  12000 
+10600  12000 
+@@@D38       C10.2        2 0
+10600  12000 
+10600  11900 
+@@@D38       @@@D54       2 0
+10600  12000 
+11000  12000 
+@@@D39       L2.2         2 0
+10400  12000 
+10400  12000 
+@@@D54       C11.2        2 0
+11000  12000 
+11000  11700 
+@@@D54       @@@O2        2 0
+11000  12000 
+13450  12000 
+
+*SIGNAL* $$$280 64 0
+U2.D1        L7.1         2 0
+9300   4200  
+9400   4200  
+
+*SIGNAL* U1_6.5V_CH4 0 0
+R9.2         @@@D45       2 0
+10400  9200  
+10400  9200  
+@@@D45       @@@D44       2 0
+10400  9200  
+10600  9200  
+@@@D44       C14.2        2 0
+10600  9200  
+10600  9100  
+@@@D44       @@@D56       2 0
+10600  9200  
+11000  9200  
+@@@D45       L4.2         2 0
+10400  9200  
+10400  9200  
+@@@D56       C15.2        2 0
+11000  9200  
+11000  8900  
+@@@D56       @@@O4        2 0
+11000  9200  
+13450  9200  
+
+*SIGNAL* $$$281 64 0
+U2.C1        L8.1         2 0
+9300   2800  
+9400   2800  
+
+*SIGNAL* $$$282 64 0
+R12.2        @@@D94       2 0
+10400  6400  
+10400  6400  
+U2.A6        @@@D94       2 0
+9300   6400  
+10400  6400  
+@@@D94       @@@D99       2 0
+10400  6400  
+10400  6400  
+@@@D99       R11.1        2 0
+10400  6400  
+10400  6400  
+@@@D99       C22.1        3 0
+10400  6400  
+10600  6400  
+10600  6600  
+
+*SIGNAL* $$$283 64 0
+R16.2        @@@D95       2 0
+10400  5000  
+10400  5000  
+U2.F6        @@@D95       2 0
+9300   5000  
+10400  5000  
+@@@D95       @@@D103      2 0
+10400  5000  
+10400  5000  
+@@@D103      C25.1        3 0
+10400  5000  
+10600  5000  
+10600  5200  
+@@@D103      R15.1        2 0
+10400  5000  
+10400  5000  
+
+*SIGNAL* $$$284 64 0
+R18.2        @@@D96       2 0
+10400  3600  
+10400  3600  
+U2.F1        @@@D96       2 0
+9300   3600  
+10400  3600  
+@@@D96       @@@D106      2 0
+10400  3600  
+10400  3600  
+@@@D106      C27.1        3 0
+10400  3600  
+10600  3600  
+10600  3800  
+@@@D106      R17.1        2 0
+10400  3600  
+10400  3600  
+
+*SIGNAL* $$$285 64 0
+R20.2        @@@D97       2 0
+10400  2200  
+10400  2200  
+U2.A1        @@@D97       2 0
+9300   2200  
+10400  2200  
+@@@D97       @@@D109      2 0
+10400  2200  
+10400  2200  
+@@@D109      C29.1        3 0
+10400  2200  
+10600  2200  
+10600  2400  
+@@@D109      R19.1        2 0
+10400  2200  
+10400  2200  
+
+*SIGNAL* $$$286 64 0
+R13.1        @@@D123      2 0
+7200   5000  
+7200   5000  
+@@@D123      U2.D2        2 0
+7200   5000  
+7400   5000  
+@@@D123      R14.2        2 0
+7200   5000  
+7200   4800  
+
+*SIGNAL* U2_8.5V_CH1 0 0
+R11.2        @@@D98       2 0
+10400  7000  
+10400  7000  
+@@@D98       L5.2         2 0
+10400  7000  
+10400  7000  
+@@@D98       @@@D100      2 0
+10400  7000  
+10600  7000  
+@@@D100      C22.2        2 0
+10600  7000  
+10600  6900  
+@@@D100      @@@D116      2 0
+10600  7000  
+11000  7000  
+@@@D116      C23.2        2 0
+11000  7000  
+11000  6700  
+@@@D116      @@@O5        2 0
+11000  7000  
+13450  7000  
+
+*SIGNAL* U2_8.5V_CH2 0 0
+R15.2        @@@D102      2 0
+10400  5600  
+10400  5600  
+@@@D102      @@@D101      2 0
+10400  5600  
+10600  5600  
+@@@D101      C25.2        2 0
+10600  5600  
+10600  5500  
+@@@D101      @@@D117      2 0
+10600  5600  
+11000  5600  
+@@@D102      L6.2         2 0
+10400  5600  
+10400  5600  
+@@@D117      C26.2        2 0
+11000  5600  
+11000  5300  
+@@@D117      @@@O6        2 0
+11000  5600  
+13450  5600  
+
+*SIGNAL* U2_8.5V_CH3 0 0
+R17.2        @@@D105      2 0
+10400  4200  
+10400  4200  
+@@@D105      @@@D104      2 0
+10400  4200  
+10600  4200  
+@@@D104      C27.2        2 0
+10600  4200  
+10600  4100  
+@@@D104      @@@D118      2 0
+10600  4200  
+11000  4200  
+@@@D105      L7.2         2 0
+10400  4200  
+10400  4200  
+@@@D118      C28.2        2 0
+11000  4200  
+11000  3900  
+@@@D118      @@@O7        2 0
+11000  4200  
+13450  4200  
+
+*SIGNAL* U2_8.5V_CH4 0 0
+R19.2        @@@D108      2 0
+10400  2800  
+10400  2800  
+@@@D108      @@@D107      2 0
+10400  2800  
+10600  2800  
+@@@D107      C29.2        2 0
+10600  2800  
+10600  2700  
+@@@D107      @@@D119      2 0
+10600  2800  
+11000  2800  
+@@@D108      L8.2         2 0
+10400  2800  
+10400  2800  
+@@@D119      C30.2        2 0
+11000  2800  
+11000  2500  
+@@@D119      @@@O8        2 0
+11000  2800  
+13450  2800  
+
+*SIGNAL* U1_6.5V_CH3 0 0
+R7.2         @@@D42       2 0
+10400  10600 
+10400  10600 
+@@@D42       @@@D41       2 0
+10400  10600 
+10600  10600 
+@@@D41       C12.2        2 0
+10600  10600 
+10600  10500 
+@@@D41       @@@D55       2 0
+10600  10600 
+11000  10600 
+@@@D42       L3.2         2 0
+10400  10600 
+10400  10600 
+@@@D55       C13.2        2 0
+11000  10600 
+11000  10300 
+@@@D55       @@@O3        2 0
+11000  10600 
+13450  10600 
+
+*NETNAMES*
+
+
+
++12V         @@@O0        -310   -30    0 4 0      0      0 6 -1 10 100 "Default Font"
+U1_6.5V_CH1  @@@O1        350    10     0 0 0      0      0 2 -1 10 100 "Default Font"
+U1_6.5V_CH2  @@@O2        350    10     0 0 0      0      0 2 -1 10 100 "Default Font"
+U1_6.5V_CH3  @@@O3        350    10     0 0 0      0      0 2 -1 10 97 "Default Font"
+U1_6.5V_CH4  @@@O4        350    10     0 0 0      0      0 2 -1 10 100 "Default Font"
+U2_8.5V_CH1  @@@O5        350    10     0 0 0      0      0 2 -1 10 139 "Default Font"
+U2_8.5V_CH2  @@@O6        350    10     0 0 0      0      0 2 -1 10 139 "Default Font"
+U2_8.5V_CH3  @@@O7        350    10     0 0 0      0      0 2 -1 10 139 "Default Font"
+U2_8.5V_CH4  @@@O8        350    10     0 0 0      0      0 2 -1 10 139 "Default Font"
+
+*SHT*   3 $$$NONE -1 $$$NONE
+*CAE*        GENERAL PARAMETERS FOR THE SHEET"
+
+SCALE        2.909          Scale of window expansion
+WINDOWCENTER 5503   4253    Point defining the center of the window
+BITCS0       0              system status bits
+BITCS1       0              system status bits
+BITCS2       0              system status bits
+
+*TEXT*       FREE TEXT
+
+33770  32580  0   0 222  10 0 "Default Font"
+PROPRIETARY/EXPORT CONTROLLED
+33820  32580  0   0 222  10 0 "Default Font"
+PROPRIETARY/EXPORT CONTROLLED
+
+*LINES*      LINES ITEMS
+
+DRW4649          LINES    15400  950    58  34
+OPEN   2   1   255
+532    0     
+636    0     
+OPEN   2   1   255
+636    0      2700   729    634    0      636    0     
+636    0     
+OPEN   2   1   255
+532    0      1629   1071   532    0      532    0     
+532    0     
+OPEN   2   1   255
+390    0     
+412    72    
+OPEN   2   1   255
+532    0     
+562    98    
+OPEN   2   1   255
+562    98     3429   1071   562    98     562    98    
+562    98    
+OPEN   2   1   255
+698    122   
+696    122   
+OPEN   2   1   255
+672    122   
+672    122   
+OPEN   2   1   255
+562    98    
+434    98    
+OPEN   2   1   255
+336    246   
+336    246   
+CLOSED 85  1   255
+278    52    
+84     52    
+80     54    
+76     54    
+74     56    
+74     58    
+72     60    
+70     62    
+70     66    
+70     68    
+70     72    
+72     76    
+118    226   
+120    230   
+124    236   
+128    238   
+132    242   
+138    246   
+336    246   
+336    246   
+336    250   
+336    252   
+336    258   
+334    264   
+334    266   
+332    270   
+332    274   
+330    276   
+328    280   
+326    284   
+322    286   
+320    288   
+318    292   
+314    294   
+310    296   
+306    298   
+302    298   
+300    298   
+296    300   
+96     300   
+88     298   
+82     296   
+76     294   
+70     292   
+60     286   
+56     282   
+50     278   
+46     274   
+40     270   
+34     262   
+30     256   
+26     250   
+22     242   
+18     238   
+16     230   
+14     226   
+-32    70    
+-32    66    
+-34    64    
+-34    62    
+-34    60    
+-34    44    
+-34    40    
+-34    36    
+-32    34    
+-32    30    
+-30    26    
+-28    22    
+-26    18    
+-22    14    
+-18    8     
+-14    6     
+-10    4     
+-4     2     
+0      0     
+0      0     
+210    0     
+218    2     
+228    6     
+236    10    
+244    16    
+250    20    
+260    28    
+266    36    
+278    52    
+OPEN   8   1   255
+412    72    
+414    80    
+416    84    
+418    86    
+420    90    
+424    92    
+428    96    
+434    98    
+OPEN   40  1   255
+586    176   
+584    170   
+582    168   
+580    166   
+578    164   
+576    160   
+572    158   
+570    156   
+568    156   
+564    152   
+436    152    2700   -1070  436    152    438    154   
+436    154   
+458    220   
+458    224   
+460    226   
+460    228   
+462    230   
+464    234   
+466    236   
+468    238   
+470    240   
+474    242   
+478    244   
+482    246   
+582    246   
+588    246   
+590    246   
+592    244   
+594    244   
+596    244   
+596    242   
+598    240   
+600    238   
+600    236   
+600    234   
+600    232   
+600    228   
+600    226   
+600    222   
+586    176   
+OPEN   38  1   255
+390    0     
+286    0     
+354    224   
+358    232   
+362    240   
+364    244   
+368    250   
+370    254   
+372    258   
+374    262   
+378    264   
+380    268   
+386    274   
+392    278   
+398    284   
+402    286   
+408    290   
+418    294   
+426    298   
+434    300   
+650    300   
+662    300   
+674    298   
+678    296   
+684    294   
+690    290   
+696    284   
+700    278   
+704    272   
+706    266   
+706    264   
+706    258   
+708    246   
+708    242   
+706    236   
+704    228   
+702    220   
+636    0     
+CLOSED 100 1   255
+954    132   
+954    130   
+954    130   
+952    128   
+952    126   
+952    126   
+950    126   
+950    124   
+948    124   
+946    124   
+944    122   
+938    122   
+930    122   
+816    122   
+812    120   
+810    120   
+810    118   
+808    118   
+806    118   
+806    116   
+804    114   
+802    112   
+800    112   
+800    110   
+796    106   
+794    102   
+780    52    
+990    52    
+992    52    
+990    48    
+988    44    
+984    40    
+984    38    
+982    36    
+982    36    
+980    34    
+976    30    
+974    26    
+972    26    
+966    20    
+962    16    
+956    12    
+950    10    
+946    6     
+940    4     
+936    2     
+926    0     
+926    0     
+660    0      2700   -1070  660    0      660    0     
+660    0     
+726    214   
+732    232   
+736    240   
+740    250   
+746    258   
+752    266   
+760    272   
+766    280   
+774    284   
+782    290   
+790    294   
+798    296   
+808    300   
+1004   300   
+1016   298   
+1024   296   
+1030   294   
+1034   290   
+1038   288   
+1042   282   
+1044   280   
+1046   278   
+1048   274   
+1048   270   
+1050   264   
+1050   262   
+1052   256   
+1052   246    43     -943   1052   246    1052   246   
+1052   246   
+854    246   
+848    242   
+844    240   
+842    238   
+840    236   
+836    230   
+834    226   
+832    220   
+818    176   
+960    176   
+962    174   
+962    174   
+962    172   
+962    172   
+964    172   
+964    170   
+964    170   
+964    168   
+964    168   
+962    166   
+954    132   
+CLOSED 118 1   255
+1022   28    
+1026   32    
+1034   36    
+1042   42    
+1050   46    
+1056   48    
+1058   50    
+1066   52    
+1080   52    
+1248   52    
+1250   54    
+1252   56    
+1254   58    
+1256   58    
+1260   60    
+1264   64    
+1264   66    
+1266   68    
+1268   76    
+1276   100   
+1276   102   
+1278   106   
+1278   108   
+1276   110   
+1276   114   
+1274   116   
+1274   118   
+1272   120   
+1270   120   
+1268   122   
+1266   122   
+1038   122    2700   -1070  1038   122    1040   122   
+1038   122   
+1072   234   
+1074   240   
+1078   246   
+1080   250   
+1084   256   
+1088   260   
+1092   264   
+1096   270   
+1100   274   
+1106   278   
+1112   284   
+1118   288   
+1124   290   
+1130   294   
+1136   296   
+1144   298   
+1152   300   
+1382   300   
+1386   298   
+1390   298   
+1396   296   
+1400   294   
+1404   290   
+1408   288   
+1410   284   
+1414   280   
+1416   276   
+1418   272   
+1420   266   
+1420   260   
+1420   260   
+1420   256   
+1422   250   
+1422   246   
+1422   246   
+1422   246   
+1194   246   
+1188   242   
+1184   240   
+1180   238   
+1178   234   
+1174   230   
+1174   228   
+1158   176   
+1342   176   
+1348   176   
+1352   174   
+1358   172   
+1366   168   
+1372   164   
+1378   158   
+1382   150   
+1384   144   
+1386   136   
+1388   132   
+1388   128   
+1386   122   
+1370   70    
+1370   66    
+1368   66    
+1368   62    
+1366   60    
+1366   58    
+1364   56    
+1362   52    
+1360   50    
+1358   46    
+1354   40    
+1350   36    
+1348   32    
+1344   28    
+1340   24    
+1336   20    
+1326   14    
+1320   8     
+1314   6     
+1310   4     
+1306   2     
+1302   2     
+1294   0     
+1000   0     
+1006   10    
+1014   18    
+1016   22    
+1022   28    
+OPEN   2   1   255
+6000   15200 
+-14900 15200 
+OPEN   2   1   255
+6000   -200  
+6000   15200 
+OPEN   2   1   255
+-14900 -200  
+6000   -200  
+OPEN   2   1   255
+-4400  -226  
+-4400  -428  
+OPEN   2   1   255
+6026   7548  
+6226   7548  
+OPEN   2   1   255
+6026   7548  
+6226   7548  
+OPEN   2   1   255
+-4402  15226 
+-4402  15432 
+OPEN   2   1   255
+-14930 7550  
+-15130 7550  
+OPEN   2   1   255
+1776   -200  
+1776   462   
+OPEN   2   1   255
+-424   462   
+-424   -200  
+OPEN   2   1   255
+6000   462   
+-424   462   
+OPEN   2   1   255
+1776   6     
+6000   6     
+OPEN   2   1   255
+-15400 -750  
+-15400 -950  
+OPEN   2   1   255
+-15400 -950  
+-15200 -950  
+OPEN   2   1   255
+6600   -950  
+6400   -950  
+OPEN   2   1   255
+6600   -950  
+6600   -750  
+OPEN   2   1   255
+6600   16050 
+6600   15850 
+OPEN   2   1   255
+6600   16050 
+6400   16050 
+OPEN   2   1   255
+-15400 16050 
+-15200 16050 
+OPEN   2   1   255
+-15400 15850 
+-15400 16050 
+OPEN   2   1   255
+6000   7550  
+6600   7550  
+OPEN   2   1   255
+-14900 7550  
+-15400 7550  
+OPEN   2   1   255
+-4400  -200  
+-4400  -950  
+OPEN   2   1   255
+1100   -200  
+1100   -950  
+OPEN   2   1   255
+6000   3300  
+6600   3300  
+OPEN   2   1   255
+6000   3750  
+6400   3750  
+OPEN   2   1   255
+6400   3750  
+6400   6950  
+OPEN   2   1   255
+6400   6950  
+6000   6950  
+OPEN   2   1   255
+6400   6400  
+6000   6400  
+OPEN   2   1   255
+-9900  -200  
+-9900  -950  
+OPEN   2   1   255
+-4400  15300 
+-4400  16050 
+OPEN   2   1   255
+6000   11800 
+6600   11800 
+OPEN   2   1   255
+1100   15200 
+1100   16050 
+OPEN   2   1   255
+-9900  15200 
+-9900  16050 
+OPEN   2   1   255
+-14900 11800 
+-15400 11800 
+OPEN   2   1   255
+-14900 3300  
+-15400 3300  
+OPEN   2   1   255
+5584   462   
+5584   26    
+OPEN   2   1   255
+4550   -200  
+4550   6     
+OPEN   2   1   255
+2812   -200  
+2812   6     
+OPEN   2   1   255
+3184   462   
+3184   6     
+OPEN   2   1   255
+2108   462   
+2108   6     
+OPEN   2   1   255
+-14900 15200 
+-14900 -200  
+6250   1550   0   0 250  25 0 "Default Font"
+A
+6250   7150   0   0 250  25 0 "Default Font"
+B
+6200   13400  0   0 250  25 0 "Default Font"
+D
+6200   9550   0   0 250  25 0 "Default Font"
+C
+-15200 1450   0   0 250  25 0 "Default Font"
+A
+-15200 5400   0   0 250  25 0 "Default Font"
+B
+-15200 9650   0   0 250  25 0 "Default Font"
+C
+-15200 13350  0   0 250  25 0 "Default Font"
+D
+-12750 15450  0   0 250  25 0 "Default Font"
+4
+-7250  15450  0   0 250  25 0 "Default Font"
+3
+-1800  15450  0   0 250  25 0 "Default Font"
+2
+3500   15450  0   0 250  25 0 "Default Font"
+1
+1800   -100   0   0 97   10 0 "Default Font"
+SCALE:
+4600   -150   0   0 97   10 0 "Default Font"
+SHEET:            OF
+3250   350    0   0 97   10 0 "Default Font"
+DRAWING NO:
+2450   350    0   0 97   10 0 "Default Font"
+CODE:
+1850   350    0   0 97   10 0 "Default Font"
+SIZE:
+5650   350    0   0 97   10 0 "Default Font"
+REV:
+5450   -100   0   8 153  10 1 "Default Font"
+Number of Sheets
+4950   -100   0   8 153  10 1 "Default Font"
+Sheet Number
+2250   -100   0   8 153  10 1 "Default Font"
+Scale
+5800   150    0   12 306  10 1 "Default Font"
+Revision
+4550   150    0   12 306  10 1 "Default Font"
+Drawing Number
+1950   150    0   12 306  10 1 "Default Font"
+Sheet Size
+2650   150    0   12 306  10 1 "Default Font"
+Code
+6250   5150   90  12 306  10 1 "Default Font"
+Drawing Number
+6100   3850   90  0 97   10 0 "Default Font"
+DRAWING NO:
+6250   6600   90  8 278  10 1 "Default Font"
+Sheet Number
+6100   6450   90  0 97   10 0 "Default Font"
+SH:
+-12750 -600   0   0 250  25 0 "Default Font"
+4
+-7250  -600   0   0 250  25 0 "Default Font"
+3
+-1900  -600   0   0 250  25 0 "Default Font"
+2
+3650   -550   0   0 250  25 0 "Default Font"
+1
+1800   600    0   0 222  10 0 "Default Font"
+PROPRIETARY/EXPORT CONTROLLED
+
+*CAEDECAL*  ITEMS
+
+PIN              34000 34000 120 10 120 10 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+140 20 0 1 100 10 "Default Font"
+REF-DES
+230 0 0 8 100 10 "Default Font"
+PART-TYPE
+-520 0 0 1 100 10 "Default Font"
+*
+-80 0 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+200   0    
+
+PINB             34000 34000 120 10 120 10 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+230 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+140   0    
+CIRCLE 2   10  255
+140   0    
+190   0    
+
+PCLK             33500 33180 120 10 120 10 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+280 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+200   0    
+OPEN   3   10  255
+200   30   
+260   0    
+200   -30  
+
+PCLKB            33500 33180 120 10 120 10 4 3 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+280 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   3   10  255
+200   30   
+260   0    
+200   -30  
+OPEN   2   10  255
+0     0    
+140   0    
+CIRCLE 2   10  255
+190   0    
+140   0    
+
+PINIEB           34000 34000 120 10 120 10 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+220 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   4   10  255
+0     0    
+200   0    
+140   30   
+140   0    
+
+PINORB           34000 34000 120 10 120 10 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+300 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+180   0    
+CIRCLE 2   10  255
+230   0    
+180   0    
+
+PINSHORT         34000 34000 120 10 120 10 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+60 10 0 1 100 10 "Default Font"
+REF-DES
+140 10 0 8 100 10 "Default Font"
+PART-TYPE
+-530 10 0 1 100 10 "Default Font"
+*
+-70 10 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+100   0    
+
+PINVRTS          34000 34000 120 10 120 10 4 1 0 0 3 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+20 -80 0 0 100 10 "Default Font"
+REF-DES
+-20 -40 0 9 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     -100 
+0     0    
+
+REFIN            33500 33180 100 10 100 10 4 1 0 1 24 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+-360 0 0 1 100 10 "Default Font"
+REF-DES
+-360 -20 0 3 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   7   5   255
+0     0    
+-100  0    
+-150  -50  
+-300  -50  
+-300  50   
+-150  50   
+-100  0    
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+REFOUT           33500 33180 100 10 100 10 4 1 0 1 24 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+350 10 0 0 100 10 "Default Font"
+REF-DES
+350 -10 0 2 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   8   5   255
+0     0    
+100   0    
+100   50   
+250   50   
+300   0    
+250   -50  
+100   -50  
+100   0    
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+GND              33500 33180 100 10 100 10 4 4 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+100 -50 0 0 100 10 "Default Font"
+REF-DES
+0 200 0 0 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -100 
+OPEN   2   5   255
+-100  -100 
+100   -100 
+OPEN   2   5   255
+-60   -160 
+60    -160 
+OPEN   2   5   255
+-20   -220 
+20    -220 
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+AGND             33500 33180 100 10 100 10 4 1 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+260 0 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   6   5   255
+0     0    
+0     -50  
+-100  -50  
+0     -200 
+100   -50  
+0     -50  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+CHGND            33500 33180 100 10 100 10 4 5 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+264 -40 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -100 
+OPEN   2   5   255
+-100  -100 
+100   -100 
+OPEN   2   5   255
+-100  -100 
+-150  -200 
+OPEN   2   5   255
+0     -100 
+-50   -200 
+OPEN   2   5   255
+100   -100 
+50    -200 
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
++5V              33500 33180 100 10 100 10 4 2 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+0 250 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 0 100 10 "Default Font"
+PART-TYPE
+0 100 0 0 100 10 "Default Font"
+*
+0 0 0 0 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     200  
+COPCLS 4   5   255
+0     200  
+-50   100  
+50    100  
+0     200  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+BUBBLE           33500 33180 100 10 100 10 4 2 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+0 300 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+0     100  
+CIRCLE 2   10  255
+0     100  
+0     200  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+Y                33500 33180 100 10 100 10 4 2 0 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+0 300 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   3   10  255
+0     0    
+0     100  
+-100  200  
+OPEN   2   10  255
+0     100  
+100   200  
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
++12V             33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+4 484 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     300  
+COPCLS 4   5   255
+0     300  
+-50   150  
+50    150  
+0     300  
+-108   356    0   0 97  10
++12V
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+-5V              33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+16 -520 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -300 
+COPCLS 4   5   255
+0     -300 
+50    -150 
+-50   -150 
+0     -300 
+-80    -388   0   0 97  10
+-5V
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+-12V             33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+8 -560 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   5   255
+0     0    
+0     -300 
+COPCLS 4   5   255
+0     -300 
+50    -150 
+-50   -150 
+0     -300 
+-116   -412   0   0 97  10
+-12V
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
++5VA             33500 33274 100 10 100 10 4 2 1 1 26 0
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+8 468 0 4 100 10 "Default Font"
+REF-DES
+0 200 0 6 100 10 "Default Font"
+PART-TYPE
+0 100 0 6 100 10 "Default Font"
+*
+0 0 0 6 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+0     300  
+COPCLS 4   10  255
+0     300  
+-50   150  
+50    150  
+0     300  
+-108   336    0   0 97  10
++5VA
+T0     0     0 0 0 0 0 0 0 0 0 8 
+P0 0 0 0 0 0 0 0 128
+
+
+*PARTTYPE*   ITEMS
+
+$OSR_SYMS UND  0   0   2     0
+TIMESTAMP 1999.03.30.22.52.06
+OFF 2
+REFIN S 
+REFOUT L 
+
+$GND_SYMS UND  0   0   2     0
+TIMESTAMP 1999.03.30.22.52.06
+GND 3
+GND G GND
+AGND G AGND
+CHGND G CHGND
+
+$PWR_SYMS UND  0   0   2     0
+TIMESTAMP 1999.03.30.22.52.06
+PWR 7
++5V P +5V
+BUBBLE P +5V
+Y P +5V
++12V P +12V
+-5V P -5V
+-12V P -12V
++5VA P +5VA
+
+
+
+*PART*       ITEMS
+
+
+
+
+*BUSSES*
+
+
+*OFFPAGE REFS*
+
+
+*TIEDOTS*
+
+
+*CONNECTION*
+
+
+*NETNAMES*
+
+
+*SHT*   4 $$$NONE -1 $$$NONE
+*CAE*        GENERAL PARAMETERS FOR THE SHEET"
+
+SCALE        1.431          Scale of window expansion
+WINDOWCENTER 11187  8643    Point defining the center of the window
+BITCS0       0              system status bits
+BITCS1       0              system status bits
+BITCS2       0              system status bits
+
+*TEXT*       FREE TEXT
+
+
+*LINES*      LINES ITEMS
+
+CAES-C-SH2       LINES    15250  1100   52  34
+CLOSED 9   1   255
+682    46     3410   792    630    26     684    80    
+670    78     2919   536    574    72     714    214   
+712    126    3494   1005   658    102    712    158   
+686    158   
+552    158    900    692    488    28     616    158   
+492    116   
+450    6     
+622    6      2700   681    558    6      686    134   
+682    46    
+CLOSED 13  1   255
+200    32    
+82     32     2700   -1107  74     32     90     50    
+74     44    
+102    118    1592   -692   102    96     134    130   
+118    130   
+238    130    3510   990    192    110    238    158   
+216    158   
+96     158    900    692    32     28     160    158   
+36     116   
+8      42     1592   1108   6      4      60     58    
+34     6     
+148    6      2700   551    84     6      212    134   
+200    32    
+CLOSED 9   1   255
+362    32     2700   692    344    32     378    66    
+378    44    
+406    118    3393   1105   390    112    406    130   
+398    130   
+334    130    900    692    316    96     350    130   
+318    118   
+288    44     1593   1106   288    32     306    50    
+296    32    
+362    32    
+CLOSED 9   1   255
+470    120    3392   1108   418    104    472    158   
+446    158   
+312    158    900    692    248    28     376    158   
+252    116   
+224    42     1592   1108   222    6      276    58    
+248    6     
+382    6      2700   692    318    6      446    134   
+442    46    
+470    120   
+CLOSED 8   1   255
+646    118    3393   1105   630    112    646    130   
+638    130   
+574    130    900    692    556    96     590    130   
+558    118   
+548    94    
+624    94     2700   692    608    94     642    128   
+640    106   
+646    118   
+CLOSED 8   1   255
+622    56     3393   1105   606    50     622    68    
+614    68    
+550    68     900    692    532    34     566    68    
+534    56    
+524    32    
+608    32     2700   692    598    32     616    50    
+616    38    
+622    56    
+CLOSED 17  1   255
+856    82     2700   692    838    82     872    116   
+872    94    
+880    116    1592   -692   876    28     1004   158   
+940    158   
+960    158   
+902    6     
+838    6     
+858    56    
+780    56     900    692    764    22     798    56    
+764    46    
+750    6     
+686    6     
+728    116    1592   -692   722    28     852    158   
+786    158   
+808    158   
+778    82    
+856    82    
+CLOSED 8   1   255
+1122   118    3393   1105   1106   112    1124   130   
+1114   130   
+1050   130    900    692    1034   96     1068   130   
+1034   118   
+1022   82    
+1098   82     2700   692    1080   82     1114   116   
+1114   94    
+1122   118   
+CLOSED 12  1   255
+1188   120    3393   1106   1136   102    1190   158   
+1162   158   
+1030   158    900    692    966    28     1094   158   
+970    116   
+928    6     
+992    6     
+1008   46     1592   -692   1006   22     1040   56    
+1022   56    
+1100   56    
+1080   6     
+1144   6     
+1188   120   
+CLOSED 22  1   255
+1414   158    900    352    1350   28     1478   158   
+1376   146    345    555    1328   104    1382   158   
+1354   158   
+1272   158    900    692    1208   28     1336   158   
+1212   116   
+1170   6     
+1234   6     
+1276   118    1592   -692   1276   96     1310   130   
+1292   130   
+1312   130    899    -1106  1304   112    1322   130   
+1320   118   
+1278   6     
+1342   6     
+1386   118    1592   -692   1384   96     1418   130   
+1402   130   
+1420   130    900    -1107  1412   112    1430   130   
+1428   118   
+1386   6     
+1450   6     
+1494   120    3392   1108   1442   104    1496   158   
+1468   158   
+1414   158   
+OPEN   2   1   255
+2258   312   
+2258   -144  
+OPEN   2   1   255
+3334   312   
+3334   -144  
+OPEN   2   1   255
+2962   -350  
+2962   -144  
+OPEN   2   1   255
+4700   -350  
+4700   -144  
+OPEN   2   1   255
+5734   312   
+5734   -124  
+OPEN   2   1   255
+-14750 3150  
+-15250 3150  
+OPEN   2   1   255
+-14750 11650 
+-15250 11650 
+OPEN   2   1   255
+-9750  15050 
+-9750  15900 
+OPEN   2   1   255
+1250   15050 
+1250   15900 
+OPEN   2   1   255
+6150   11650 
+6750   11650 
+OPEN   2   1   255
+-4250  15150 
+-4250  15900 
+OPEN   2   1   255
+-9750  -350  
+-9750  -1100 
+OPEN   2   1   255
+6550   6250  
+6150   6250  
+OPEN   2   1   255
+6550   6800  
+6150   6800  
+OPEN   2   1   255
+6550   3600  
+6550   6800  
+OPEN   2   1   255
+6150   3600  
+6550   3600  
+OPEN   2   1   255
+6150   3150  
+6750   3150  
+OPEN   2   1   255
+1250   -350  
+1250   -1100 
+OPEN   2   1   255
+-4250  -350  
+-4250  -1100 
+OPEN   2   1   255
+-14750 7400  
+-15250 7400  
+OPEN   2   1   255
+6150   7400  
+6750   7400  
+OPEN   2   1   255
+-15250 15700 
+-15250 15900 
+OPEN   2   1   255
+-15250 15900 
+-15050 15900 
+OPEN   2   1   255
+6750   15900 
+6550   15900 
+OPEN   2   1   255
+6750   15900 
+6750   15700 
+OPEN   2   1   255
+6750   -1100 
+6750   -900  
+OPEN   2   1   255
+6750   -1100 
+6550   -1100 
+OPEN   2   1   255
+-15250 -1100 
+-15050 -1100 
+OPEN   2   1   255
+-15250 -900  
+-15250 -1100 
+OPEN   2   1   255
+1926   -144  
+6150   -144  
+OPEN   2   1   255
+6150   312   
+-274   312   
+OPEN   2   1   255
+-274   312   
+-274   -350  
+OPEN   2   1   255
+1926   -350  
+1926   312   
+OPEN   2   1   255
+-14780 7400  
+-14980 7400  
+OPEN   2   1   255
+-4252  15076 
+-4252  15282 
+OPEN   2   1   255
+6176   7398  
+6376   7398  
+OPEN   2   1   255
+6176   7398  
+6376   7398  
+OPEN   2   1   255
+-4250  -376  
+-4250  -578  
+OPEN   2   1   255
+-14750 -350  
+6150   -350  
+OPEN   2   1   255
+6150   -350  
+6150   15050 
+OPEN   2   1   255
+6150   15050 
+-14750 15050 
+OPEN   2   1   255
+-14750 15050 
+-14750 -350  
+0      -100   0   0 97   10 0 "Italic Verdana"
+ADVANCED ELECTRONIC SOLUTIONS
+3800   -700   0   0 250  25 0 "Default Font"
+1
+-1750  -750   0   0 250  25 0 "Default Font"
+2
+-7100  -750   0   0 250  25 0 "Default Font"
+3
+-12600 -750   0   0 250  25 0 "Default Font"
+4
+6250   6300   90  0 97   10 0 "Default Font"
+SH:
+6400   6450   90  8 278  10 1 "Default Font"
+Sheet Number
+6250   3700   90  0 97   10 0 "Default Font"
+DRAWING NO:
+6400   5000   90  12 306  10 1 "Default Font"
+Drawing Number
+2800   0      0   12 306  10 1 "Default Font"
+Code
+2100   0      0   12 306  10 1 "Default Font"
+Sheet Size
+4700   0      0   12 306  10 1 "Default Font"
+Drawing Number
+5950   0      0   12 306  10 1 "Default Font"
+Revision
+2400   -250   0   8 153  10 1 "Default Font"
+Scale
+5100   -250   0   8 153  10 1 "Default Font"
+Sheet Number
+5600   -250   0   8 153  10 1 "Default Font"
+Number of Sheets
+5800   200    0   0 97   10 0 "Default Font"
+REV:
+2000   200    0   0 97   10 0 "Default Font"
+SIZE:
+2600   200    0   0 97   10 0 "Default Font"
+CODE:
+3400   200    0   0 97   10 0 "Default Font"
+DRAWING NO:
+4750   -300   0   0 97   10 0 "Default Font"
+SHEET:            OF
+1950   -250   0   0 97   10 0 "Default Font"
+SCALE:
+3650   15300  0   0 250  25 0 "Default Font"
+1
+-1650  15300  0   0 250  25 0 "Default Font"
+2
+-7100  15300  0   0 250  25 0 "Default Font"
+3
+-12600 15300  0   0 250  25 0 "Default Font"
+4
+-15050 13200  0   0 250  25 0 "Default Font"
+D
+-15050 9500   0   0 250  25 0 "Default Font"
+C
+-15050 5250   0   0 250  25 0 "Default Font"
+B
+-15050 1300   0   0 250  25 0 "Default Font"
+A
+6350   9400   0   0 250  25 0 "Default Font"
+C
+6350   13250  0   0 250  25 0 "Default Font"
+D
+6400   7000   0   0 250  25 0 "Default Font"
+B
+6400   1400   0   0 250  25 0 "Default Font"
+A
+
+*CAEDECAL*  ITEMS
+
+PIN              34000 34000 69 1 69 1 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+140 20 0 1 100 10 "Default Font"
+REF-DES
+230 0 0 8 100 10 "Default Font"
+PART-TYPE
+-520 0 0 1 100 10 "Default Font"
+*
+-80 0 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+200   0    
+
+PINB             34000 34000 69 1 69 1 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+230 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+140   0    
+CIRCLE 2   10  255
+140   0    
+190   0    
+
+PCLK             33500 33180 69 1 69 1 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+280 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+200   0    
+OPEN   3   10  255
+200   30   
+260   0    
+200   -30  
+
+PCLKB            33500 33180 69 1 69 1 4 3 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+280 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   3   10  255
+200   30   
+260   0    
+200   -30  
+OPEN   2   10  255
+0     0    
+140   0    
+CIRCLE 2   10  255
+190   0    
+140   0    
+
+PINIEB           34000 34000 69 1 69 1 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+220 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   4   10  255
+0     0    
+200   0    
+140   30   
+140   0    
+
+PINORB           34000 34000 69 1 69 1 4 2 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+130 14 0 1 100 10 "Default Font"
+REF-DES
+300 0 0 8 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+180   0    
+CIRCLE 2   10  255
+230   0    
+180   0    
+
+PINSHORT         34000 34000 69 1 69 1 4 1 0 0 0 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+60 10 0 1 100 10 "Default Font"
+REF-DES
+140 10 0 8 100 10 "Default Font"
+PART-TYPE
+-530 10 0 1 100 10 "Default Font"
+*
+-70 10 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     0    
+100   0    
+
+PINVRTS          34000 34000 69 1 69 1 4 1 0 0 3 1
+TIMESTAMP 1999.08.25.21.39.16
+"Default Font"
+"Default Font"
+20 -80 0 0 100 10 "Default Font"
+REF-DES
+-20 -40 0 9 100 10 "Default Font"
+PART-TYPE
+-500 10 0 1 100 10 "Default Font"
+*
+-30 14 0 1 100 10 "Default Font"
+*
+OPEN   2   10  255
+0     -100 
+0     0    
+
+PIN_R0_U_L100    0     0     69 1 69 1 2 1 0 0 0 1
+TIMESTAMP 2026.10.22.18.17.20
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+100   0    
+
+PIN_R180_U_L100  0     0     69 1 69 1 2 1 0 0 0 1
+TIMESTAMP 2026.10.22.18.17.20
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+-100  0    
+
+PIN_R270_U_L100  0     0     69 1 69 1 2 1 0 0 0 1
+TIMESTAMP 2026.10.22.18.16.57
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+0     -100 
+
+PIN_R90_U_L100   0     0     69 1 69 1 2 1 0 0 0 1
+TIMESTAMP 2026.10.22.18.16.57
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+0     100  
+
+PIN_R0_U_L200    0     0     100 10 100 10 2 1 0 0 0 1
+TIMESTAMP 2026.01.15.23.15.13
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+200   0    
+
+PIN_R180_U_L200  0     0     100 10 100 10 2 1 0 0 0 1
+TIMESTAMP 2026.01.29.23.45.24
+"Default Font"
+"Default Font"
+0 0 0 4 50 10 "Default Font"
+REF-DES
+0 0 0 4 50 10 "Default Font"
+PART-TYPE
+OPEN   2   6   255
+0     0    
+-200  0    
+
+
+*PARTTYPE*   ITEMS
+
+
+
+*PART*       ITEMS
+
+
+
+
+*BUSSES*
+
+
+*OFFPAGE REFS*
+
+
+*TIEDOTS*
+
+
+*CONNECTION*
+
+
+*NETNAMES*
+
+
+*END*     OF ASCII OUTPUT FILE
